@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lebenslauf - Steffen Koller</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-print-color-adjust: exact; /* Farbkorrektur für Chrome/Safari Druck */
+            print-color-adjust: exact; /* Farbkorrektur für Firefox Druck */
+            background-color: #f3f4f6; /* Heller Hintergrund für Bildschirmansicht */
+        }
+
+        .resume-container {
+            max-width: 210mm; /* A4 Breite */
+            margin: 2rem auto;
+            padding: 20mm 18mm 18mm 18mm; /* Typische A4 Ränder, oben etwas mehr für Kopfzeile */
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        /* Salesforce & Capgemini angelehnte Farben */
+        h1 { /* Name oben */
+            color: #0070D2; /* Salesforce Blau für den Namen */
+        }
+        
+        h2, h3, h4.section-subtitle { /* Kleinere Überschriften und Ausbildung/Studiumstitel */
+            color: #001639; /* Salesforce Dunkelblau / Capgemini Spade-ähnlich */
+        }
+        
+        .section-title { /* Hauptüberschriften der Sektionen */
+            border-bottom: 2px solid #0070D2; /* Salesforce Blau für Linie */
+            padding-bottom: 0.25rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.125rem; /* 18px */
+            font-weight: 600;
+            color: #0070D2; /* Salesforce Blau für Text der Sektionsüberschrift */
+        }
+
+        ul.custom-bullets {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul.custom-bullets > li {
+            padding-left: 1.75em; 
+            position: relative; 
+            margin-bottom: 0.35rem; 
+            page-break-inside: avoid;
+        }
+
+        ul.custom-bullets > li::before { /* Gilt für alle Haupt-Bullet-Points */
+            content: "•"; 
+            color: #0070D2; /* Einheitliches Salesforce Blau für alle Haupt-Bullets */
+            font-weight: bold;
+            position: absolute;
+            left: 0.5em; 
+            top: 0; 
+        }
+        
+        ul.custom-bullets ul > li::before { /* Sub-Bullet-Points */
+            content: "◦"; 
+            color: #00A1E0; /* Helleres Salesforce/Capgemini Blau für Sub-Bullets */
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.25rem;
+            color: #4b5563; 
+        }
+        .contact-item svg {
+            margin-right: 0.65rem; 
+            flex-shrink: 0;
+            width: 1.125rem; 
+            height: 1.125rem; 
+            color: #0070D2; /* Salesforce Blau */
+        }
+
+        .button-container {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 50;
+            display: flex;
+            flex-direction: column; /* Buttons untereinander */
+            gap: 0.5rem; /* Abstand zwischen den Buttons */
+        }
+
+        .action-button {
+            background-color: #0070D2; /* Salesforce Blau */
+            color: white;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background-color 0.15s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+        }
+        .action-button:hover {
+            background-color: #005FB8; /* Dunkleres Salesforce Blau */
+        }
+
+        /* Flip Card Styling */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive Grid */
+            gap: 1.5rem; /* Abstand zwischen den Karten */
+            margin-top: 1rem;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 100%; 
+            aspect-ratio: 1 / 1; 
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.7s;
+            transform-style: preserve-3d;
+            border-radius: 0.5rem; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+        }
+
+        .flip-card.is-flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .flip-card-front {
+            background-color: #e9ecef; 
+            color: #333;
+        }
+        .flip-card-front img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain; 
+        }
+
+        .flip-card-back {
+            background-color: #0070D2; 
+            color: white;
+            transform: rotateY(180deg);
+        }
+        .flip-card-back h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        .flip-card-back p {
+            font-size: 0.875rem;
+        }
+
+
+        @media print {
+            body {
+                background-color: white;
+                margin: 0;
+                padding: 0;
+                font-size: 9.5pt; 
+            }
+            .resume-container {
+                margin: 0 auto; 
+                padding: 15mm 10mm 10mm 15mm; 
+                box-shadow: none;
+                max-width: 100%;
+                min-height: 0; 
+            }
+            .button-container { 
+                display: none !important;
+            }
+            section, header, footer {
+                page-break-inside: avoid;
+            }
+            .section-break-avoid { page-break-before: avoid; } 
+            .section-break-always { page-break-before: always; } 
+            
+            .berufserfahrung-item, .fortbildung-item, .sprachen-item, .interessen-item, .ausbildung-item, .hochschulbildung-item, .werte-item {
+                page-break-inside: avoid;
+            }
+            .core-competencies-container { /* Ensure tags don't break across pages if possible */
+                page-break-inside: avoid;
+            }
+             h1, h2, h3, h4, h5, h6 {
+                page-break-after: avoid;
+            }
+            img { max-width: 100% !important; }
+            
+            .lang-element:not(.active-lang-print) {
+                display: none !important;
+            }
+            .flip-card { 
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+            .flip-card-inner {
+                transform: none !important;
+            }
+            .flip-card-back {
+                display: none !important; 
+            }
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr); 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="button-container">
+        <button id="printButton" onclick="preparePrint()" class="action-button">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a8.5 8.5 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03-.48.062-.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0c1.253 1.253 1.253 3.275 0 4.528C17.001 23.05 16.204 24 12.688 24c-3.516 0-4.313-.95-4.975-1.472A4.5 4.5 0 0 1 6.34 18m11.318 0-1.096 1.096M6.34 18l-1.096 1.096m0 0a4.5 4.5 0 0 1-1.096-1.096M17.66 18a4.5 4.5 0 0 0 1.096-1.096M12 9.75l3 3m0 0-3 3m3-3h-6m1.5-4.5H7.5V4.5h9V9.75Z" />
+            </svg>
+            <span class="lang-element" lang="de">Drucken</span>
+            <span class="lang-element" lang="en" style="display:none;">Print</span>
+        </button>
+        <button id="toggleLangButton" onclick="toggleLanguage()" class="action-button">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C13.18 7.061 14.289 7.5 15.5 7.5c1.21 0 2.32-.439 3.166-1.136M15.5 7.5V3m-3.334 2.364c1.12 0 2.233.038 3.334.114m-6.002 0l.15-.04a28.456 28.456 0 00-2.634-2.13M9 15.188c1.12 0 2.233-.038 3.334-.114M12.334 15.074c.527-.07.99-.144 1.437-.226M12.334 15.074V18m2.166-2.724c.527.07.99.144 1.437.226m0 0c1.12.076 2.233.15 3.334.226m-6.333 0l-.15.04a28.456 28.456 0 01-2.634 2.13M12.334 18V15.074" />
+            </svg>
+            <span class="lang-element" lang="de">English</span>
+            <span class="lang-element" lang="en" style="display:none;">Deutsch</span>
+        </button>
+    </div>
+
+    <div class="resume-container text-gray-800">
+
+        <header class="flex flex-col sm:flex-row items-start mb-6">
+            <img src="2022-04-22-Steffen-Koller-0749-square.jpg" alt="Steffen Koller" class="w-36 h-36 sm:w-40 sm:h-40 rounded-md object-cover mb-4 sm:mb-0 sm:mr-8 flex-shrink-0 border-2 border-blue-300 shadow-md">
+            <div class="flex-1">
+                <h1 class="text-3xl sm:text-4xl font-medium">Steffen Koller</h1> 
+                <p class="text-sm sm:text-base text-gray-600 mt-1">
+                    <span class="lang-element" lang="de">Kehlstraße 3 | 73257 Köngen</span>
+                    <span class="lang-element" lang="en" style="display:none;">Kehlstrasse 3 | 73257 Koengen</span>
+                </p>
+                <div class="mt-2 space-y-1">
+                    <p class="contact-item text-sm sm:text-base">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                          <path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" />
+                        </svg>
+                        +49 176 105 197 03
+                    </p>
+                    <p class="contact-item text-sm sm:text-base">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                          <path d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z" />
+                          <path d="M19 8.839 10.772 13.16a3.25 3.25 0 0 1-3.544 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z" />
+                        </svg>
+                        steffen.s.koller@gmail.com
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <section class="mb-4">
+            <h2 class="section-title">
+                <span class="lang-element" lang="de">PERSÖNLICHE DATEN</span>
+                <span class="lang-element" lang="en" style="display:none;">PERSONAL DETAILS</span>
+            </h2>
+            <p class="text-sm">
+                <strong>
+                    <span class="lang-element" lang="de">Geburtsdatum/-ort:</span>
+                    <span class="lang-element" lang="en" style="display:none;">Date/Place of Birth:</span>
+                </strong>
+                <span class="lang-element" lang="de">09. August 1975 in Kirchheim unter Teck</span>
+                <span class="lang-element" lang="en" style="display:none;">August 9, 1975 in Kirchheim unter Teck</span>
+            </p>
+            <p class="text-sm">
+                <strong>
+                    <span class="lang-element" lang="de">Familienstand:</span>
+                    <span class="lang-element" lang="en" style="display:none;">Marital Status:</span>
+                </strong>
+                <span class="lang-element" lang="de">verheiratet, 4 Kinder</span>
+                <span class="lang-element" lang="en" style="display:none;">married, 4 children</span>
+            </p>
+        </section>
+
+        <section class="mb-4">
+            <h2 class="section-title">
+                <span class="lang-element" lang="de">KURZPROFIL</span>
+                <span class="lang-element" lang="en" style="display:none;">SHORT PROFILE</span>
+            </h2>
+            <div class="text-sm leading-relaxed">
+                <div class="lang-element" lang="de">
+                    <p class="mb-2">Als erfahrener <strong>Program Owner & Solution Manager</strong> und ausgewiesener <strong>Automotive CRM-Experte</strong> mit insgesamt über <strong>22 Jahren Branchenerfahrung</strong> gestalte ich seit über <strong>6 Jahren erfolgreich mit Salesforce</strong> die digitale Transformation von Kundenbeziehungsprozessen bei Mercedes-Benz.</p>
+                    <p class="mb-2">Meine Kernkompetenz liegt in der <strong>strategischen Führung, Lösungsgestaltung und Implementierung komplexer, europaweiter Salesforce-basierter CRM-Programme (Sales, Service, Marketing, Experience & Data Cloud)</strong>. Diese Lösungen unterstützen flexibel <strong>diverse Vertriebsmodelle (Agentur & Retail)</strong>, decken <strong>Sales, After Sales & Finance Use Cases</strong> ab und sind tief in POS-Systeme integriert (Fokus <strong>Sales Activity Management - SAM</strong>). Aktuell von >5.000 Anwendern in 16 europäischen Märkten genutzt, mit dem Ziel, diese Zahl durch weitere Go-Lives in diesem Jahr auf <strong>>10.000 Anwender</strong> zu steigern.</p>
+                    <p>Ich verbinde Automotive-Expertise mit agiler Produktentwicklung, dem Einsatz innovativer Technologien (inkl. <strong>KI-Lösungen wie Salesforce Agentforce</strong>) und der Leitung <strong>anspruchsvoller Transitionsprojekte ganzer Entwicklungsmannschaften mit signifikanter Effizienzsteigerung (ca. 40%)</strong>. Fokus: Schaffung einer <strong>standardisierten, harmonisierten europäischen CRM-Landschaft</strong> für zukünftige Marktanforderungen und exzellente Kundenerlebnisse.</p>
+                </div>
+                <div class="lang-element" lang="en" style="display:none;">
+                    <p class="mb-2">As an experienced <strong>Program Owner & Solution Manager</strong> and proven <strong>Automotive CRM Expert</strong> with over <strong>22 years of industry experience</strong>, I have been successfully shaping the digital transformation of customer relationship processes at Mercedes-Benz with Salesforce for over <strong>6 years</strong>.</p>
+                    <p class="mb-2">My core competence lies in the <strong>strategic leadership, solution design, and implementation of complex, Europe-wide Salesforce-based CRM programs (Sales, Service, Marketing, Experience & Data Cloud)</strong>. These solutions flexibly support <strong>various sales models (agency & retail)</strong>, cover <strong>Sales, After Sales & Finance Use Cases</strong>, and are deeply integrated into POS systems (focus on <strong>Sales Activity Management - SAM</strong>). Currently used by >5,000 users in 16 European markets, with the goal to increase this number to <strong>>10,000 users</strong> through further go-lives this year.</p>
+                    <p>I combine automotive expertise with agile product development, the use of innovative technologies (including <strong>AI solutions like Salesforce Agentforce</strong>), and the leadership of <strong>demanding transition projects for entire development teams with significant efficiency increases (approx. 40%)</strong>. Focus: Creation of a <strong>standardized, harmonized European CRM landscape</strong> for future market requirements and excellent customer experiences.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-6 core-competencies-container"> <h2 class="section-title">
+                <span class="lang-element" lang="de">KERNKOMPETENZEN</span>
+                <span class="lang-element" lang="en" style="display:none;">CORE COMPETENCIES</span>
+            </h2>
+            <div class="flex flex-wrap gap-2 text-sm">
+                <div class="bg-sky-100 text-sky-800 px-4 py-2 rounded-full shadow-sm hover:bg-sky-200 transition-colors duration-150">
+                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">Salesforce Platform Leadership:</strong> Sales, Service, Marketing, Experience & Data Cloud</span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">Salesforce Platform Leadership:</strong> Sales, Service, Marketing, Experience & Data Cloud</span>
+                </div>
+                <div class="bg-sky-100 text-sky-800 px-4 py-2 rounded-full shadow-sm hover:bg-sky-200 transition-colors duration-150">
+                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">Automotive CRM & Digitale Transformation:</strong> Sales, After Sales, Finance Use Cases</span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">Automotive CRM & Digital Transformation:</strong> Sales, After Sales, Finance Use Cases</span>
+                </div>
+                <div class="bg-sky-100 text-sky-800 px-4 py-2 rounded-full shadow-sm hover:bg-sky-200 transition-colors duration-150">
+                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">Lösungsarchitektur & Solution Management:</strong> Agenturmodell, SAM, POS-Integration</span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">Solution Architecture & Solution Management:</strong> Agency Model, SAM, POS Integration</span>
+                </div>
+                <div class="bg-sky-100 text-sky-800 px-4 py-2 rounded-full shadow-sm hover:bg-sky-200 transition-colors duration-150">
+                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">Agile Program & Transition Management:</strong> Effizienzsteigerung (ca. 40% in Transition)</span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">Agile Program & Transition Management:</strong> Efficiency Increase (approx. 40% in Transition)</span>
+                </div>
+                <div class="bg-sky-100 text-sky-800 px-4 py-2 rounded-full shadow-sm hover:bg-sky-200 transition-colors duration-150">
+                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">KI im CRM:</strong> Salesforce Agentforce Pilotierung & Implementierungsstrategie</span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">AI in CRM:</strong> Salesforce Agentforce Piloting & Implementation Strategy</span>
+                </div>
+                <div class="bg-sky-100 text-sky-800 px-4 py-2 rounded-full shadow-sm hover:bg-sky-200 transition-colors duration-150">
+                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">Stakeholder Management & Kommunikation (bis Top-Management/E-Level)</strong></span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">Stakeholder Management & Communication (up to Top Management/E-Level)</strong></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-4 section-break-avoid hochschulbildung-item">
+            <h2 class="section-title">
+                <span class="lang-element" lang="de">HOCHSCHULBILDUNG</span>
+                <span class="lang-element" lang="en" style="display:none;">UNIVERSITY EDUCATION</span>
+            </h2>
+            <div class="text-sm">
+                <div class="mb-3">
+                    <h3 class="text-base font-semibold section-subtitle">
+                        <span class="lang-element" lang="de">Studium „Betriebswirtschaftslehre“</span>
+                        <span class="lang-element" lang="en" style="display:none;">Studies in "Business Administration"</span>
+                    </h3>
+                    <p class="text-xs text-gray-500 mb-1">
+                        <span class="lang-element" lang="de">Hochschule Nürtingen</span>
+                        <span class="lang-element" lang="en" style="display:none;">Nuertingen University</span>
+                    </p>
+                    <p class="text-sm mt-1">
+                        <strong class="font-semibold text-blue-600">
+                            <span class="lang-element" lang="de">Diplom-Betriebswirt</span>
+                            <span class="lang-element" lang="en" style="display:none;">Diplom-Betriebswirt (German equivalent to MBA)</span>
+                        </strong>
+                        <span class="lang-element" lang="de"> in den Bereichen Wirtschaftsinformatik, Organisation und Projektmanagement, Finanzmanagement und Bankwirtschaftslehre.</span>
+                        <span class="lang-element" lang="en" style="display:none;"> in the fields of Business Informatics, Organization and Project Management, Financial Management and Banking.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-4 section-break-avoid ausbildung-item">
+            <h2 class="section-title">
+                <span class="lang-element" lang="de">AUSBILDUNG</span>
+                <span class="lang-element" lang="en" style="display:none;">VOCATIONAL TRAINING</span>
+            </h2>
+            <div class="text-sm"> 
+                 <h3 class="text-base font-semibold section-subtitle">
+                    <span class="lang-element" lang="de">Finanzassistent / Bankkaufmann (IHK)</span>
+                    <span class="lang-element" lang="en" style="display:none;">Financial Assistant / Bank Clerk (IHK)</span>
+                </h3>
+                <p class="text-xs text-gray-500 mb-1">
+                    <span class="lang-element" lang="de">Landesbank Baden-Württemberg</span>
+                    <span class="lang-element" lang="en" style="display:none;">Landesbank Baden-Württemberg</span>
+                </p>
+                <p class="text-sm mt-1"> 
+                    <span class="lang-element" lang="de">Fundament für breites kaufmännisches, prozessuales und finanzwirtschaftliches Verständnis.</span>
+                    <span class="lang-element" lang="en" style="display:none;">Foundation for broad commercial, procedural, and financial understanding.</span>
+                </p>
+            </div>
+        </section>
+        
+        <div class="section-break-always"></div> 
+
+        <section class="mb-4">
+            <h2 class="section-title">
+                <span class="lang-element" lang="de">BERUFSERFAHRUNG</span>
+                <span class="lang-element" lang="en" style="display:none;">PROFESSIONAL EXPERIENCE</span>
+            </h2>
+            
+            <div class="mb-5 berufserfahrung-item">
+                <h3 class="text-base font-semibold">
+                    <span class="lang-element" lang="de">Program Owner & Solution Manager Mercedes-Benz CRM</span>
+                    <span class="lang-element" lang="en" style="display:none;">Program Owner & Solution Manager Mercedes-Benz CRM</span>
+                </h3>
+                <p class="text-xs text-gray-500 mb-1">
+                    <span class="lang-element" lang="de">Mercedes-Benz AG, Mercedes-Benz Digital, Stuttgart | 03/2023 – aktuell</span>
+                    <span class="lang-element" lang="en" style="display:none;">Mercedes-Benz AG, Mercedes-Benz Digital, Stuttgart | 03/2023 – Present</span>
+                </p>
+                <ul class="text-sm custom-bullets">
+                    <li>
+                        <span class="lang-element" lang="de"><strong>Strategische CRM-Programmführung (Salesforce):</strong> Gesamtverantwortung für die europaweite MB CRM-Landschaft (Strategie, Architektur, Weiterentwicklung) für diverse Vertriebsmodelle (Agentur, Retail) und Sales, After Sales & Finance Use Cases (Fokus SAM & POS-Integration). Ziel: >10.000 Anwender durch Go-Lives in diesem Jahr.</span>
+                        <span class="lang-element" lang="en" style="display:none;"><strong>Strategic CRM Program Leadership (Salesforce):</strong> Overall responsibility for the Europe-wide MB CRM landscape (strategy, architecture, development) for diverse sales models (agency, retail) and Sales, After Sales & Finance Use Cases (focus SAM & POS integration). Goal: >10,000 users through go-lives this year.</span>
+                    </li>
+                    <li>
+                        <span class="lang-element" lang="de"><strong>Organisatorische Transition & Effizienzsteigerung:</strong> Leitung der Transition der MB CRM Entwicklungsmannschaft (extern zu intern, MBRDI) mit ca. 40% Effizienzsteigerung; inkl. Change Management, Prozessoptimierung und Datenqualitätsinitiativen.</span>
+                        <span class="lang-element" lang="en" style="display:none;"><strong>Organizational Transition & Efficiency Increase:</strong> Led the transition of the MB CRM development team (external to internal, MBRDI) achieving approx. 40% efficiency increase; incl. change management, process optimization, and data quality initiatives.</span>
+                    </li>
+                     <li>
+                        <span class="lang-element" lang="de"><strong>Salesforce Solution Design & KI (Agentforce):</strong> Lösungsverantwortung Salesforce CRM; Förderung & Pilotierung von KI (Agentforce), inkl. Hochschulprojekt (HS Aachen) zu generativen/prädiktiven KI-Use Cases zur Effizienz- & Qualitätssteigerung.</span>
+                        <span class="lang-element" lang="en" style="display:none;"><strong>Salesforce Solution Design & AI (Agentforce):</strong> Solution responsibility for Salesforce CRM; promotion & piloting of AI (Agentforce), incl. university project (HS Aachen) on generative/predictive AI use cases for efficiency & quality improvement.</span>
+                    </li>
+                    <li>
+                        <span class="lang-element" lang="de"><strong>Technische Leitung & Agile Transformation:</strong> Führung interdisziplinärer Entwicklungsteams (ca. 50 MA) nach agilen Methoden und Salesforce Best Practices; Gesamtverantwortung für skalierbare Multi-Cloud Salesforce-Architektur (inkl. Data Cloud).</span>
+                        <span class="lang-element" lang="en" style="display:none;"><strong>Technical Leadership & Agile Transformation:</strong> Leading interdisciplinary development teams (approx. 50 employees) using agile methods and Salesforce Best Practices; overall responsibility for a scalable multi-cloud Salesforce architecture (incl. Data Cloud).</span>
+                    </li>
+                    <li>
+                        <span class="lang-element" lang="de"><strong>Stakeholder Management:</strong> Proaktives Management von Erwartungen (bis Top-Management/E-Level) und Übersetzung von Business-Anforderungen in technische Roadmaps.</span>
+                        <span class="lang-element" lang="en" style="display:none;"><strong>Stakeholder Management:</strong> Proactive management of expectations (up to top management/E-level) and translation of business requirements into technical roadmaps.</span>
+                    </li>
+                </ul>
+                <p class="text-sm mt-2">
+                    <strong class="text-blue-600 font-semibold">
+                        <span class="lang-element" lang="de">Key Results:</span>
+                        <span class="lang-element" lang="en" style="display:none;">Key Results:</span>
+                    </strong> 
+                    <span class="lang-element" lang="de">Etablierung einer zukunftsfähigen, europaweit standardisierten CRM-Plattform für Agilität in Vertriebsmodellen, tiefe POS-Integration und datengetriebene Kundenzentrierung.</span>
+                    <span class="lang-element" lang="en" style="display:none;">Establishment of a future-proof, Europe-wide standardized CRM platform for agility in sales models, deep POS integration, and data-driven customer centricity.</span>
+                </p>
+            </div>
+
+            <div class="mb-5 berufserfahrung-item">
+                <h3 class="text-base font-semibold">
+                     <span class="lang-element" lang="de">Product Owner / Development Lead OneCRM (Salesforce Sales, Service, Marketing & Experience Cloud)</span>
+                     <span class="lang-element" lang="en" style="display:none;">Product Owner / Development Lead OneCRM (Salesforce Sales, Service, Marketing & Experience Cloud)</span>
+                </h3>
+                <p class="text-xs text-gray-500 mb-1">
+                    <span class="lang-element" lang="de">Mercedes-Benz AG, ITS/DC, Stuttgart | 01/2018 – 02/2023</span>
+                    <span class="lang-element" lang="en" style="display:none;">Mercedes-Benz AG, ITS/DC, Stuttgart | 01/2018 – 02/2023</span>
+                </p>
+                <ul class="text-sm custom-bullets">
+                    <li>
+                        <span class="lang-element" lang="de"><strong>Europaweite Salesforce CRM-Implementierung & Skalierung:</strong> Leitung der Einführung von OneCRM für <strong>>3.000 Nutzer in 12 europäischen Märkten</strong> (Retail, After Sales), inkl. Ablösung von >8 Legacy-Systemen mit signifikanter Kosten- & Komplexitätsreduktion.</span>
+                        <span class="lang-element" lang="en" style="display:none;"><strong>Europe-wide Salesforce CRM Implementation & Scaling:</strong> Led the introduction of OneCRM for <strong>>3,000 users in 12 European markets</strong> (Retail, After Sales), incl. replacement of >8 legacy systems with significant cost & complexity reduction.</span>
+                    </li>
+                    <li>
+                        <span class="lang-element" lang="de"><strong>Prozessharmonisierung & Agile Teamführung:</strong> Vereinheitlichung von Vertriebs-, Service- & After Sales Prozessen (SAM-Grundlagen); Aufbau & Leitung internationaler Salesforce-Entwicklungsteams (bis zu 100 Mitglieder).</span>
+                        <span class="lang-element" lang="en" style="display:none;"><strong>Process Harmonization & Agile Team Leadership:</strong> Standardized sales, service & after-sales processes (SAM fundamentals); built & led international Salesforce development teams (up to 100 members).</span>
+                    </li>
+                </ul>
+                <p class="text-sm mt-2">
+                    <strong class="text-blue-600 font-semibold">
+                        <span class="lang-element" lang="de">Key Results:</span>
+                        <span class="lang-element" lang="en" style="display:none;">Key Results:</span>
+                    </strong> 
+                    <span class="lang-element" lang="de">Schaffung einer 360°-Kundensicht; Steigerung Vertriebseffizienz & Lead-Conversion-Rate.</span>
+                    <span class="lang-element" lang="en" style="display:none;">Creation of a 360° customer view; increased sales efficiency & lead conversion rate.</span>
+                </p>
+            </div>
+
+            <div class="mb-5 berufserfahrung-item">
+                <h3 class="text-base font-semibold">
+                    <span class="lang-element" lang="de">Projektleitung und Requirements Engineer – OCRM Frankreich</span>
+                    <span class="lang-element" lang="en" style="display:none;">Project Lead and Requirements Engineer – OCRM France</span>
+                </h3>
+                <p class="text-xs text-gray-500 mb-1">
+                    <span class="lang-element" lang="de">Daimler AG, ITS/MC, Stuttgart | 01/2017 – 12/2017</span>
+                    <span class="lang-element" lang="en" style="display:none;">Daimler AG, ITS/MC, Stuttgart | 01/2017 – 12/2017</span>
+                </p>
+                <ul class="text-sm custom-bullets">
+                    <li>
+                        <span class="lang-element" lang="de">Technische Projektleitung OCRM Frankreich; Migration von Massendaten aus Legacy-Systemen.</span>
+                        <span class="lang-element" lang="en" style="display:none;">Technical project management for OCRM France; migration of mass data from legacy systems.</span>
+                    </li>
+                </ul>
+                 <p class="text-sm mt-2">
+                    <strong class="text-blue-600 font-semibold">
+                        <span class="lang-element" lang="de">Key Results:</span>
+                        <span class="lang-element" lang="en" style="display:none;">Key Results:</span>
+                    </strong> 
+                    <span class="lang-element" lang="de">Erfolgreiches Enablement OCRM Frankreich; Sicherstellung Datenverfügbarkeit.</span>
+                    <span class="lang-element" lang="en" style="display:none;">Successful enablement of OCRM France; ensured data availability.</span>
+                </p>
+            </div>
+
+            <div class="mb-5 berufserfahrung-item">
+                <h3 class="text-base font-semibold">
+                    <span class="lang-element" lang="de">Business Architekt – Fachdesign und Spezifikation Retail Systeme</span>
+                    <span class="lang-element" lang="en" style="display:none;">Business Architect – Functional Design and Specification Retail Systems</span>
+                </h3>
+                <p class="text-xs text-gray-500 mb-1">
+                    <span class="lang-element" lang="de">Daimler AG, MS/MER, Stuttgart | 08/2014 – 12/2016</span>
+                    <span class="lang-element" lang="en" style="display:none;">Daimler AG, MS/MER, Stuttgart | 08/2014 – 12/2016</span>
+                </p>
+                <ul class="text-sm custom-bullets">
+                    <li>
+                        <span class="lang-element" lang="de">Fachliche Leitung CRM Integration Group; Harmonisierung MBC POS mit Salesforce-Landschaft.</span>
+                        <span class="lang-element" lang="en" style="display:none;">Functional lead for CRM Integration Group; harmonization of MBC POS with Salesforce landscape.</span>
+                    </li>
+                    <li>
+                        <span class="lang-element" lang="de">Fachdesign Sales Activity & Lead Management für MBC POS (internationale Rollouts).</span>
+                        <span class="lang-element" lang="en" style="display:none;">Functional design of Sales Activity & Lead Management for MBC POS (international rollouts).</span>
+                    </li>
+                </ul>
+                <p class="text-sm mt-2">
+                    <strong class="text-blue-600 font-semibold">
+                        <span class="lang-element" lang="de">Key Results:</span>
+                        <span class="lang-element" lang="en" style="display:none;">Key Results:</span>
+                    </strong> 
+                    <span class="lang-element" lang="de">Konsistente CRM-Prozesse im Retail; verbesserte Nutzerakzeptanz MBC POS.</span>
+                    <span class="lang-element" lang="en" style="display:none;">Consistent CRM processes in retail; improved user acceptance of MBC POS.</span>
+                </p>
+            </div>
+            
+            <div class="mb-5 berufserfahrung-item">
+                <h3 class="text-base font-semibold">
+                    <span class="lang-element" lang="de">Senior Consultant – Customer Contact Center Strategie</span>
+                    <span class="lang-element" lang="en" style="display:none;">Senior Consultant – Customer Contact Center Strategy</span>
+                </h3>
+                <p class="text-xs text-gray-500 mb-1">
+                    <span class="lang-element" lang="de">Automotive Training&Consulting GmbH (Für Daimler AG) | 06/2013 – 07/2014</span>
+                    <span class="lang-element" lang="en" style="display:none;">Automotive Training&Consulting GmbH (For Daimler AG) | 06/2013 – 07/2014</span>
+                </p>
+                <ul class="text-sm custom-bullets">
+                    <li>
+                        <span class="lang-element" lang="de">Strategieentwicklung „Customer Contact Center“ (CCC) für MBC2020 („Best Customer Experience“).</span>
+                        <span class="lang-element" lang="en" style="display:none;">Strategy development for "Customer Contact Center" (CCC) for MBC2020 ("Best Customer Experience").</span>
+                    </li>
+                </ul>
+                <p class="text-sm mt-2">
+                    <strong class="text-blue-600 font-semibold">
+                        <span class="lang-element" lang="de">Key Results:</span>
+                        <span class="lang-element" lang="en" style="display:none;">Key Results:</span>
+                    </strong> 
+                    <span class="lang-element" lang="de">Strategisches Konzept für globale Kundenkontaktprozesse als Pilotierungsbasis.</span>
+                    <span class="lang-element" lang="en" style="display:none;">Strategic concept for global customer contact processes as a basis for piloting.</span>
+                </p>
+            </div>
+
+            <div class="mb-5 berufserfahrung-item">
+                <h3 class="text-base font-semibold">
+                    <span class="lang-element" lang="de">Senior Consultant – BDC Rollout & Governance</span>
+                    <span class="lang-element" lang="en" style="display:none;">Senior Consultant – BDC Rollout & Governance</span>
+                </h3>
+                <p class="text-xs text-gray-500 mb-1">
+                    <span class="lang-element" lang="de">Automotive Training&Consulting GmbH (für Daimler AG) | 01/2011 – 05/2013</span>
+                    <span class="lang-element" lang="en" style="display:none;">Automotive Training&Consulting GmbH (for Daimler AG) | 01/2011 – 05/2013</span>
+                </p>
+                <ul class="text-sm custom-bullets">
+                    <li>
+                        <span class="lang-element" lang="de">Internationale Markt Readiness Analysen & Rolloutbegleitung Business Development Center (BDC).</span>
+                        <span class="lang-element" lang="en" style="display:none;">International market readiness analyses & rollout support for Business Development Centers (BDC).</span>
+                    </li>
+                </ul>
+                <p class="text-sm mt-2">
+                    <strong class="text-blue-600 font-semibold">
+                        <span class="lang-element" lang="de">Key Results:</span>
+                        <span class="lang-element" lang="en" style="display:none;">Key Results:</span>
+                    </strong> 
+                    <span class="lang-element" lang="de">Erfolgreiche Pilotierung/Implementierung von LMS & BDC-Strukturen international.</span>
+                    <span class="lang-element" lang="en" style="display:none;">Successful piloting/implementation of LMS & BDC structures internationally.</span>
+                </p>
+            </div>
+
+            <div class="berufserfahrung-item"> 
+                <h3 class="text-base font-semibold">
+                    <span class="lang-element" lang="de">Consultant – Business Development Center (BDC)</span>
+                    <span class="lang-element" lang="en" style="display:none;">Consultant – Business Development Center (BDC)</span>
+                </h3>
+                <p class="text-xs text-gray-500 mb-1">
+                    <span class="lang-element" lang="de">Daimler Protics GmbH (Für Daimler AG) | 04/2005 – 04/2008</span>
+                    <span class="lang-element" lang="en" style="display:none;">Daimler Protics GmbH (For Daimler AG) | 04/2005 – 04/2008</span>
+                </p>
+                <ul class="text-sm custom-bullets">
+                    <li>
+                        <span class="lang-element" lang="de">Entwicklung & Rollout-Sicherung von BDC-Vertriebskanälen; Konzeption Sales LMS.</span>
+                        <span class="lang-element" lang="en" style="display:none;">Development & rollout assurance of BDC sales channels; conception of Sales LMS.</span>
+                    </li>
+                </ul>
+                <p class="text-sm mt-2">
+                    <strong class="text-blue-600 font-semibold">
+                        <span class="lang-element" lang="de">Key Results:</span>
+                        <span class="lang-element" lang="en" style="display:none;">Key Results:</span>
+                    </strong> 
+                    <span class="lang-element" lang="de">Professionalisierung BDC-Kanäle; Etablierung standardisierter Lead Management Prozesse.</span>
+                    <span class="lang-element" lang="en" style="display:none;">Professionalization of BDC channels; establishment of standardized lead management processes.</span>
+                </p>
+            </div>
+        </section>
+        
+        <div class="section-break-avoid"></div>
+
+        <section class="mb-4">
+            <h2 class="section-title">
+                <span class="lang-element" lang="de">EXPERTISE</span>
+                <span class="lang-element" lang="en" style="display:none;">EXPERTISE</span>
+            </h2>
+            <ul class="text-sm custom-bullets columns-1 md:columns-2">
+                <li>
+                    <span class="lang-element" lang="de">Führung interdisziplinärer & internationaler Teams</span>
+                    <span class="lang-element" lang="en" style="display:none;">Leadership of interdisciplinary & international teams</span>
+                </li>
+                <li>
+                    <span class="lang-element" lang="de">Agile Entwicklung (Scrum, Kanban) & DevOps-Prinzipien</span>
+                    <span class="lang-element" lang="en" style="display:none;">Agile Development (Scrum, Kanban) & DevOps Principles</span>
+                </li>
+                <li>
+                    <span class="lang-element" lang="de">Salesforce Plattform: Sales, Service, Marketing, Experience & Data Cloud, Agentforce, Lightning Platform (LWC, Apex, Flows)</span>
+                    <span class="lang-element" lang="en" style="display:none;">Salesforce Platform: Sales, Service, Marketing, Experience & Data Cloud, Agentforce, Lightning Platform (LWC, Apex, Flows)</span>
+                </li>
+                <li>
+                    <span class="lang-element" lang="de">CRM-Strategie, -Implementierung & Solution Management (Automotive: Sales, After Sales, Finance; Retail/Wholesale, Agenturmodell)</span>
+                    <span class="lang-element" lang="en" style="display:none;">CRM Strategy, Implementation & Solution Management (Automotive: Sales, After Sales, Finance; Retail/Wholesale, Agency Model)</span>
+                </li>
+                <li>
+                    <span class="lang-element" lang="de">Sales Activity Management (SAM) & Point of Sale (POS) Integration</span>
+                    <span class="lang-element" lang="en" style="display:none;">Sales Activity Management (SAM) & Point of Sale (POS) Integration</span>
+                </li>
+                <li>
+                    <span class="lang-element" lang="de">After Sales & Finance Prozessintegration im CRM</span>
+                    <span class="lang-element" lang="en" style="display:none;">After Sales & Finance Process Integration in CRM</span>
+                </li>
+                <li>
+                    <span class="lang-element" lang="de">Datenqualitätsmanagement & Governance</span>
+                    <span class="lang-element" lang="en" style="display:none;">Data Quality Management & Governance</span>
+                </li>
+                <li>
+                    <span class="lang-element" lang="de">Organisatorische Transition & Change Management (ganzheitliche Betriebsmodelle von Entwicklungsmannschaften)</span>
+                    <span class="lang-element" lang="en" style="display:none;">Organizational Transition & Change Management (holistic operating models of development teams)</span>
+                </li>
+                <li>
+                    <span class="lang-element" lang="de">Lösungsarchitektur & komplexe Systemintegrationen (API-basiert, Kafka Event Streaming, Salesforce Platform Events)</span>
+                    <span class="lang-element" lang="en" style="display:none;">Solution Architecture & Complex System Integrations (API-based, Kafka Event Streaming, Salesforce Platform Events)</span>
+                </li>
+                <li>
+                    <span class="lang-element" lang="de">Stakeholder Management & Anforderungsanalyse (bis Top-Management/E-Level)</span>
+                    <span class="lang-element" lang="en" style="display:none;">Stakeholder Management & Requirements Analysis (up to Top Management/E-Level)</span>
+                </li>
+                <li>
+                    <span class="lang-element" lang="de">Automotive Branchenexpertise & digitale Transformation</span>
+                    <span class="lang-element" lang="en" style="display:none;">Automotive Industry Expertise & Digital Transformation</span>
+                </li>
+                <li>
+                    <span class="lang-element" lang="de">Grundlagen Finanzwesen & Bankwirtschaftslehre (Basis für Finance Use Cases)</span>
+                    <span class="lang-element" lang="en" style="display:none;">Fundamentals of Finance & Banking (Basis for Finance Use Cases)</span>
+                </li>
+            </ul>
+        </section>
+
+        <section class="mb-4">
+            <h2 class="section-title">
+                <span class="lang-element" lang="de">FORTBILDUNG (Auswahl)</span>
+                <span class="lang-element" lang="en" style="display:none;">FURTHER EDUCATION (Selection)</span>
+            </h2>
+            <ul class="text-sm custom-bullets fortbildung-item">
+                <li>
+                    <span class="lang-element" lang="de">SCRUM Product Owner (Daimler Corporate Academy)</span>
+                    <span class="lang-element" lang="en" style="display:none;">SCRUM Product Owner (Daimler Corporate Academy)</span>
+                </li>
+                <li>
+                    <span class="lang-element" lang="de">European Business Coach (EBC)</span>
+                    <span class="lang-element" lang="en" style="display:none;">European Business Coach (EBC)</span>
+                </li>
+                <li>
+                    <span class="lang-element" lang="de">Zertifizierter Senior Process Manager (SPCM)</span>
+                    <span class="lang-element" lang="en" style="display:none;">Certified Senior Process Manager (SPCM)</span>
+                </li>
+                <li>
+                    <span class="lang-element" lang="de">Zertifizierter Projektmanagement-Fachmann Level D (GBM-IPMA)</span>
+                    <span class="lang-element" lang="en" style="display:none;">Certified Project Management Professional Level D (GBM-IPMA)</span>
+                </li>
+            </ul>
+        </section>
+
+        <section class="mb-4">
+            <h2 class="section-title">
+                <span class="lang-element" lang="de">SPRACHEN</span>
+                <span class="lang-element" lang="en" style="display:none;">LANGUAGES</span>
+            </h2>
+            <ul class="text-sm custom-bullets sprachen-item">
+                <li>
+                    <span class="lang-element" lang="de">Deutsch: Muttersprache</span>
+                    <span class="lang-element" lang="en" style="display:none;">German: Native speaker</span>
+                </li>
+                <li>
+                    <span class="lang-element" lang="de">Englisch: Verhandlungssicher</span>
+                    <span class="lang-element" lang="en" style="display:none;">English: Fluent (negotiation level)</span>
+                </li>
+                <li>
+                    <span class="lang-element" lang="de">Französisch: Erweiterte Grundkenntnisse</span>
+                    <span class="lang-element" lang="en" style="display:none;">French: Advanced basic knowledge</span>
+                </li>
+            </ul>
+        </section>
+
+        <section class="mb-6 werte-item section-break-avoid"> 
+            <h2 class="section-title">
+                <span class="lang-element" lang="de">WERTE</span>
+                <span class="lang-element" lang="en" style="display:none;">VALUES</span>
+            </h2>
+            <div class="values-grid">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://placehold.co/200x200/0070D2/FFFFFF?text=Trust" alt="Platzhalterbild Vertrauen">
+                        </div>
+                        <div class="flip-card-back">
+                            <h4><span class="lang-element" lang="de">Vertrauen / Zuverlässigkeit</span><span class="lang-element" lang="en" style="display:none;">Trust / Reliability</span></h4>
+                            <p><span class="lang-element" lang="de">Grundlage jeder erfolgreichen Zusammenarbeit und Partnerschaft.</span><span class="lang-element" lang="en" style="display:none;">The foundation of every successful collaboration and partnership.</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://placehold.co/200x200/00A1E0/FFFFFF?text=Commitment" alt="Platzhalterbild Engagement">
+                        </div>
+                        <div class="flip-card-back">
+                            <h4><span class="lang-element" lang="de">Begeisterung / Engagement</span><span class="lang-element" lang="en" style="display:none;">Enthusiasm / Commitment</span></h4>
+                            <p><span class="lang-element" lang="de">Mit Leidenschaft und vollem Einsatz gemeinsame Ziele verfolgen.</span><span class="lang-element" lang="en" style="display:none;">Pursuing common goals with passion and full dedication.</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                             <img src="https://placehold.co/200x200/001639/FFFFFF?text=Responsibility" alt="Platzhalterbild Verantwortung">
+                        </div>
+                        <div class="flip-card-back">
+                            <h4><span class="lang-element" lang="de">Eigenverantwortung / Motivation</span><span class="lang-element" lang="en" style="display:none;">Personal Responsibility / Motivation</span></h4>
+                            <p><span class="lang-element" lang="de">Proaktives Handeln und die Motivation, stets das Beste zu geben.</span><span class="lang-element" lang="en" style="display:none;">Proactive action and the motivation to always give one's best.</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://placehold.co/200x200/4B5563/FFFFFF?text=Openness" alt="Platzhalterbild Offenheit">
+                        </div>
+                        <div class="flip-card-back">
+                            <h4><span class="lang-element" lang="de">Offenheit / Ehrlichkeit / Direktheit</span><span class="lang-element" lang="en" style="display:none;">Openness / Honesty / Directness</span></h4>
+                            <p><span class="lang-element" lang="de">Transparente Kommunikation und ein aufrichtiger Umgang miteinander.</span><span class="lang-element" lang="en" style="display:none;">Transparent communication and sincere interaction with one another.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-6">
+            <h2 class="section-title">
+                <span class="lang-element" lang="de">INTERESSEN & ENGAGEMENT</span>
+                <span class="lang-element" lang="en" style="display:none;">INTERESTS & ENGAGEMENT</span>
+            </h2>
+            <ul class="text-sm custom-bullets interessen-item">
+                <li>
+                    <span class="lang-element" lang="de"><strong>Familie & Sport:</strong> Ausgleich durch gemeinsame Aktivitäten mit Familie (4 Kinder), Laufen, Fitness, Skifahren.</span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong>Family & Sports:</strong> Balance through joint activities with family (4 children), running, fitness, skiing.</span>
+                </li>
+                <li>
+                    <span class="lang-element" lang="de"><strong>Digitale Innovation, IoT & KI:</strong> Langjährige Faszination; private Pilotierung von Anwendungsfällen (Smart Home, KI-Tools) zur Horizonterweiterung und Inspiration. (Selbsternannter Google Super Fan 😉)</span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong>Digital Innovation, IoT & AI:</strong> Long-standing fascination; private piloting of use cases (Smart Home, AI tools) for horizon expansion and inspiration. (Self-proclaimed Google Super Fan 😉)</span>
+                </li>
+                <li>
+                    <span class="lang-element" lang="de"><strong>Weitere Hobbys:</strong> Wandern, Tanzen, Smartphone-Fotografie</span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong>Other Hobbies:</strong> Hiking, Dancing, Smartphone Photography</span>
+                </li>
+            </ul>
+        </section>
+
+        <footer class="pt-6 mt-6"> <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                <p class="text-xs text-gray-500 mb-4 sm:mb-0">
+                    <span class="lang-element" lang="de">Köngen, den 17. Mai 2025</span>
+                    <span class="lang-element" lang="en" style="display:none;">Koengen, May 17, 2025</span>
+                </p>
+                <div class="text-center sm:text-right">
+                    <img src="image_c3c611.png" alt="Unterschrift Steffen Koller" class="h-10 sm:h-12 mx-auto sm:mx-0 mb-1">
+                    <p class="text-xs text-gray-500">(Steffen Koller)</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Globale Variable für die aktuelle Sprache
+        let currentLang = 'de'; // Standard Deutsch
+
+        // Funktion zum Umschalten der Sprache
+        function toggleLanguage() {
+            const newLang = currentLang === 'de' ? 'en' : 'de';
+            const elementsToToggle = document.querySelectorAll('.lang-element');
+            
+            elementsToToggle.forEach(el => {
+                if (el.getAttribute('lang') === newLang) {
+                    el.style.display = ''; 
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+            
+            document.documentElement.lang = newLang;
+            if (newLang === 'de') {
+                document.title = 'Lebenslauf - Steffen Koller';
+            } else {
+                document.title = 'Resume - Steffen Koller';
+            }
+            currentLang = newLang; 
+        }
+
+        // Funktion zur Vorbereitung des Drucks
+        function preparePrint() {
+            const elementsToPrint = document.querySelectorAll('.lang-element');
+            elementsToPrint.forEach(el => {
+                if (el.getAttribute('lang') === currentLang) {
+                    el.classList.add('active-lang-print'); 
+                    el.style.display = ''; 
+                } else {
+                    el.classList.remove('active-lang-print');
+                    el.style.display = 'none'; 
+                }
+            });
+            // Flip-Karten für den Druck zurücksetzen (nur Vorderseite anzeigen)
+            document.querySelectorAll('.flip-card').forEach(card => {
+                card.classList.remove('is-flipped');
+            });
+            window.print();
+        }
+
+        // Initialisierungsfunktion, um sicherzustellen, dass beim Laden die richtige Sprache angezeigt wird
+        function initializeLanguage() {
+            currentLang = 'de'; 
+            const elements = document.querySelectorAll('.lang-element');
+            elements.forEach(el => {
+                if (el.getAttribute('lang') === 'de') {
+                    el.style.display = '';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+            document.documentElement.lang = 'de';
+            document.title = 'Lebenslauf - Steffen Koller';
+        }
+
+        // Event Listener für Flip-Karten
+        document.querySelectorAll('.flip-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('is-flipped');
+            });
+        });
+
+        // Event Listener, um die Initialisierung nach dem Laden des DOMs auszuführen
+        document.addEventListener('DOMContentLoaded', initializeLanguage);
+    </script>
+
+</body>
+</html>
