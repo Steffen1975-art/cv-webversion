@@ -28,17 +28,30 @@
             font-weight: 600; 
         }
         
-        h2.section-main-title, h3.job-title, h4.education-title { 
+        h2.section-main-title { 
             color: #001639; 
             font-weight: 600; 
-        }
-        
-        .section-main-title {
             border-bottom: 2px solid #0070D2; 
             padding-bottom: 0.5rem;
             margin-bottom: 1.5rem; 
             font-size: 1.5rem; 
         }
+
+        h3.job-title, h3.education-section-title { /* Einheitlicher Stil für Jobtitel und Bildungstitel */
+            color: #001639; 
+            font-weight: 600;
+            font-size: 1.125rem; /* Tailwind 'text-lg' */
+        }
+        
+        h4.expertise-group-title {
+            color: #001639;
+            font-weight: 600;
+            font-size: 1.05rem; /* Etwas kleiner als Jobtitel */
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid #cbd5e1; /* Dezentere Linie für Expertise-Gruppen */
+        }
+
 
         ul.custom-bullets > li {
             padding-left: 1.75em; 
@@ -58,15 +71,19 @@
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 0.5rem; 
-            color: #4b5563; 
+            margin-bottom: 0.25rem; /* Weniger Abstand bei Kontaktdaten im Header */
+            color: #6b7280; /* Etwas helleres Grau für Subtilität */
+            font-size: 0.875rem; /* Kleiner für Kontaktdaten */
         }
         .contact-item svg {
-            margin-right: 0.75rem; 
+            margin-right: 0.5rem; 
             flex-shrink: 0;
-            width: 1.25rem; 
-            height: 1.25rem; 
+            width: 1rem; 
+            height: 1rem; 
             color: #0070D2; 
+        }
+        .contact-item span:hover {
+            color: #005FB8;
         }
 
         .lang-button-container {
@@ -174,13 +191,22 @@
             font-size: 0.9rem;
         }
         
-        .competency-tag {
+        .competency-tag { /* Gilt für Kernkompetenzen und Expertise-Tags */
             transition: all 0.2s ease-in-out;
+            background-color: #e0f2fe; /* Helleres Sky-Blau für Tags */
+            color: #0c4a6e; /* Dunkleres Sky-Blau für Text */
+            font-weight: 500; /* Medium Schriftstärke für Tags */
         }
         .competency-tag:hover {
             transform: translateY(-2px);
+            background-color: #bae6fd; /* Etwas dunkler beim Hover */
             box-shadow: 0 4px 8px rgba(0, 112, 210, 0.2); 
         }
+        .competency-tag strong { /* Für Hervorhebungen innerhalb der Tags */
+            font-weight: 600;
+            color: #075985; /* Noch dunkleres Sky-Blau */
+        }
+
 
         /* Carousel Styling für Berufserfahrung */
         .experience-carousel-container {
@@ -257,17 +283,21 @@
             <img src="2022-04-22-Steffen-Koller-0749-square.jpg" alt="Steffen Koller" class="w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover mb-6 md:mb-0 md:mr-10 flex-shrink-0 shadow-lg">
             <div class="flex-1 text-center md:text-left">
                 <h1 class="text-4xl sm:text-5xl font-medium main-name">Steffen Koller</h1> 
-                <p class="text-xl sm:text-2xl text-slate-600 mt-2 mb-4">
-                    <span class="lang-element" lang="de">Program Owner & Solution Manager | Automotive CRM & Salesforce Experte</span>
-                    <span class="lang-element" lang="en" style="display:none;">Program Owner & Solution Manager | Automotive CRM & Salesforce Expert</span>
+                <p class="text-xl sm:text-2xl text-slate-700 mt-2">
+                    <span class="lang-element" lang="de">Program Owner & Solution Manager</span>
+                    <span class="lang-element" lang="en" style="display:none;">Program Owner & Solution Manager</span>
                 </p>
-                <div class="flex justify-center md:justify-start space-x-4">
-                    <a href="mailto:steffen.s.koller@gmail.com" class="contact-item text-slate-500 hover:text-blue-600 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6"><path d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z" /><path d="M19 8.839 10.772 13.16a3.25 3.25 0 0 1-3.544 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z" /></svg>
+                <p class="text-md sm:text-lg text-slate-500 mt-1 mb-4">
+                    <span class="lang-element" lang="de">Automotive CRM & Salesforce Experte | Digitale Transformation gestalten</span>
+                    <span class="lang-element" lang="en" style="display:none;">Automotive CRM & Salesforce Expert | Shaping Digital Transformation</span>
+                </p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2">
+                    <a href="mailto:steffen.s.koller@gmail.com" class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z" /><path d="M19 8.839 10.772 13.16a3.25 3.25 0 0 1-3.544 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z" /></svg>
                         <span>steffen.s.koller@gmail.com</span>
                     </a>
-                    <p class="contact-item text-slate-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6"><path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" /></svg>
+                    <p class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" /></svg>
                         <span>+49 176 105 197 03</span>
                     </p>
                 </div>
@@ -299,29 +329,29 @@
                 <span class="lang-element" lang="en" style="display:none;">CORE COMPETENCIES</span>
             </h2>
             <div class="flex flex-wrap gap-3 text-sm">
-                <div class="competency-tag bg-sky-100 text-sky-800 px-4 py-2 rounded-full shadow-sm hover:bg-sky-200 transition-colors duration-150">
-                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">Salesforce Platform Leadership:</strong> Sales, Service, Marketing, Experience & Data Cloud</span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">Salesforce Platform Leadership:</strong> Sales, Service, Marketing, Experience & Data Cloud</span>
+                <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
+                    <span class="lang-element" lang="de"><strong>Salesforce Platform Leadership:</strong> Sales, Service, Marketing, Experience & Data Cloud</span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong>Salesforce Platform Leadership:</strong> Sales, Service, Marketing, Experience & Data Cloud</span>
                 </div>
-                <div class="competency-tag bg-sky-100 text-sky-800 px-4 py-2 rounded-full shadow-sm hover:bg-sky-200 transition-colors duration-150">
-                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">Automotive CRM & Digitale Transformation:</strong> Sales, After Sales, Finance Use Cases</span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">Automotive CRM & Digital Transformation:</strong> Sales, After Sales, Finance Use Cases</span>
+                <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
+                    <span class="lang-element" lang="de"><strong>Automotive CRM & Digitale Transformation:</strong> Sales, After Sales, Finance Use Cases</span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong>Automotive CRM & Digital Transformation:</strong> Sales, After Sales, Finance Use Cases</span>
                 </div>
-                <div class="competency-tag bg-sky-100 text-sky-800 px-4 py-2 rounded-full shadow-sm hover:bg-sky-200 transition-colors duration-150">
-                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">Lösungsarchitektur & Solution Management:</strong> Agenturmodell, SAM, POS-Integration</span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">Solution Architecture & Solution Management:</strong> Agency Model, SAM, POS Integration</span>
+                <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
+                    <span class="lang-element" lang="de"><strong>Lösungsarchitektur & Solution Management:</strong> Agenturmodell, SAM, POS-Integration</span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong>Solution Architecture & Solution Management:</strong> Agency Model, SAM, POS Integration</span>
                 </div>
-                <div class="competency-tag bg-sky-100 text-sky-800 px-4 py-2 rounded-full shadow-sm hover:bg-sky-200 transition-colors duration-150">
-                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">Agile Program & Transition Management:</strong> Effizienzsteigerung (ca. 40% in Transition)</span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">Agile Program & Transition Management:</strong> Efficiency Increase (approx. 40% in Transition)</span>
+                <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
+                    <span class="lang-element" lang="de"><strong>Agile Program & Transition Management:</strong> Effizienzsteigerung (ca. 40% in Transition)</span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong>Agile Program & Transition Management:</strong> Efficiency Increase (approx. 40% in Transition)</span>
                 </div>
-                <div class="competency-tag bg-sky-100 text-sky-800 px-4 py-2 rounded-full shadow-sm hover:bg-sky-200 transition-colors duration-150">
-                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">KI im CRM:</strong> Salesforce Agentforce Pilotierung & Implementierungsstrategie</span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">AI in CRM:</strong> Salesforce Agentforce Piloting & Implementation Strategy</span>
+                <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
+                    <span class="lang-element" lang="de"><strong>KI im CRM:</strong> Salesforce Agentforce Pilotierung & Implementierungsstrategie</span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong>AI in CRM:</strong> Salesforce Agentforce Piloting & Implementation Strategy</span>
                 </div>
-                <div class="competency-tag bg-sky-100 text-sky-800 px-4 py-2 rounded-full shadow-sm hover:bg-sky-200 transition-colors duration-150">
-                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">Stakeholder Management & Kommunikation (bis Top-Management/E-Level)</strong></span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">Stakeholder Management & Communication (up to Top Management/E-Level)</strong></span>
+                <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
+                    <span class="lang-element" lang="de"><strong>Stakeholder Management & Kommunikation (bis Top-Management/E-Level)</strong></span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong>Stakeholder Management & Communication (up to Top Management/E-Level)</strong></span>
                 </div>
             </div>
         </section>
@@ -571,8 +601,7 @@
                     <span class="lang-element" lang="de">HOCHSCHULBILDUNG</span>
                     <span class="lang-element" lang="en" style="display:none;">UNIVERSITY EDUCATION</span>
                 </h2>
-                <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md">
-                    <h3 class="text-lg font-semibold education-title">
+                <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md h-full"> <h3 class="text-lg font-semibold education-title">
                         <span class="lang-element" lang="de">Studium „Betriebswirtschaftslehre“</span>
                         <span class="lang-element" lang="en" style="display:none;">Studies in "Business Administration"</span>
                     </h3>
@@ -595,8 +624,7 @@
                     <span class="lang-element" lang="de">AUSBILDUNG</span>
                     <span class="lang-element" lang="en" style="display:none;">VOCATIONAL TRAINING</span>
                 </h2>
-                <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md"> 
-                     <h3 class="text-lg font-semibold education-title">
+                <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md h-full"> <h3 class="text-lg font-semibold education-title">
                         <span class="lang-element" lang="de">Finanzassistent / Bankkaufmann (IHK)</span>
                         <span class="lang-element" lang="en" style="display:none;">Financial Assistant / Bank Clerk (IHK)</span>
                     </h3>
@@ -723,56 +751,80 @@
                 <span class="lang-element" lang="de">EXPERTISE</span>
                 <span class="lang-element" lang="en" style="display:none;">EXPERTISE</span>
             </h2>
-            <ul class="text-sm custom-bullets columns-1 md:columns-2 text-slate-700">
-                <li>
-                    <span class="lang-element" lang="de">Führung interdisziplinärer & internationaler Teams</span>
-                    <span class="lang-element" lang="en" style="display:none;">Leadership of interdisciplinary & international teams</span>
-                </li>
-                <li>
-                    <span class="lang-element" lang="de">Agile Entwicklung (Scrum, Kanban) & DevOps-Prinzipien</span>
-                    <span class="lang-element" lang="en" style="display:none;">Agile Development (Scrum, Kanban) & DevOps Principles</span>
-                </li>
-                <li>
-                    <span class="lang-element" lang="de">Salesforce Plattform: Sales, Service, Marketing, Experience & Data Cloud, Agentforce, Lightning Platform (LWC, Apex, Flows)</span>
-                    <span class="lang-element" lang="en" style="display:none;">Salesforce Platform: Sales, Service, Marketing, Experience & Data Cloud, Agentforce, Lightning Platform (LWC, Apex, Flows)</span>
-                </li>
-                <li>
-                    <span class="lang-element" lang="de">CRM-Strategie, -Implementierung & Solution Management (Automotive: Sales, After Sales, Finance; Retail/Wholesale, Agenturmodell)</span>
-                    <span class="lang-element" lang="en" style="display:none;">CRM Strategy, Implementation & Solution Management (Automotive: Sales, After Sales, Finance; Retail/Wholesale, Agency Model)</span>
-                </li>
-                <li>
-                    <span class="lang-element" lang="de">Sales Activity Management (SAM) & Point of Sale (POS) Integration</span>
-                    <span class="lang-element" lang="en" style="display:none;">Sales Activity Management (SAM) & Point of Sale (POS) Integration</span>
-                </li>
-                <li>
-                    <span class="lang-element" lang="de">After Sales & Finance Prozessintegration im CRM</span>
-                    <span class="lang-element" lang="en" style="display:none;">After Sales & Finance Process Integration in CRM</span>
-                </li>
-                <li>
-                    <span class="lang-element" lang="de">Datenqualitätsmanagement & Governance</span>
-                    <span class="lang-element" lang="en" style="display:none;">Data Quality Management & Governance</span>
-                </li>
-                <li>
-                    <span class="lang-element" lang="de">Organisatorische Transition & Change Management (ganzheitliche Betriebsmodelle von Entwicklungsmannschaften)</span>
-                    <span class="lang-element" lang="en" style="display:none;">Organizational Transition & Change Management (holistic operating models of development teams)</span>
-                </li>
-                <li>
-                    <span class="lang-element" lang="de">Lösungsarchitektur & komplexe Systemintegrationen (API-basiert, Kafka Event Streaming, Salesforce Platform Events)</span>
-                    <span class="lang-element" lang="en" style="display:none;">Solution Architecture & Complex System Integrations (API-based, Kafka Event Streaming, Salesforce Platform Events)</span>
-                </li>
-                <li>
-                    <span class="lang-element" lang="de">Stakeholder Management & Anforderungsanalyse (bis Top-Management/E-Level)</span>
-                    <span class="lang-element" lang="en" style="display:none;">Stakeholder Management & Requirements Analysis (up to Top Management/E-Level)</span>
-                </li>
-                <li>
-                    <span class="lang-element" lang="de">Automotive Branchenexpertise & digitale Transformation</span>
-                    <span class="lang-element" lang="en" style="display:none;">Automotive Industry Expertise & Digital Transformation</span>
-                </li>
-                <li>
-                    <span class="lang-element" lang="de">Grundlagen Finanzwesen & Bankwirtschaftslehre (Basis für Finance Use Cases)</span>
-                    <span class="lang-element" lang="en" style="display:none;">Fundamentals of Finance & Banking (Basis for Finance Use Cases)</span>
-                </li>
-            </ul>
+            <div class="space-y-6">
+                <div>
+                    <h4 class="expertise-group-title">
+                        <span class="lang-element" lang="de">Management & Methoden</span>
+                        <span class="lang-element" lang="en" style="display:none;">Management & Methods</span>
+                    </h4>
+                    <div class="flex flex-wrap gap-3 text-sm">
+                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
+                            <span class="lang-element" lang="de">Führung interdisziplinärer & internationaler Teams</span>
+                            <span class="lang-element" lang="en" style="display:none;">Leadership of interdisciplinary & international teams</span>
+                        </div>
+                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
+                            <span class="lang-element" lang="de">Agile Entwicklung (Scrum, Kanban) & DevOps-Prinzipien</span>
+                            <span class="lang-element" lang="en" style="display:none;">Agile Development (Scrum, Kanban) & DevOps Principles</span>
+                        </div>
+                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
+                            <span class="lang-element" lang="de">Organisatorische Transition & Change Management (ganzheitliche Betriebsmodelle)</span>
+                            <span class="lang-element" lang="en" style="display:none;">Organizational Transition & Change Management (holistic operating models)</span>
+                        </div>
+                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
+                            <span class="lang-element" lang="de">Stakeholder Management & Anforderungsanalyse (bis Top-Management/E-Level)</span>
+                            <span class="lang-element" lang="en" style="display:none;">Stakeholder Management & Requirements Analysis (up to Top Management/E-Level)</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="expertise-group-title">
+                        <span class="lang-element" lang="de">Salesforce & CRM-Lösungen</span>
+                        <span class="lang-element" lang="en" style="display:none;">Salesforce & CRM Solutions</span>
+                    </h4>
+                    <div class="flex flex-wrap gap-3 text-sm">
+                         <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
+                            <span class="lang-element" lang="de">Salesforce Plattform: <strong>Sales, Service, Marketing, Experience & Data Cloud, Agentforce, Lightning Platform (LWC, Apex, Flows)</strong></span>
+                            <span class="lang-element" lang="en" style="display:none;">Salesforce Platform: <strong>Sales, Service, Marketing, Experience & Data Cloud, Agentforce, Lightning Platform (LWC, Apex, Flows)</strong></span>
+                        </div>
+                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
+                            <span class="lang-element" lang="de">CRM-Strategie, -Implementierung & Solution Management (Automotive: Sales, After Sales, Finance; Retail/Wholesale, Agenturmodell)</span>
+                            <span class="lang-element" lang="en" style="display:none;">CRM Strategy, Implementation & Solution Management (Automotive: Sales, After Sales, Finance; Retail/Wholesale, Agency Model)</span>
+                        </div>
+                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
+                            <span class="lang-element" lang="de">Sales Activity Management (SAM) & Point of Sale (POS) Integration</span>
+                            <span class="lang-element" lang="en" style="display:none;">Sales Activity Management (SAM) & Point of Sale (POS) Integration</span>
+                        </div>
+                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
+                            <span class="lang-element" lang="de">After Sales & Finance Prozessintegration im CRM</span>
+                            <span class="lang-element" lang="en" style="display:none;">After Sales & Finance Process Integration in CRM</span>
+                        </div>
+                    </div>
+                </div>
+                 <div>
+                    <h4 class="expertise-group-title">
+                        <span class="lang-element" lang="de">Technologie & Branchenwissen</span>
+                        <span class="lang-element" lang="en" style="display:none;">Technology & Industry Knowledge</span>
+                    </h4>
+                    <div class="flex flex-wrap gap-3 text-sm">
+                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
+                            <span class="lang-element" lang="de">Datenqualitätsmanagement & Governance</span>
+                            <span class="lang-element" lang="en" style="display:none;">Data Quality Management & Governance</span>
+                        </div>
+                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
+                            <span class="lang-element" lang="de">Lösungsarchitektur & komplexe Systemintegrationen (API-basiert, Kafka Event Streaming, Salesforce Platform Events)</span>
+                            <span class="lang-element" lang="en" style="display:none;">Solution Architecture & Complex System Integrations (API-based, Kafka Event Streaming, Salesforce Platform Events)</span>
+                        </div>
+                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
+                            <span class="lang-element" lang="de">Automotive Branchenexpertise & digitale Transformation</span>
+                            <span class="lang-element" lang="en" style="display:none;">Automotive Industry Expertise & Digital Transformation</span>
+                        </div>
+                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
+                            <span class="lang-element" lang="de">Grundlagen Finanzwesen & Bankwirtschaftslehre (Basis für Finance Use Cases)</span>
+                            <span class="lang-element" lang="en" style="display:none;">Fundamentals of Finance & Banking (Basis for Finance Use Cases)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section class="mb-12">
