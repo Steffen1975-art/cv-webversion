@@ -185,8 +185,8 @@
         /* Carousel Styling für Berufserfahrung */
         .experience-carousel-container {
             position: relative;
-            padding-left: 2.5rem; /* Platz für Prev-Button */
-            padding-right: 2.5rem; /* Platz für Next-Button */
+            padding-left: 2.5rem; 
+            padding-right: 2.5rem; 
         }
         .experience-carousel-track-container {
             overflow: hidden; 
@@ -199,7 +199,7 @@
             flex: 0 0 100%; 
             min-width: 100%; 
             box-sizing: border-box; 
-            margin: 0 0.5rem; /* Kleiner horizontaler Abstand zwischen den Karten */
+            margin: 0 0.5rem; 
         }
         .carousel-button {
             position: absolute;
@@ -500,6 +500,34 @@
                                 </strong> 
                                 <span class="lang-element" lang="de">Erfolgreiche Pilotierung/Implementierung von LMS & BDC-Strukturen international.</span>
                                 <span class="lang-element" lang="en" style="display:none;">Successful piloting/implementation of LMS & BDC structures internationally.</span>
+                            </p>
+                        </div>
+                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold job-title">
+                                <span class="lang-element" lang="de">Senior Consultant – Business Development Center (BDC) & Lead Management Systeme (LMS)</span>
+                                <span class="lang-element" lang="en" style="display:none;">Senior Consultant – Business Development Center (BDC) & Lead Management Systems (LMS)</span>
+                            </h3>
+                            <p class="text-sm text-slate-500 mb-3">
+                                <span class="lang-element" lang="de">MSX International GmbH (Für Daimler AG) | 05/2008 – 12/2010</span>
+                                <span class="lang-element" lang="en" style="display:none;">MSX International GmbH (For Daimler AG) | 05/2008 – 12/2010</span>
+                            </p>
+                            <ul class="text-sm custom-bullets mb-3 text-slate-700">
+                                <li>
+                                    <span class="lang-element" lang="de">Internationale Projektleitung & Rollout-Management für BDC- & LMS-Systeme (Fokus Europa & Übersee).</span>
+                                    <span class="lang-element" lang="en" style="display:none;">International project lead & rollout management for BDC & LMS systems (focus Europe & overseas).</span>
+                                </li>
+                                <li>
+                                    <span class="lang-element" lang="de">Strategische Beratung & Prozessoptimierung im Lead-to-Sales-Funnel.</span>
+                                    <span class="lang-element" lang="en" style="display:none;">Strategic consulting & process optimization in the lead-to-sales funnel.</span>
+                                </li>
+                            </ul>
+                            <p class="text-sm mt-3 pt-3 border-t border-slate-200">
+                                <strong class="text-blue-600 font-semibold">
+                                    <span class="lang-element" lang="de">Key Results:</span>
+                                    <span class="lang-element" lang="en" style="display:none;">Key Results:</span>
+                                </strong> 
+                                <span class="lang-element" lang="de">Erfolgreiche globale Implementierungen; Steigerung Lead Conversion & Sales Performance.</span>
+                                <span class="lang-element" lang="en" style="display:none;">Successful global implementations; increase in lead conversion & sales performance.</span>
                             </p>
                         </div>
                         <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md"> 
@@ -848,18 +876,15 @@
             });
 
             const track = document.querySelector('.experience-carousel-track');
-            if (track) { // Nur ausführen, wenn das Karussell existiert
+            if (track) { 
                 const slides = Array.from(track.children);
                 const nextButton = document.getElementById('nextExperience');
                 const prevButton = document.getElementById('prevExperience');
                 let currentIndex = 0;
                 
                 function updateCarousel() {
-                    if (slides.length > 0) { // Nur updaten, wenn Slides vorhanden sind
-                         // Die Breite des Containers, der die sichtbaren Slides hält
+                    if (slides.length > 0) { 
                         const trackContainerWidth = track.parentElement.offsetWidth;
-                        // Verschiebung basiert auf dem Index und der Breite des Containers
-                        // (da jeder Slide 100% der Containerbreite einnimmt)
                         track.style.transform = `translateX(-${currentIndex * trackContainerWidth}px)`;
                     }
                 }
@@ -875,11 +900,9 @@
                         updateCarousel();
                     });
                     
-                    // Event Listener für Resize, um die Slide-Breite anzupassen, falls nötig
-                    // (vereinfacht, da Slides 100% Breite haben, aber gut für komplexere Karussells)
                     window.addEventListener('resize', updateCarousel);
                     
-                    updateCarousel(); // Initialisiere die erste Ansicht
+                    updateCarousel(); 
                 }
             }
         }
