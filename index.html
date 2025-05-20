@@ -94,7 +94,7 @@
             height: 1rem; 
             color: #0070D2; 
         }
-        .contact-item span:hover, .language-trigger:hover { /* Added hover for language trigger */
+        .contact-item span:hover, .language-trigger:hover { 
             color: #005FB8; 
         }
 
@@ -294,22 +294,19 @@
         #language-items-wrapper {
             display: flex;
             align-items: center;
-            gap: 0.375rem; /* Tailwind gap-x-1.5 */
+            gap: 0.25rem; /* Reduced gap for closer items - Tailwind gap-x-1 */
         }
-        /* Style for language triggers to match contact item text */
         .language-trigger {
-            font-weight: normal; /* Removed font-medium */
-            color: inherit; /* Inherit color from .contact-item */
+            font-weight: normal; 
+            color: inherit; 
             cursor: pointer;
-            padding: 0.25rem; /* Tailwind p-1 */
-            border-radius: 0.25rem; /* Tailwind rounded-md */
-            /* Removed text-blue-600 and hover:text-blue-800 */
+            padding: 0.25rem; 
+            border-radius: 0.25rem; 
         }
         .language-trigger:hover {
-            color: #005FB8; /* Specific hover for language triggers */
-            background-color: #e0f2fe; /* Light blue background on hover for better feedback */
+            color: #005FB8; 
+            background-color: #e0f2fe; 
         }
-
 
     </style>
 </head>
@@ -357,8 +354,8 @@
                         <span>+49 176 105 197 03</span>
                     </p>
                     <div id="language-container" class="contact-item text-sm">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 text-blue-600"> <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.002 6.002 0 0111.336 0H4.332zm.007 1.946a6.002 6.002 0 0111.322-.003H4.34zm.354 2.027a4.001 4.001 0 017.304 0H4.693zM10 2a.75.75 0 01.75.75v14.5a.75.75 0 01-1.5 0V2.75A.75.75 0 0110 2z" clip-rule="evenodd" />
-                           <path d="M2.264 7.63a.75.75 0 010-1.262l1.264-.73A8.003 8.003 0 0110 4.5c1.384 0 2.69.352 3.838.973l1.263.73a.75.75 0 010 1.263l-1.264.73A8.003 8.003 0 0110 10.5c-1.384 0-2.69-.352-3.838-.973l-1.263-.73zM10 6a4.502 4.502 0 00-3.249.997l-.948.547a4.502 4.502 0 000 4.912l.948.547A4.502 4.502 0 0010 14a4.502 4.502 0 003.249-.997l.948-.547a4.502 4.502 0 000-4.912l-.948-.547A4.502 4.502 0 0010 6z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 text-blue-600">
+                           <path fill-rule="evenodd" d="M9.25 1.75a.75.75 0 00-1.5 0V2A.75.75 0 009.25.75zM10 2a.75.75 0 01.75-.75.75.75 0 01.75.75v.205c.087.029.179.045.273.045A.75.75 0 0012.5 2V1.75a.75.75 0 00-1.5 0v.638a2.233 2.233 0 01-.5.09V2a.75.75 0 01.75-.75zM10 18a8 8 0 100-16 8 8 0 000 16zM2.032 7.84A6.5 6.5 0 0110 3.5c2.242 0 4.235.9 5.693 2.36l.002.002.002.002a.75.75 0 00.998-1.116l-.002-.002-.002-.002A7.996 7.996 0 0010 2C5.98 2 2.49 4.715 2.032 7.84zm15.936 4.32a6.503 6.503 0 01-13.936 0h13.936zM2.032 12.16A6.5 6.5 0 0110 16.5c2.242 0 4.235-.9 5.693-2.36l.002-.002.002-.002a.75.75 0 00-.998-1.116l-.002.002-.002.002A7.996 7.996 0 0010 18c-4.02 0-7.51-2.715-7.968-5.84z" clip-rule="evenodd" />
                         </svg>
                         <div id="language-items-wrapper"> 
                             <div class="language-item relative">
