@@ -110,7 +110,7 @@
         }
 
         /* Flip Card Styling (wird für Werte und Persönliche Einblicke verwendet) */
-        .card-grid { /* Umbenannt von .values-grid für generischere Verwendung */
+        .card-grid { 
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive Grid */
             gap: 1.5rem; /* Abstand zwischen den Karten */
@@ -204,7 +204,7 @@
             .section-break-avoid { page-break-before: avoid; } 
             .section-break-always { page-break-before: always; } 
             
-            .berufserfahrung-item, .fortbildung-item, .sprachen-item, .interessen-item, .ausbildung-item, .hochschulbildung-item, .werte-item, .persoenliche-einblicke-item {
+            .berufserfahrung-item, .fortbildung-item, .sprachen-item, .ausbildung-item, .hochschulbildung-item, .werte-item, .persoenliche-einblicke-item { /* .interessen-item entfernt, da es durch persoenliche-einblicke-item ersetzt wird */
                 page-break-inside: avoid;
             }
             .core-competencies-container { 
@@ -228,7 +228,7 @@
             .flip-card-back {
                 display: none !important; 
             }
-            .card-grid { /* Gilt für .values-grid und .insights-grid im Druck */
+            .card-grid { 
                 grid-template-columns: repeat(2, 1fr); 
             }
         }
@@ -770,7 +770,8 @@
             </div>
         </section>
 
-        <section class="mb-6 persoenliche-einblicke-item section-break-avoid"> <h2 class="section-title">
+        <section class="mb-6 persoenliche-einblicke-item section-break-avoid"> 
+            <h2 class="section-title">
                 <span class="lang-element" lang="de">PERSÖNLICHE EINBLICKE</span>
                 <span class="lang-element" lang="en" style="display:none;">PERSONAL INSIGHTS</span>
             </h2>
@@ -820,28 +821,6 @@
                     </div>
                 </div>
             </div>
-        </section>
-
-
-        <section class="mb-6">
-            <h2 class="section-title">
-                <span class="lang-element" lang="de">INTERESSEN & ENGAGEMENT</span>
-                <span class="lang-element" lang="en" style="display:none;">INTERESTS & ENGAGEMENT</span>
-            </h2>
-            <ul class="text-sm custom-bullets interessen-item">
-                <li>
-                    <span class="lang-element" lang="de"><strong>Familie & Sport:</strong> Ausgleich durch gemeinsame Aktivitäten mit Familie (4 Kinder), Laufen, Fitness, Skifahren.</span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong>Family & Sports:</strong> Balance through joint activities with family (4 children), running, fitness, skiing.</span>
-                </li>
-                <li>
-                    <span class="lang-element" lang="de"><strong>Digitale Innovation, IoT & KI:</strong> Langjährige Faszination; private Pilotierung von Anwendungsfällen (Smart Home, KI-Tools) zur Horizonterweiterung und Inspiration. (Selbsternannter Google Super Fan 😉)</span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong>Digital Innovation, IoT & AI:</strong> Long-standing fascination; private piloting of use cases (Smart Home, AI tools) for horizon expansion and inspiration. (Self-proclaimed Google Super Fan 😉)</span>
-                </li>
-                <li>
-                    <span class="lang-element" lang="de"><strong>Weitere Hobbys:</strong> Wandern, Tanzen, Smartphone-Fotografie</span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong>Other Hobbies:</strong> Hiking, Dancing, Smartphone Photography</span>
-                </li>
-            </ul>
         </section>
 
         <footer class="pt-6 mt-6"> <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
