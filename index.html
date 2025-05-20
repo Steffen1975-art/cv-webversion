@@ -9,8 +9,8 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6; 
-            color: #374151; 
+            background-color: #f3f4f6; /* Tailwind bg-slate-100 */
+            color: #374151; /* Tailwind text-slate-700 */
             line-height: 1.7; 
         }
 
@@ -19,44 +19,52 @@
             margin: 2rem auto;
             padding: 2rem; 
             background-color: white;
-            border-radius: 0.75rem; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+            border-radius: 0.75rem; /* Tailwind rounded-xl */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Tailwind shadow-xl */
         }
 
         h1.main-name { 
-            color: #0070D2; 
-            font-weight: 600; 
+            color: #0070D2; /* Custom Blue */
+            font-weight: 600; /* Tailwind font-semibold */
         }
         
         h2.section-main-title { 
-            color: #001639; 
-            font-weight: 600; 
-            border-bottom: 2px solid #0070D2; 
+            color: #001639; /* Custom Dark Blue */
+            font-weight: 600; /* Tailwind font-semibold */
+            border-bottom: 2px solid #0070D2; /* Custom Blue */
             padding-bottom: 0.5rem;
             margin-bottom: 1.5rem; 
-            font-size: 1.5rem; 
+            font-size: 1.5rem; /* Tailwind text-2xl */
         }
 
-        h3.job-title, h3.education-section-title {
-            color: #001639; 
-            font-weight: 600;
-            font-size: 1.125rem; /* Tailwind 'text-lg' */
+        h3.job-title, h3.education-section-title { /* Combined for consistency */
+            color: #001639; /* Custom Dark Blue */
+            font-weight: 600; /* Tailwind font-semibold */
+            font-size: 1.125rem; /* Tailwind text-lg */
         }
         
         h4.profile-block-title { 
-            color: #001639;
-            font-weight: 600;
+            color: #001639; /* Custom Dark Blue */
+            font-weight: 600; /* Tailwind font-semibold */
             font-size: 1.1rem; 
             margin-bottom: 0.35rem; 
         }
         
+        /* Added a more generic title style for profile blocks, can be used for profile-block-title-variant-a */
+        .profile-block-title-variant-a { /* Renamed from h4.profile-block-title-variant-a for clarity */
+            color: #001639; /* Custom Dark Blue */
+            font-weight: 600; /* Tailwind font-semibold */
+            font-size: 1.1rem; 
+            margin-bottom: 0.35rem;
+        }
+
         h4.expertise-group-title {
-            color: #001639;
-            font-weight: 600;
+            color: #001639; /* Custom Dark Blue */
+            font-weight: 600; /* Tailwind font-semibold */
             font-size: 1.05rem; 
             margin-bottom: 0.75rem;
             padding-bottom: 0.25rem;
-            border-bottom: 1px solid #cbd5e1; 
+            border-bottom: 1px solid #cbd5e1; /* Tailwind border-slate-300 */
         }
 
         ul.custom-bullets > li {
@@ -67,7 +75,7 @@
 
         ul.custom-bullets > li::before { 
             content: "•"; 
-            color: #0070D2; 
+            color: #0070D2; /* Custom Blue */
             font-weight: bold;
             position: absolute;
             left: 0.5em; 
@@ -78,18 +86,18 @@
             display: flex;
             align-items: center;
             margin-bottom: 0.25rem; 
-            color: #6b7280; 
-            font-size: 0.875rem; 
+            color: #6b7280; /* Tailwind text-slate-500 */
+            font-size: 0.875rem; /* Tailwind text-sm */
         }
         .contact-item svg {
             margin-right: 0.5rem; 
             flex-shrink: 0;
-            width: 1rem; 
-            height: 1rem; 
-            color: #0070D2; 
+            width: 1rem; /* Tailwind w-4 */
+            height: 1rem; /* Tailwind h-4 */
+            color: #0070D2; /* Custom Blue */
         }
-        .contact-item span:hover {
-            color: #005FB8;
+        .contact-item span:hover { /* Applied to span for better specificity */
+            color: #005FB8; /* Darker Custom Blue on hover */
         }
 
         .lang-button-container {
@@ -100,12 +108,12 @@
         }
 
         .action-button {
-            background-color: #0070D2; 
+            background-color: #0070D2; /* Custom Blue */
             color: white;
-            font-weight: 600; 
+            font-weight: 600; /* Tailwind font-semibold */
             padding: 0.6rem 1.2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 0.5rem; /* Tailwind rounded-lg */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Tailwind shadow-md */
             transition: background-color 0.2s ease-in-out, transform 0.1s ease;
             display: flex;
             align-items: center;
@@ -115,7 +123,7 @@
             cursor: pointer;
         }
         .action-button:hover {
-            background-color: #005FB8; 
+            background-color: #005FB8; /* Darker Custom Blue */
             transform: translateY(-1px); 
         }
 
@@ -142,18 +150,18 @@
             text-align: center;
             transition: transform 0.8s; 
             transform-style: preserve-3d;
-            border-radius: 0.75rem; 
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1); 
+            border-radius: 0.75rem; /* Tailwind rounded-xl */
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1); /* Tailwind shadow-lg */
         }
 
         .flip-card:hover .flip-card-inner { 
-             transform: scale(1.02) rotateY(var(--tw-rotate-y, 0deg)); 
+             transform: scale(1.02) rotateY(var(--tw-rotate-y, 0deg)); /* Keep Y rotation for non-flipped state */
         }
         .flip-card.is-flipped .flip-card-inner {
-            transform: scale(1.02) rotateY(180deg);
+            transform: scale(1.02) rotateY(180deg); /* Maintain scale on flip */
         }
          .flip-card.is-flipped:hover .flip-card-inner {
-            transform: scale(1.05) rotateY(180deg); 
+            transform: scale(1.05) rotateY(180deg); /* Slightly larger scale on hover when flipped */
         }
 
 
@@ -164,34 +172,34 @@
             height: 100%;
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
-            border-radius: 0.75rem;
+            border-radius: 0.75rem; /* Tailwind rounded-xl */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 1.25rem; 
+            padding: 1.25rem; /* Tailwind p-5 */
         }
 
         .flip-card-front {
-            background-color: #f8f9fa; 
-            color: #333;
+            background-color: #f8f9fa; /* Light gray, similar to Tailwind bg-slate-50 */
+            color: #333; /* Dark gray text */
         }
-        .flip-card-front img {
+        .flip-card-front img { /* Ensure image fits well */
             max-width: 75%;
             max-height: 75%;
             object-fit: contain; 
         }
 
         .flip-card-back {
-            background-color: #0070D2; 
+            background-color: #0070D2; /* Custom Blue */
             color: white;
             transform: rotateY(180deg);
         }
         .flip-card-back h4 {
             font-size: 1.2rem; 
-            font-weight: 600;
+            font-weight: 600; /* Tailwind font-semibold */
             margin-bottom: 0.75rem;
-            color: white;
+            color: white; /* Ensure text is white */
         }
         .flip-card-back p {
             font-size: 0.9rem;
@@ -199,21 +207,21 @@
         
         .competency-tag { 
             transition: all 0.2s ease-in-out;
-            background-color: #e0f2fe; 
-            color: #0c4a6e; 
-            font-weight: 500; 
+            background-color: #e0f2fe; /* Tailwind sky-100 */
+            color: #0c4a6e; /* Tailwind sky-800 */
+            font-weight: 500; /* Tailwind font-medium */
         }
         .competency-tag:hover {
             transform: translateY(-2px);
-            background-color: #bae6fd; 
-            box-shadow: 0 4px 8px rgba(0, 112, 210, 0.2); 
+            background-color: #bae6fd; /* Tailwind sky-200 */
+            box-shadow: 0 4px 8px rgba(0, 112, 210, 0.2); /* Custom shadow with blue tint */
         }
         .competency-tag strong { 
-            font-weight: 600;
-            color: #075985; 
+            font-weight: 600; /* Tailwind font-semibold */
+            color: #075985; /* Tailwind sky-900 */
         }
 
-        /* Carousel Styling für Berufserfahrung */
+        /* Carousel Styling for Professional Experience */
         .experience-carousel-container {
             position: relative;
         }
@@ -229,23 +237,24 @@
             flex: 0 0 100%; 
             min-width: 100%; 
             box-sizing: border-box; 
-            padding: 1.5rem; 
+            padding: 1.5rem; /* Tailwind p-6 */
+            /* background-color, rounded-lg, shadow-md are applied directly in HTML */
         }
         .carousel-button {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(0, 112, 210, 0.7); 
+            background-color: rgba(0, 112, 210, 0.7); /* Custom Blue with transparency */
             color: white;
             border: none;
-            padding: 0.75rem;
+            padding: 0.75rem; /* Tailwind p-3 */
             border-radius: 50%;
             cursor: pointer;
             z-index: 10;
             transition: background-color 0.2s ease;
         }
         .carousel-button:hover {
-            background-color: #005FB8; 
+            background-color: #005FB8; /* Darker Custom Blue */
         }
         .carousel-button.prev {
             left: -1rem; 
@@ -254,27 +263,32 @@
             right: -1rem; 
         }
         .carousel-button svg {
-            width: 1.5rem;
-            height: 1.5rem;
+            width: 1.5rem; /* Tailwind w-6 */
+            height: 1.5rem; /* Tailwind h-6 */
         }
         
         .web-footer {
             text-align: center;
             padding: 2rem 1rem;
-            font-size: 0.875rem;
-            color: #6b7280;
-            border-top: 1px solid #e5e7eb;
+            font-size: 0.875rem; /* Tailwind text-sm */
+            color: #6b7280; /* Tailwind text-slate-500 */
+            border-top: 1px solid #e5e7eb; /* Tailwind border-slate-200 */
             margin-top: 3rem;
+        }
+
+        /* Added specific styling for education titles to match job titles */
+        h3.education-title {
+             color: #001639; /* Custom Dark Blue */
+            font-weight: 600; /* Tailwind font-semibold */
+            font-size: 1.125rem; /* Tailwind text-lg */
         }
 
     </style>
 </head>
-<body class="bg-slate-100">
-
-    <div class="lang-button-container">
+<body class="bg-slate-100"> <div class="lang-button-container">
         <button id="toggleLangButton" onclick="toggleLanguage()" class="action-button">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C13.18 7.061 14.289 7.5 15.5 7.5c1.21 0 2.32-.439 3.166-1.136M15.5 7.5V3m-3.334 2.364c1.12 0 2.233.038 3.334.114m-6.002 0l.15-.04a28.456 28.456 0 00-2.634-2.13M9 15.188c1.12 0 2.233-.038 3.334-.114M12.334 15.074c.527-.07.99-.144 1.437-.226M12.334 15.074V18m2.166-2.724c.527.07.99.144 1.437.226m0 0c1.12.076 2.233.15 3.334.226m-6.333 0l-.15.04a28.456 28.456 0 01-2.634 2.13M12.334 18V15.074" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C13.18 7.061 14.289 7.5 15.5 7.5c1.21 0 2.32-.439 3.166-1.136M15.5 7.5V3m-3.334 2.364c1.12 0 2.233.038 3.334.114m-6.002 0l.15-.04a28.456 28.456 0 00-2.634-2.13M9 15.188c1.12 0 2.233-.038 3.334-.114M12.334 15.074c.527-.07.99-.144 1.437-.226M12.334 15.074V18m2.166-2.724c.527.07.99.144 1.437.226m0 0c1.12.076 2.233.15 3.334.226m-6.333 0l-.15.04a28.456 28.456 0 01-2.634 2.13M12.334 18V15.074" />
             </svg>
             <span class="lang-element" lang="de">English</span>
             <span class="lang-element" lang="en" style="display:none;">Deutsch</span>
@@ -284,7 +298,10 @@
     <div class="web-resume-container">
 
         <header class="flex flex-col md:flex-row items-center mb-12 md:mb-16 pb-8 border-b border-slate-200">
-            <img src="2022-04-22-Steffen-Koller-0749-square.jpg" alt="Steffen Koller" class="w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover mb-6 md:mb-0 md:mr-10 flex-shrink-0 shadow-lg">
+            <img src="https://placehold.co/192x192/0070D2/FFFFFF?text=SK" 
+                 alt="Steffen Koller" 
+                 onerror="this.onerror=null; this.src='https://placehold.co/192x192/E2E8F0/475569?text=Bild+fehlt';"
+                 class="w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover mb-6 md:mb-0 md:mr-10 flex-shrink-0 shadow-lg">
             <div class="flex-1 text-center md:text-left">
                 <h1 class="text-4xl sm:text-5xl font-medium main-name">Steffen Koller</h1> 
                 <p class="text-xl sm:text-2xl text-slate-700 mt-2">
@@ -300,8 +317,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z" /><path d="M19 8.839 10.772 13.16a3.25 3.25 0 0 1-3.544 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z" /></svg>
                         <span>steffen.s.koller@gmail.com</span>
                     </a>
-                    <p class="contact-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" /></svg>
+                    <p class="contact-item"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" /></svg>
                         <span>+49 176 105 197 03</span>
                     </p>
                 </div>
@@ -504,7 +520,7 @@
                                 <span class="lang-element" lang="en" style="display:none;">Successful enablement of OCRM France; ensured data availability.</span>
                             </p>
                         </div>
-                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md">
+                         <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md">
                             <h3 class="text-xl font-semibold job-title">
                                 <span class="lang-element" lang="de">Business Architekt – Fachdesign und Spezifikation Retail Systeme</span>
                                 <span class="lang-element" lang="en" style="display:none;">Business Architect – Functional Design and Specification Retail Systems</span>
@@ -650,8 +666,7 @@
                     <span class="lang-element" lang="en" style="display:none;">UNIVERSITY EDUCATION</span>
                 </h2>
                 <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md"> 
-                    <h3 class="text-lg font-semibold education-title">
-                        <span class="lang-element" lang="de">Studium „Betriebswirtschaftslehre“</span>
+                    <h3 class="text-lg font-semibold education-title"> <span class="lang-element" lang="de">Studium „Betriebswirtschaftslehre“</span>
                         <span class="lang-element" lang="en" style="display:none;">Studies in "Business Administration"</span>
                     </h3>
                     <p class="text-sm text-slate-500 mb-2">
@@ -674,8 +689,7 @@
                     <span class="lang-element" lang="en" style="display:none;">VOCATIONAL TRAINING</span>
                 </h2>
                 <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md"> 
-                     <h3 class="text-lg font-semibold education-title">
-                        <span class="lang-element" lang="de">Finanzassistent / Bankkaufmann (IHK)</span>
+                     <h3 class="text-lg font-semibold education-title"> <span class="lang-element" lang="de">Finanzassistent / Bankkaufmann (IHK)</span>
                         <span class="lang-element" lang="en" style="display:none;">Financial Assistant / Bank Clerk (IHK)</span>
                     </h3>
                     <p class="text-sm text-slate-500 mb-2">
@@ -699,7 +713,7 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="https://placehold.co/200x200/0070D2/FFFFFF?text=Trust" alt="Platzhalterbild Vertrauen">
+                            <img src="https://placehold.co/200x200/0070D2/FFFFFF?text=Trust" alt="Vertrauen Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
                         </div>
                         <div class="flip-card-back">
                             <h4><span class="lang-element" lang="de">Vertrauen / Zuverlässigkeit</span><span class="lang-element" lang="en" style="display:none;">Trust / Reliability</span></h4>
@@ -710,7 +724,7 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="https://placehold.co/200x200/00A1E0/FFFFFF?text=Commitment" alt="Platzhalterbild Engagement">
+                            <img src="https://placehold.co/200x200/00A1E0/FFFFFF?text=Commitment" alt="Engagement Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
                         </div>
                         <div class="flip-card-back">
                             <h4><span class="lang-element" lang="de">Begeisterung / Engagement</span><span class="lang-element" lang="en" style="display:none;">Enthusiasm / Commitment</span></h4>
@@ -721,7 +735,7 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                             <img src="https://placehold.co/200x200/001639/FFFFFF?text=Responsibility" alt="Platzhalterbild Verantwortung">
+                             <img src="https://placehold.co/200x200/001639/FFFFFF?text=Responsibility" alt="Verantwortung Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
                         </div>
                         <div class="flip-card-back">
                             <h4><span class="lang-element" lang="de">Eigenverantwortung / Motivation</span><span class="lang-element" lang="en" style="display:none;">Personal Responsibility / Motivation</span></h4>
@@ -732,7 +746,7 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="https://placehold.co/200x200/4B5563/FFFFFF?text=Openness" alt="Platzhalterbild Offenheit">
+                            <img src="https://placehold.co/200x200/4B5563/FFFFFF?text=Openness" alt="Offenheit Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
                         </div>
                         <div class="flip-card-back">
                             <h4><span class="lang-element" lang="de">Offenheit / Ehrlichkeit / Direktheit</span><span class="lang-element" lang="en" style="display:none;">Openness / Honesty / Directness</span></h4>
@@ -752,7 +766,7 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="https://placehold.co/200x200/0070D2/FFFFFF?text=Familie" alt="Platzhalterbild Familie">
+                            <img src="https://placehold.co/200x200/0070D2/FFFFFF?text=Familie" alt="Familie Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
                         </div>
                         <div class="flip-card-back">
                             <h4><span class="lang-element" lang="de">Familie</span><span class="lang-element" lang="en" style="display:none;">Family</span></h4>
@@ -763,7 +777,7 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="https://placehold.co/200x200/00A1E0/FFFFFF?text=Sport" alt="Platzhalterbild Sport">
+                            <img src="https://placehold.co/200x200/00A1E0/FFFFFF?text=Sport" alt="Sport Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
                         </div>
                         <div class="flip-card-back">
                             <h4><span class="lang-element" lang="de">Sport</span><span class="lang-element" lang="en" style="display:none;">Sports</span></h4>
@@ -774,7 +788,7 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                             <img src="https://placehold.co/200x200/001639/FFFFFF?text=Tech" alt="Platzhalterbild Digitale Passion">
+                             <img src="https://placehold.co/200x200/001639/FFFFFF?text=Tech" alt="Digitale Passion Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
                         </div>
                         <div class="flip-card-back">
                             <h4><span class="lang-element" lang="de">Digitale Passion</span><span class="lang-element" lang="en" style="display:none;">Digital Passion</span></h4>
@@ -785,7 +799,7 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="https://placehold.co/200x200/4B5563/FFFFFF?text=Natur" alt="Platzhalterbild Wandern">
+                            <img src="https://placehold.co/200x200/4B5563/FFFFFF?text=Natur" alt="Wandern Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
                         </div>
                         <div class="flip-card-back">
                             <h4><span class="lang-element" lang="de">Wandern</span><span class="lang-element" lang="en" style="display:none;">Hiking</span></h4>
@@ -882,8 +896,7 @@
                 <span class="lang-element" lang="de">FORTBILDUNG (Auswahl)</span>
                 <span class="lang-element" lang="en" style="display:none;">FURTHER EDUCATION (Selection)</span>
             </h2>
-            <ul class="text-sm custom-bullets fortbildung-item text-slate-700">
-                <li>
+            <ul class="text-sm custom-bullets fortbildung-item text-slate-700"> <li>
                     <span class="lang-element" lang="de">SCRUM Product Owner (Daimler Corporate Academy)</span>
                     <span class="lang-element" lang="en" style="display:none;">SCRUM Product Owner (Daimler Corporate Academy)</span>
                 </li>
@@ -907,8 +920,7 @@
                 <span class="lang-element" lang="de">SPRACHEN</span>
                 <span class="lang-element" lang="en" style="display:none;">LANGUAGES</span>
             </h2>
-            <ul class="text-sm custom-bullets sprachen-item text-slate-700">
-                <li>
+            <ul class="text-sm custom-bullets sprachen-item text-slate-700"> <li>
                     <span class="lang-element" lang="de">Deutsch: Muttersprache</span>
                     <span class="lang-element" lang="en" style="display:none;">German: Native speaker</span>
                 </li>
@@ -935,6 +947,7 @@
     <script>
         let currentLang = 'de'; 
 
+        // Function to toggle language
         function toggleLanguage() {
             const newLang = currentLang === 'de' ? 'en' : 'de';
             const elementsToToggle = document.querySelectorAll('.lang-element');
@@ -947,6 +960,7 @@
                 }
             });
             
+            // Update document language and title
             document.documentElement.lang = newLang;
             if (newLang === 'de') {
                 document.title = 'Lebenslauf - Steffen Koller';
@@ -956,8 +970,9 @@
             currentLang = newLang; 
         }
 
+        // Function to initialize the page
         function initializePage() {
-            currentLang = 'de'; 
+            currentLang = 'de'; // Default language
             const elements = document.querySelectorAll('.lang-element');
             elements.forEach(el => {
                 if (el.getAttribute('lang') === 'de') {
@@ -969,14 +984,20 @@
             document.documentElement.lang = 'de';
             document.title = 'Lebenslauf - Steffen Koller';
 
-            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            // Set current year in footer
+            const currentYearSpan = document.getElementById('currentYear');
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
+            }
 
+            // Initialize flip cards
             document.querySelectorAll('.flip-card').forEach(card => {
                 card.addEventListener('click', () => {
                     card.classList.toggle('is-flipped');
                 });
             });
 
+            // Initialize experience carousel
             const track = document.querySelector('.experience-carousel-track');
             if (track) { 
                 const slides = Array.from(track.children);
@@ -1001,13 +1022,19 @@
                         updateCarousel();
                     });
                     
+                    // Optional: Add resize listener if layout changes significantly
                     window.addEventListener('resize', updateCarousel); 
                     
-                    updateCarousel(); 
+                    updateCarousel(); // Initial setup
+                } else {
+                    // Hide buttons if no slides or buttons not found
+                    if(prevButton) prevButton.style.display = 'none';
+                    if(nextButton) nextButton.style.display = 'none';
                 }
             }
         }
 
+        // Initialize the page on DOMContentLoaded
         document.addEventListener('DOMContentLoaded', initializePage);
     </script>
 
