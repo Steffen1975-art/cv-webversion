@@ -219,11 +219,10 @@
             transition: transform 0.5s ease-in-out; 
         }
         .job-experience-card { 
-            flex: 0 0 100%; /* Jede Karte nimmt 100% der Breite des Track-Containers ein */
-            min-width: 100%; /* Verhindert Schrumpfen bei %-basierter Verschiebung */
+            flex: 0 0 100%; 
+            min-width: 100%; 
             box-sizing: border-box; 
-            padding: 1.5rem; /* Inneres Padding der Karte */
-            /* margin: 0 0.5rem; entfernt, da dies die 100%-Berechnung stört */
+            padding: 1.5rem; 
         }
         .carousel-button {
             position: absolute;
@@ -594,12 +593,11 @@
         </section>
 
         <section class="mb-12 grid md:grid-cols-2 gap-8">
-            <div class="hochschulbildung-item">
-                <h2 class="section-main-title">
+            <div class="hochschulbildung-item bg-slate-50 p-6 rounded-lg shadow-md"> <h2 class="section-main-title">
                     <span class="lang-element" lang="de">HOCHSCHULBILDUNG</span>
                     <span class="lang-element" lang="en" style="display:none;">UNIVERSITY EDUCATION</span>
                 </h2>
-                <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md h-full"> 
+                <div class="text-sm">
                     <h3 class="text-lg font-semibold education-title">
                         <span class="lang-element" lang="de">Studium „Betriebswirtschaftslehre“</span>
                         <span class="lang-element" lang="en" style="display:none;">Studies in "Business Administration"</span>
@@ -618,12 +616,11 @@
                     </p>
                 </div>
             </div>
-            <div class="ausbildung-item">
-                <h2 class="section-main-title">
+            <div class="ausbildung-item bg-slate-50 p-6 rounded-lg shadow-md"> <h2 class="section-main-title">
                     <span class="lang-element" lang="de">AUSBILDUNG</span>
                     <span class="lang-element" lang="en" style="display:none;">VOCATIONAL TRAINING</span>
                 </h2>
-                <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md h-full"> 
+                <div class="text-sm"> 
                      <h3 class="text-lg font-semibold education-title">
                         <span class="lang-element" lang="de">Finanzassistent / Bankkaufmann (IHK)</span>
                         <span class="lang-element" lang="en" style="display:none;">Financial Assistant / Bank Clerk (IHK)</span>
