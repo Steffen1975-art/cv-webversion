@@ -37,7 +37,7 @@
             font-size: 1.5rem; 
         }
 
-        h3.job-title, h3.education-section-title {
+        h3.job-title, h3.education-section-title { /* education-section-title statt section-subtitle für Konsistenz */
             color: #001639; 
             font-weight: 600;
             font-size: 1.125rem; /* Tailwind 'text-lg' */
@@ -593,11 +593,12 @@
         </section>
 
         <section class="mb-12 grid md:grid-cols-2 gap-8">
-            <div class="hochschulbildung-item bg-slate-50 p-6 rounded-lg shadow-md"> <h2 class="section-main-title">
+            <div class="hochschulbildung-item"> 
+                <h2 class="section-main-title">
                     <span class="lang-element" lang="de">HOCHSCHULBILDUNG</span>
                     <span class="lang-element" lang="en" style="display:none;">UNIVERSITY EDUCATION</span>
                 </h2>
-                <div class="text-sm">
+                <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md"> 
                     <h3 class="text-lg font-semibold education-title">
                         <span class="lang-element" lang="de">Studium „Betriebswirtschaftslehre“</span>
                         <span class="lang-element" lang="en" style="display:none;">Studies in "Business Administration"</span>
@@ -616,11 +617,12 @@
                     </p>
                 </div>
             </div>
-            <div class="ausbildung-item bg-slate-50 p-6 rounded-lg shadow-md"> <h2 class="section-main-title">
+            <div class="ausbildung-item"> 
+                <h2 class="section-main-title">
                     <span class="lang-element" lang="de">AUSBILDUNG</span>
                     <span class="lang-element" lang="en" style="display:none;">VOCATIONAL TRAINING</span>
                 </h2>
-                <div class="text-sm"> 
+                <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md"> 
                      <h3 class="text-lg font-semibold education-title">
                         <span class="lang-element" lang="de">Finanzassistent / Bankkaufmann (IHK)</span>
                         <span class="lang-element" lang="en" style="display:none;">Financial Assistant / Bank Clerk (IHK)</span>
