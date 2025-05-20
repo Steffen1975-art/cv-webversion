@@ -9,8 +9,8 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6; /* Heller Hintergrund für die gesamte Seite */
-            color: #374151; /* Standard Textfarbe */
+            background-color: #f3f4f6; 
+            color: #374151; 
             line-height: 1.7; 
         }
 
@@ -37,7 +37,7 @@
             font-size: 1.5rem; 
         }
 
-        h3.job-title, h3.education-section-title { /* Einheitlicher Stil für Jobtitel und Bildungstitel */
+        h3.job-title, h3.education-section-title {
             color: #001639; 
             font-weight: 600;
             font-size: 1.125rem; /* Tailwind 'text-lg' */
@@ -46,12 +46,11 @@
         h4.expertise-group-title {
             color: #001639;
             font-weight: 600;
-            font-size: 1.05rem; /* Etwas kleiner als Jobtitel */
+            font-size: 1.05rem; 
             margin-bottom: 0.75rem;
             padding-bottom: 0.25rem;
-            border-bottom: 1px solid #cbd5e1; /* Dezentere Linie für Expertise-Gruppen */
+            border-bottom: 1px solid #cbd5e1; 
         }
-
 
         ul.custom-bullets > li {
             padding-left: 1.75em; 
@@ -71,9 +70,9 @@
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 0.25rem; /* Weniger Abstand bei Kontaktdaten im Header */
-            color: #6b7280; /* Etwas helleres Grau für Subtilität */
-            font-size: 0.875rem; /* Kleiner für Kontaktdaten */
+            margin-bottom: 0.25rem; 
+            color: #6b7280; 
+            font-size: 0.875rem; 
         }
         .contact-item svg {
             margin-right: 0.5rem; 
@@ -150,7 +149,6 @@
             transform: scale(1.05) rotateY(180deg); 
         }
 
-
         .flip-card-front,
         .flip-card-back {
             position: absolute;
@@ -191,28 +189,26 @@
             font-size: 0.9rem;
         }
         
-        .competency-tag { /* Gilt für Kernkompetenzen und Expertise-Tags */
+        .competency-tag { 
             transition: all 0.2s ease-in-out;
-            background-color: #e0f2fe; /* Helleres Sky-Blau für Tags */
-            color: #0c4a6e; /* Dunkleres Sky-Blau für Text */
-            font-weight: 500; /* Medium Schriftstärke für Tags */
+            background-color: #e0f2fe; 
+            color: #0c4a6e; 
+            font-weight: 500; 
         }
         .competency-tag:hover {
             transform: translateY(-2px);
-            background-color: #bae6fd; /* Etwas dunkler beim Hover */
+            background-color: #bae6fd; 
             box-shadow: 0 4px 8px rgba(0, 112, 210, 0.2); 
         }
-        .competency-tag strong { /* Für Hervorhebungen innerhalb der Tags */
+        .competency-tag strong { 
             font-weight: 600;
-            color: #075985; /* Noch dunkleres Sky-Blau */
+            color: #075985; 
         }
-
 
         /* Carousel Styling für Berufserfahrung */
         .experience-carousel-container {
             position: relative;
-            padding-left: 2.5rem; 
-            padding-right: 2.5rem; 
+            /* Padding für Buttons wird direkt an den Buttons gehandhabt oder durch den Container-Padding */
         }
         .experience-carousel-track-container {
             overflow: hidden; 
@@ -225,7 +221,8 @@
             flex: 0 0 100%; 
             min-width: 100%; 
             box-sizing: border-box; 
-            margin: 0 0.5rem; 
+            /* margin: 0 0.5rem; entfernt für präzisere 100% Breite */
+            padding: 1.5rem; /* Padding innerhalb der Karte für Inhalt */
         }
         .carousel-button {
             position: absolute;
@@ -244,10 +241,10 @@
             background-color: #005FB8; 
         }
         .carousel-button.prev {
-            left: 0px; 
+            left: -1rem; /* Leicht außerhalb des Haupt-Paddings des Containers */
         }
         .carousel-button.next {
-            right: 0px; 
+            right: -1rem; /* Leicht außerhalb des Haupt-Paddings des Containers */
         }
         .carousel-button svg {
             width: 1.5rem;
@@ -330,28 +327,28 @@
             </h2>
             <div class="flex flex-wrap gap-3 text-sm">
                 <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                    <span class="lang-element" lang="de"><strong>Salesforce Platform Leadership:</strong> Sales, Service, Marketing, Experience & Data Cloud</span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong>Salesforce Platform Leadership:</strong> Sales, Service, Marketing, Experience & Data Cloud</span>
+                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">Salesforce Platform Leadership:</strong> Sales, Service, Marketing, Experience & Data Cloud</span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">Salesforce Platform Leadership:</strong> Sales, Service, Marketing, Experience & Data Cloud</span>
                 </div>
                 <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                    <span class="lang-element" lang="de"><strong>Automotive CRM & Digitale Transformation:</strong> Sales, After Sales, Finance Use Cases</span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong>Automotive CRM & Digital Transformation:</strong> Sales, After Sales, Finance Use Cases</span>
+                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">Automotive CRM & Digitale Transformation:</strong> Sales, After Sales, Finance Use Cases</span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">Automotive CRM & Digital Transformation:</strong> Sales, After Sales, Finance Use Cases</span>
                 </div>
                 <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                    <span class="lang-element" lang="de"><strong>Lösungsarchitektur & Solution Management:</strong> Agenturmodell, SAM, POS-Integration</span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong>Solution Architecture & Solution Management:</strong> Agency Model, SAM, POS Integration</span>
+                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">Lösungsarchitektur & Solution Management:</strong> Agenturmodell, SAM, POS-Integration</span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">Solution Architecture & Solution Management:</strong> Agency Model, SAM, POS Integration</span>
                 </div>
                 <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                    <span class="lang-element" lang="de"><strong>Agile Program & Transition Management:</strong> Effizienzsteigerung (ca. 40% in Transition)</span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong>Agile Program & Transition Management:</strong> Efficiency Increase (approx. 40% in Transition)</span>
+                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">Agile Program & Transition Management:</strong> Effizienzsteigerung (ca. 40% in Transition)</span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">Agile Program & Transition Management:</strong> Efficiency Increase (approx. 40% in Transition)</span>
                 </div>
                 <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                    <span class="lang-element" lang="de"><strong>KI im CRM:</strong> Salesforce Agentforce Pilotierung & Implementierungsstrategie</span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong>AI in CRM:</strong> Salesforce Agentforce Piloting & Implementation Strategy</span>
+                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">KI im CRM:</strong> Salesforce Agentforce Pilotierung & Implementierungsstrategie</span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">AI in CRM:</strong> Salesforce Agentforce Piloting & Implementation Strategy</span>
                 </div>
                 <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                    <span class="lang-element" lang="de"><strong>Stakeholder Management & Kommunikation (bis Top-Management/E-Level)</strong></span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong>Stakeholder Management & Communication (up to Top Management/E-Level)</strong></span>
+                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">Stakeholder Management & Kommunikation (bis Top-Management/E-Level)</strong></span>
+                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">Stakeholder Management & Communication (up to Top Management/E-Level)</strong></span>
                 </div>
             </div>
         </section>
@@ -364,7 +361,7 @@
             <div class="experience-carousel-container">
                 <div class="experience-carousel-track-container">
                     <div class="experience-carousel-track">
-                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md">
+                        <div class="job-experience-card bg-slate-50 rounded-lg shadow-md">
                             <h3 class="text-xl font-semibold job-title">
                                 <span class="lang-element" lang="de">Program Owner & Solution Manager Mercedes-Benz CRM</span>
                                 <span class="lang-element" lang="en" style="display:none;">Program Owner & Solution Manager Mercedes-Benz CRM</span>
@@ -601,7 +598,8 @@
                     <span class="lang-element" lang="de">HOCHSCHULBILDUNG</span>
                     <span class="lang-element" lang="en" style="display:none;">UNIVERSITY EDUCATION</span>
                 </h2>
-                <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md h-full"> <h3 class="text-lg font-semibold education-title">
+                <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md h-full"> 
+                    <h3 class="text-lg font-semibold education-title">
                         <span class="lang-element" lang="de">Studium „Betriebswirtschaftslehre“</span>
                         <span class="lang-element" lang="en" style="display:none;">Studies in "Business Administration"</span>
                     </h3>
@@ -624,7 +622,8 @@
                     <span class="lang-element" lang="de">AUSBILDUNG</span>
                     <span class="lang-element" lang="en" style="display:none;">VOCATIONAL TRAINING</span>
                 </h2>
-                <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md h-full"> <h3 class="text-lg font-semibold education-title">
+                <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md h-full"> 
+                     <h3 class="text-lg font-semibold education-title">
                         <span class="lang-element" lang="de">Finanzassistent / Bankkaufmann (IHK)</span>
                         <span class="lang-element" lang="en" style="display:none;">Financial Assistant / Bank Clerk (IHK)</span>
                     </h3>
@@ -937,7 +936,8 @@
                 function updateCarousel() {
                     if (slides.length > 0) { 
                         const trackContainerWidth = track.parentElement.offsetWidth;
-                        track.style.transform = `translateX(-${currentIndex * trackContainerWidth}px)`;
+                        // Korrekte Verschiebung für 100% breite Slides im Overflow-Container
+                        track.style.transform = `translateX(-${currentIndex * 100}%)`;
                     }
                 }
             
@@ -952,7 +952,7 @@
                         updateCarousel();
                     });
                     
-                    window.addEventListener('resize', updateCarousel);
+                    window.addEventListener('resize', updateCarousel); // Wichtig für responsive Anpassung
                     
                     updateCarousel(); 
                 }
