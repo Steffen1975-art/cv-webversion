@@ -209,22 +209,21 @@
         /* Carousel Styling für Berufserfahrung */
         .experience-carousel-container {
             position: relative;
-            /* padding für Buttons wird nun durch Positionierung der Buttons relativ zum Container erreicht */
         }
         .experience-carousel-track-container {
             overflow: hidden; 
-            width: 100%; /* Stellt sicher, dass der Container die Basis für 100% Slide-Breite ist */
+            width: 100%; 
         }
         .experience-carousel-track {
             display: flex;
             transition: transform 0.5s ease-in-out; 
         }
         .job-experience-card { 
-            flex: 0 0 100%; /* Jeder Slide nimmt 100% der Containerbreite ein */
-            min-width: 100%; /* Verhindert Schrumpfen, wichtig für %-basierte Verschiebung */
+            flex: 0 0 100%; /* Jede Karte nimmt 100% der Breite des Track-Containers ein */
+            min-width: 100%; /* Verhindert Schrumpfen bei %-basierter Verschiebung */
             box-sizing: border-box; 
-            padding: 1.5rem; /* Padding innerhalb der Karte für Inhalt */
-            /* margin: 0 0.5rem; entfernt */
+            padding: 1.5rem; /* Inneres Padding der Karte */
+            /* margin: 0 0.5rem; entfernt, da dies die 100%-Berechnung stört */
         }
         .carousel-button {
             position: absolute;
@@ -243,10 +242,10 @@
             background-color: #005FB8; 
         }
         .carousel-button.prev {
-            left: -1.25rem; /* Buttons etwas weiter raus, um nicht mit Karteninhalt zu kollidieren */
+            left: -1rem; 
         }
         .carousel-button.next {
-            right: -1.25rem; /* Buttons etwas weiter raus */
+            right: -1rem; 
         }
         .carousel-button svg {
             width: 1.5rem;
@@ -937,8 +936,6 @@
                 
                 function updateCarousel() {
                     if (slides.length > 0) { 
-                        // Jeder Slide nimmt 100% der Breite des Track-Containers ein.
-                        // Die Verschiebung erfolgt um Vielfache von 100%.
                         track.style.transform = `translateX(-${currentIndex * 100}%)`;
                     }
                 }
@@ -954,9 +951,7 @@
                         updateCarousel();
                     });
                     
-                    // Event Listener für Resize, um die Slide-Breite anzupassen, falls nötig
-                    // (wichtig, falls sich die Breite des Containers ändert)
-                    window.addEventListener('resize', updateCarousel);
+                    window.addEventListener('resize', updateCarousel); 
                     
                     updateCarousel(); 
                 }
