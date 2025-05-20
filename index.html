@@ -50,8 +50,7 @@
             margin-bottom: 0.35rem; 
         }
         
-        /* Added a more generic title style for profile blocks, can be used for profile-block-title-variant-a */
-        .profile-block-title-variant-a { /* Renamed from h4.profile-block-title-variant-a for clarity */
+        .profile-block-title-variant-a { 
             color: #001639; /* Custom Dark Blue */
             font-weight: 600; /* Tailwind font-semibold */
             font-size: 1.1rem; 
@@ -96,7 +95,7 @@
             height: 1rem; /* Tailwind h-4 */
             color: #0070D2; /* Custom Blue */
         }
-        .contact-item span:hover { /* Applied to span for better specificity */
+        .contact-item span:hover { 
             color: #005FB8; /* Darker Custom Blue on hover */
         }
 
@@ -104,7 +103,7 @@
             position: fixed;
             top: 1.5rem;
             right: 1.5rem;
-            z-index: 50;
+            z-index: 50; /* Ensure it's above other content */
         }
 
         .action-button {
@@ -155,15 +154,14 @@
         }
 
         .flip-card:hover .flip-card-inner { 
-             transform: scale(1.02) rotateY(var(--tw-rotate-y, 0deg)); /* Keep Y rotation for non-flipped state */
+             transform: scale(1.02) rotateY(var(--tw-rotate-y, 0deg)); 
         }
         .flip-card.is-flipped .flip-card-inner {
-            transform: scale(1.02) rotateY(180deg); /* Maintain scale on flip */
+            transform: scale(1.02) rotateY(180deg); 
         }
          .flip-card.is-flipped:hover .flip-card-inner {
-            transform: scale(1.05) rotateY(180deg); /* Slightly larger scale on hover when flipped */
+            transform: scale(1.05) rotateY(180deg); 
         }
-
 
         .flip-card-front,
         .flip-card-back {
@@ -181,25 +179,25 @@
         }
 
         .flip-card-front {
-            background-color: #f8f9fa; /* Light gray, similar to Tailwind bg-slate-50 */
-            color: #333; /* Dark gray text */
+            background-color: #f8f9fa; 
+            color: #333; 
         }
-        .flip-card-front img { /* Ensure image fits well */
+        .flip-card-front img { 
             max-width: 75%;
             max-height: 75%;
             object-fit: contain; 
         }
 
         .flip-card-back {
-            background-color: #0070D2; /* Custom Blue */
+            background-color: #0070D2; 
             color: white;
             transform: rotateY(180deg);
         }
         .flip-card-back h4 {
             font-size: 1.2rem; 
-            font-weight: 600; /* Tailwind font-semibold */
+            font-weight: 600; 
             margin-bottom: 0.75rem;
-            color: white; /* Ensure text is white */
+            color: white; 
         }
         .flip-card-back p {
             font-size: 0.9rem;
@@ -207,21 +205,21 @@
         
         .competency-tag { 
             transition: all 0.2s ease-in-out;
-            background-color: #e0f2fe; /* Tailwind sky-100 */
-            color: #0c4a6e; /* Tailwind sky-800 */
-            font-weight: 500; /* Tailwind font-medium */
+            background-color: #e0f2fe; 
+            color: #0c4a6e; 
+            font-weight: 500; 
         }
         .competency-tag:hover {
             transform: translateY(-2px);
-            background-color: #bae6fd; /* Tailwind sky-200 */
-            box-shadow: 0 4px 8px rgba(0, 112, 210, 0.2); /* Custom shadow with blue tint */
+            background-color: #bae6fd; 
+            box-shadow: 0 4px 8px rgba(0, 112, 210, 0.2); 
         }
         .competency-tag strong { 
-            font-weight: 600; /* Tailwind font-semibold */
-            color: #075985; /* Tailwind sky-900 */
+            font-weight: 600; 
+            color: #075985; 
         }
 
-        /* Carousel Styling for Professional Experience */
+        /* Carousel Styling */
         .experience-carousel-container {
             position: relative;
         }
@@ -237,24 +235,23 @@
             flex: 0 0 100%; 
             min-width: 100%; 
             box-sizing: border-box; 
-            padding: 1.5rem; /* Tailwind p-6 */
-            /* background-color, rounded-lg, shadow-md are applied directly in HTML */
+            padding: 1.5rem; 
         }
         .carousel-button {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(0, 112, 210, 0.7); /* Custom Blue with transparency */
+            background-color: rgba(0, 112, 210, 0.7); 
             color: white;
             border: none;
-            padding: 0.75rem; /* Tailwind p-3 */
+            padding: 0.75rem; 
             border-radius: 50%;
             cursor: pointer;
             z-index: 10;
             transition: background-color 0.2s ease;
         }
         .carousel-button:hover {
-            background-color: #005FB8; /* Darker Custom Blue */
+            background-color: #005FB8; 
         }
         .carousel-button.prev {
             left: -1rem; 
@@ -263,29 +260,47 @@
             right: -1rem; 
         }
         .carousel-button svg {
-            width: 1.5rem; /* Tailwind w-6 */
-            height: 1.5rem; /* Tailwind h-6 */
+            width: 1.5rem; 
+            height: 1.5rem; 
         }
         
         .web-footer {
             text-align: center;
             padding: 2rem 1rem;
-            font-size: 0.875rem; /* Tailwind text-sm */
-            color: #6b7280; /* Tailwind text-slate-500 */
-            border-top: 1px solid #e5e7eb; /* Tailwind border-slate-200 */
+            font-size: 0.875rem; 
+            color: #6b7280; 
+            border-top: 1px solid #e5e7eb; 
             margin-top: 3rem;
         }
 
-        /* Added specific styling for education titles to match job titles */
         h3.education-title {
-             color: #001639; /* Custom Dark Blue */
-            font-weight: 600; /* Tailwind font-semibold */
-            font-size: 1.125rem; /* Tailwind text-lg */
+             color: #001639; 
+            font-weight: 600; 
+            font-size: 1.125rem; 
         }
+
+        /* START: New Styles for Language Tooltips */
+        .language-item .language-tooltip {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            pointer-events: none; /* Allow clicks to pass through when hidden */
+        }
+
+        .language-item:hover .language-tooltip,
+        .language-item .language-trigger:focus + .language-tooltip, /* Show on focus for accessibility */
+        .language-item .language-tooltip.tooltip-active { /* JS will toggle this class for touch */
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto; /* Enable interaction when visible */
+        }
+        /* END: New Styles for Language Tooltips */
 
     </style>
 </head>
-<body class="bg-slate-100"> <div class="lang-button-container">
+<body class="bg-slate-100">
+
+    <div class="lang-button-container">
         <button id="toggleLangButton" onclick="toggleLanguage()" class="action-button">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C13.18 7.061 14.289 7.5 15.5 7.5c1.21 0 2.32-.439 3.166-1.136M15.5 7.5V3m-3.334 2.364c1.12 0 2.233.038 3.334.114m-6.002 0l.15-.04a28.456 28.456 0 00-2.634-2.13M9 15.188c1.12 0 2.233-.038 3.334-.114M12.334 15.074c.527-.07.99-.144 1.437-.226M12.334 15.074V18m2.166-2.724c.527.07.99.144 1.437.226m0 0c1.12.076 2.233.15 3.334.226m-6.333 0l-.15.04a28.456 28.456 0 01-2.634 2.13M12.334 18V15.074" />
@@ -317,11 +332,39 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z" /><path d="M19 8.839 10.772 13.16a3.25 3.25 0 0 1-3.544 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z" /></svg>
                         <span>steffen.s.koller@gmail.com</span>
                     </a>
-                    <p class="contact-item"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" /></svg>
+                    <p class="contact-item"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" /></svg>
                         <span>+49 176 105 197 03</span>
                     </p>
                 </div>
-            </div>
+                <div id="language-container" class="mt-4 text-sm text-slate-700 flex items-center justify-center md:justify-start gap-x-1.5">
+                    <span class="font-medium mr-1">
+                        <span class="lang-element" lang="de">Sprachen:</span>
+                        <span class="lang-element" lang="en" style="display:none;">Languages:</span>
+                    </span>
+                    <div class="language-item relative">
+                        <span class="language-trigger font-medium text-blue-600 hover:text-blue-800 cursor-pointer p-1 rounded" tabindex="0">DE</span>
+                        <div class="language-tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-max max-w-xs p-2 bg-slate-100 text-slate-700 text-xs rounded-md shadow-lg z-20 whitespace-nowrap">
+                            <span class="lang-element" lang="de">Deutsch: Muttersprache</span>
+                            <span class="lang-element" lang="en" style="display:none;">German: Native speaker</span>
+                        </div>
+                    </div>
+                    <div class="language-item relative">
+                        <span class="language-trigger font-medium text-blue-600 hover:text-blue-800 cursor-pointer p-1 rounded" tabindex="0">EN</span>
+                        <div class="language-tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-max max-w-xs p-2 bg-slate-100 text-slate-700 text-xs rounded-md shadow-lg z-20 whitespace-nowrap">
+                            <span class="lang-element" lang="de">Englisch: Verhandlungssicher</span>
+                            <span class="lang-element" lang="en" style="display:none;">English: Fluent (negotiation level)</span>
+                        </div>
+                    </div>
+                    <div class="language-item relative">
+                        <span class="language-trigger font-medium text-blue-600 hover:text-blue-800 cursor-pointer p-1 rounded" tabindex="0">FR</span>
+                        <div class="language-tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-max max-w-xs p-2 bg-slate-100 text-slate-700 text-xs rounded-md shadow-lg z-20 whitespace-nowrap">
+                            <span class="lang-element" lang="de">Französisch: Erweiterte Grundkenntnisse</span>
+                            <span class="lang-element" lang="en" style="display:none;">French: Advanced basic knowledge</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
         </header>
 
         <section class="mb-12">
@@ -348,7 +391,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="lang-element" lang="de">
                     <div class="flex items-start p-4 bg-slate-50 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                         <svg class="w-10 h-10 text-blue-600 mr-5 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg> 
@@ -367,7 +409,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="lang-element" lang="de">
                     <div class="flex items-start p-4 bg-slate-50 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                          <svg class="w-10 h-10 text-blue-600 mr-5 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3.75H6.375c-1.036 0-1.875.84-1.875 1.875v11.25c0 1.035.84 1.875 1.875 1.875h11.25c1.035 0 1.875-.84 1.875-1.875V10.5m-12.375-6.75h9.375c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125h-9.375c-.621 0-1.125-.504-1.125-1.125v-1.5c0-.621.504-1.125 1.125-1.125zM9 12.75h6M9 16.5h6"></path></svg> <div class="flex-1">
@@ -520,7 +561,7 @@
                                 <span class="lang-element" lang="en" style="display:none;">Successful enablement of OCRM France; ensured data availability.</span>
                             </p>
                         </div>
-                         <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md">
+                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md">
                             <h3 class="text-xl font-semibold job-title">
                                 <span class="lang-element" lang="de">Business Architekt – Fachdesign und Spezifikation Retail Systeme</span>
                                 <span class="lang-element" lang="en" style="display:none;">Business Architect – Functional Design and Specification Retail Systems</span>
@@ -666,7 +707,8 @@
                     <span class="lang-element" lang="en" style="display:none;">UNIVERSITY EDUCATION</span>
                 </h2>
                 <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md"> 
-                    <h3 class="text-lg font-semibold education-title"> <span class="lang-element" lang="de">Studium „Betriebswirtschaftslehre“</span>
+                    <h3 class="text-lg font-semibold education-title"> 
+                        <span class="lang-element" lang="de">Studium „Betriebswirtschaftslehre“</span>
                         <span class="lang-element" lang="en" style="display:none;">Studies in "Business Administration"</span>
                     </h3>
                     <p class="text-sm text-slate-500 mb-2">
@@ -689,7 +731,8 @@
                     <span class="lang-element" lang="en" style="display:none;">VOCATIONAL TRAINING</span>
                 </h2>
                 <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md"> 
-                     <h3 class="text-lg font-semibold education-title"> <span class="lang-element" lang="de">Finanzassistent / Bankkaufmann (IHK)</span>
+                     <h3 class="text-lg font-semibold education-title"> 
+                        <span class="lang-element" lang="de">Finanzassistent / Bankkaufmann (IHK)</span>
                         <span class="lang-element" lang="en" style="display:none;">Financial Assistant / Bank Clerk (IHK)</span>
                     </h3>
                     <p class="text-sm text-slate-500 mb-2">
@@ -896,7 +939,8 @@
                 <span class="lang-element" lang="de">FORTBILDUNG (Auswahl)</span>
                 <span class="lang-element" lang="en" style="display:none;">FURTHER EDUCATION (Selection)</span>
             </h2>
-            <ul class="text-sm custom-bullets fortbildung-item text-slate-700"> <li>
+            <ul class="text-sm custom-bullets fortbildung-item text-slate-700"> 
+                <li>
                     <span class="lang-element" lang="de">SCRUM Product Owner (Daimler Corporate Academy)</span>
                     <span class="lang-element" lang="en" style="display:none;">SCRUM Product Owner (Daimler Corporate Academy)</span>
                 </li>
@@ -915,25 +959,11 @@
             </ul>
         </section>
 
+        <!-- REMOVED old Languages Section
         <section class="mb-12">
-            <h2 class="section-main-title">
-                <span class="lang-element" lang="de">SPRACHEN</span>
-                <span class="lang-element" lang="en" style="display:none;">LANGUAGES</span>
-            </h2>
-            <ul class="text-sm custom-bullets sprachen-item text-slate-700"> <li>
-                    <span class="lang-element" lang="de">Deutsch: Muttersprache</span>
-                    <span class="lang-element" lang="en" style="display:none;">German: Native speaker</span>
-                </li>
-                <li>
-                    <span class="lang-element" lang="de">Englisch: Verhandlungssicher</span>
-                    <span class="lang-element" lang="en" style="display:none;">English: Fluent (negotiation level)</span>
-                </li>
-                <li>
-                    <span class="lang-element" lang="de">Französisch: Erweiterte Grundkenntnisse</span>
-                    <span class="lang-element" lang="en" style="display:none;">French: Advanced basic knowledge</span>
-                </li>
-            </ul>
-        </section>
+            ...
+        </section> 
+        -->
 
         <footer class="web-footer"> 
             <p>&copy; <span id="currentYear"></span> Steffen Koller. 
@@ -946,8 +976,8 @@
 
     <script>
         let currentLang = 'de'; 
+        let activeTooltip = null; // To keep track of the currently active tooltip for touch
 
-        // Function to toggle language
         function toggleLanguage() {
             const newLang = currentLang === 'de' ? 'en' : 'de';
             const elementsToToggle = document.querySelectorAll('.lang-element');
@@ -960,7 +990,6 @@
                 }
             });
             
-            // Update document language and title
             document.documentElement.lang = newLang;
             if (newLang === 'de') {
                 document.title = 'Lebenslauf - Steffen Koller';
@@ -970,9 +999,8 @@
             currentLang = newLang; 
         }
 
-        // Function to initialize the page
         function initializePage() {
-            currentLang = 'de'; // Default language
+            currentLang = 'de'; 
             const elements = document.querySelectorAll('.lang-element');
             elements.forEach(el => {
                 if (el.getAttribute('lang') === 'de') {
@@ -984,20 +1012,17 @@
             document.documentElement.lang = 'de';
             document.title = 'Lebenslauf - Steffen Koller';
 
-            // Set current year in footer
             const currentYearSpan = document.getElementById('currentYear');
             if (currentYearSpan) {
                 currentYearSpan.textContent = new Date().getFullYear();
             }
 
-            // Initialize flip cards
             document.querySelectorAll('.flip-card').forEach(card => {
                 card.addEventListener('click', () => {
                     card.classList.toggle('is-flipped');
                 });
             });
 
-            // Initialize experience carousel
             const track = document.querySelector('.experience-carousel-track');
             if (track) { 
                 const slides = Array.from(track.children);
@@ -1022,21 +1047,92 @@
                         updateCarousel();
                     });
                     
-                    // Optional: Add resize listener if layout changes significantly
                     window.addEventListener('resize', updateCarousel); 
-                    
-                    updateCarousel(); // Initial setup
+                    updateCarousel(); 
                 } else {
-                    // Hide buttons if no slides or buttons not found
                     if(prevButton) prevButton.style.display = 'none';
                     if(nextButton) nextButton.style.display = 'none';
                 }
             }
+
+            // START: New JavaScript for Language Tooltips (Touch Interaction)
+            const languageItems = document.querySelectorAll('.language-item');
+            languageItems.forEach(item => {
+                const trigger = item.querySelector('.language-trigger');
+                const tooltip = item.querySelector('.language-tooltip');
+
+                if (trigger && tooltip) {
+                    trigger.addEventListener('click', (event) => {
+                        event.stopPropagation(); // Prevent click from bubbling to document
+                        // Hide any other active tooltip
+                        if (activeTooltip && activeTooltip !== tooltip) {
+                            activeTooltip.classList.remove('tooltip-active');
+                        }
+                        // Toggle current tooltip
+                        tooltip.classList.toggle('tooltip-active');
+                        activeTooltip = tooltip.classList.contains('tooltip-active') ? tooltip : null;
+                    });
+                     // Allow keyboard users to open with Enter/Space
+                    trigger.addEventListener('keydown', (event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                            event.preventDefault();
+                            trigger.click();
+                        }
+                    });
+                }
+            });
+
+            // Close active tooltip if clicking outside
+            document.addEventListener('click', (event) => {
+                if (activeTooltip) {
+                    let targetElement = event.target;
+                    let isClickInsideTooltipOrTrigger = false;
+                    while (targetElement) {
+                        if (targetElement.classList && (targetElement.classList.contains('language-trigger') || targetElement.classList.contains('language-tooltip'))) {
+                            isClickInsideTooltipOrTrigger = true;
+                            break;
+                        }
+                        targetElement = targetElement.parentElement;
+                    }
+                    if (!isClickInsideTooltipOrTrigger) {
+                         activeTooltip.classList.remove('tooltip-active');
+                         activeTooltip = null;
+                    }
+                }
+            });
+            // END: New JavaScript for Language Tooltips
         }
 
-        // Initialize the page on DOMContentLoaded
         document.addEventListener('DOMContentLoaded', initializePage);
     </script>
 
 </body>
 </html>
+```
+
+Ich habe folgende Änderungen vorgenommen:
+
+1.  **HTML-Struktur für Sprachen im Header:**
+    * Ein neuer `div`-Container mit der ID `language-container` wurde unterhalb deiner Kontaktdaten im Header eingefügt.
+    * Für jede Sprache (DE, EN, FR) gibt es ein `div` mit der Klasse `language-item relative`.
+    * Darin befindet sich ein `span` mit der Klasse `language-trigger` (die Abkürzung selbst) und ein `div` mit der Klasse `language-tooltip` (der versteckte Tooltip-Inhalt).
+    * Die Tooltips enthalten die `lang-element` Spans, damit die Sprachumschaltung auch dort funktioniert.
+    * `tabindex="0"` wurde den Triggern hinzugefügt, um sie per Tastatur fokussierbar zu machen.
+
+2.  **CSS für die Tooltips:**
+    * Die Tooltips sind standardmäßig unsichtbar (`opacity: 0; visibility: hidden;`).
+    * Beim Hover über das `language-item` oder wenn der `language-trigger` den Fokus erhält (für Tastaturnavigation), wird der Tooltip sichtbar (`opacity: 1; visibility: visible;`). Tailwind-Klassen (`group-hover:opacity-100 group-hover:visible`) wurden hierfür nicht direkt verwendet, da die JS-Interaktion für Touch eine explizite Klasse (`tooltip-active`) benötigt, die wir nun auch für CSS-Hover/Focus nutzen können, um Konsistenz zu wahren. Ich habe eine explizite CSS-Regel hinzugefügt.
+    * Die Tooltips erscheinen über den Sprachkürzeln und sind zentriert.
+    * Das Styling (hellgrauer Hintergrund, Textfarbe, abgerundete Ecken, Schatten) wurde wie besprochen umgesetzt.
+
+3.  **JavaScript für Tooltip-Interaktion (Touch):**
+    * Die `initializePage` Funktion enthält nun Logik, um Event-Listener zu den `language-trigger`-Elementen hinzuzufügen.
+    * Bei einem Klick/Tap auf eine Sprachabkürzung wird die Klasse `tooltip-active` auf dem entsprechenden Tooltip umgeschaltet.
+    * Es wird sichergestellt, dass immer nur ein Tooltip gleichzeitig aktiv ist.
+    * Ein Klick außerhalb eines aktiven Tooltips schließt diesen.
+    * Tastaturbenutzer können die Tooltips mit Enter/Leertaste öffnen, wenn der Trigger fokussiert ist.
+
+4.  **Entfernung des alten Sprachen-Abschnitts:**
+    * Der komplette `<section>`-Block für "SPRACHEN" weiter unten auf der Seite wurde entfernt.
+
+Schau dir das Ergebnis im Preview an. Die Sprachen sollten jetzt dezent im Header erscheinen und die Tooltips beim Hover (Desktop) oder Tap (Mobil) funktionieren. Gib mir Bescheid, ob das deinen Vorstellungen entspricht oder ob wir noch etwas anpassen sollen! "Möge die Macht mit diesem Update sein!"
