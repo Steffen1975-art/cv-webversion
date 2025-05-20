@@ -11,40 +11,39 @@
             font-family: 'Inter', sans-serif;
             background-color: #f3f4f6; /* Heller Hintergrund für die gesamte Seite */
             color: #374151; /* Standard Textfarbe */
-            line-height: 1.7; /* Verbesserte Lesbarkeit */
+            line-height: 1.7; 
         }
 
         .web-resume-container {
-            max-width: 1024px; /* Begrenzung der maximalen Breite für bessere Lesbarkeit auf großen Bildschirmen */
+            max-width: 1024px; 
             margin: 2rem auto;
-            padding: 2rem; /* Allgemeines Padding für den Hauptcontainer */
+            padding: 2rem; 
             background-color: white;
-            border-radius: 0.75rem; /* Abgerundete Ecken für den Hauptcontainer */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Moderner Schatten */
+            border-radius: 0.75rem; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
         }
 
-        /* Salesforce & Capgemini angelehnte Farben */
-        h1.main-name { /* Name oben */
-            color: #0070D2; /* Salesforce Blau für den Namen */
-            font-weight: 600; /* Etwas leichter als super-fett, aber immer noch prominent */
+        h1.main-name { 
+            color: #0070D2; 
+            font-weight: 600; 
         }
         
-        h2.section-main-title, h3.job-title, h4.education-title { /* Hauptüberschriften der Sektionen und wichtige Titel */
-            color: #001639; /* Salesforce Dunkelblau / Capgemini Spade-ähnlich */
-            font-weight: 600; /* Semi-bold für klare Hierarchie */
+        h2.section-main-title, h3.job-title, h4.education-title { 
+            color: #001639; 
+            font-weight: 600; 
         }
         
         .section-main-title {
-            border-bottom: 2px solid #0070D2; /* Salesforce Blau für Linie */
+            border-bottom: 2px solid #0070D2; 
             padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem; /* Mehr Abstand nach der Überschrift */
-            font-size: 1.5rem; /* Größere Sektionsüberschriften */
+            margin-bottom: 1.5rem; 
+            font-size: 1.5rem; 
         }
 
         ul.custom-bullets > li {
             padding-left: 1.75em; 
             position: relative; 
-            margin-bottom: 0.5rem; /* Etwas mehr Abstand zwischen Bullet-Punkten */
+            margin-bottom: 0.5rem; 
         }
 
         ul.custom-bullets > li::before { 
@@ -53,13 +52,13 @@
             font-weight: bold;
             position: absolute;
             left: 0.5em; 
-            top: 0.1em; /* Feinjustierung für bessere vertikale Ausrichtung */
+            top: 0.1em; 
         }
         
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 0.5rem; /* Mehr Abstand */
+            margin-bottom: 0.5rem; 
             color: #4b5563; 
         }
         .contact-item svg {
@@ -70,7 +69,7 @@
             color: #0070D2; 
         }
 
-        .button-container {
+        .lang-button-container { /* Umbenannt von .button-container für Klarheit */
             position: fixed;
             top: 1.5rem;
             right: 1.5rem;
@@ -80,7 +79,7 @@
         .action-button {
             background-color: #0070D2; 
             color: white;
-            font-weight: 600; /* Medium-fett */
+            font-weight: 600; 
             padding: 0.6rem 1.2rem;
             border-radius: 0.5rem;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -94,15 +93,15 @@
         }
         .action-button:hover {
             background-color: #005FB8; 
-            transform: translateY(-1px); /* Leichter Anhebe-Effekt */
+            transform: translateY(-1px); 
         }
 
         /* Flip Card Styling */
         .card-grid { 
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Etwas breitere Mindestbreite für Web */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
             gap: 1.5rem; 
-            margin-top: 1.5rem; /* Mehr Abstand über den Karten */
+            margin-top: 1.5rem; 
         }
 
         .flip-card {
@@ -118,20 +117,20 @@
             width: 100%;
             height: 100%;
             text-align: center;
-            transition: transform 0.8s; /* Etwas längere Animation */
+            transition: transform 0.8s; 
             transform-style: preserve-3d;
-            border-radius: 0.75rem; /* Passend zum Hauptcontainer */
+            border-radius: 0.75rem; 
             box-shadow: 0 6px 12px rgba(0,0,0,0.1); 
         }
 
-        .flip-card:hover .flip-card-inner { /* Leichte Skalierung beim Hover über die Karte */
-             transform: scale(1.02) rotateY(var(--tw-rotate-y)); /* Behält den Flip-Status bei */
+        .flip-card:hover .flip-card-inner { 
+             transform: scale(1.02) rotateY(var(--tw-rotate-y, 0deg)); /* Behält den Flip-Status bei, var für Standardwert */
         }
         .flip-card.is-flipped .flip-card-inner {
-            transform: rotateY(180deg) scale(1.02);
+            transform: scale(1.02) rotateY(180deg);
         }
          .flip-card.is-flipped:hover .flip-card-inner {
-            transform: rotateY(180deg) scale(1.05); /* Stärkere Skalierung wenn geflippt und gehovert */
+            transform: scale(1.05) rotateY(180deg); 
         }
 
 
@@ -147,11 +146,11 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 1.25rem; /* Mehr Padding in den Karten */
+            padding: 1.25rem; 
         }
 
         .flip-card-front {
-            background-color: #f8f9fa; /* Sehr heller, fast weißer Hintergrund */
+            background-color: #f8f9fa; 
             color: #333;
         }
         .flip-card-front img {
@@ -166,7 +165,7 @@
             transform: rotateY(180deg);
         }
         .flip-card-back h4 {
-            font-size: 1.2rem; /* Etwas größerer Titel auf der Rückseite */
+            font-size: 1.2rem; 
             font-weight: 600;
             margin-bottom: 0.75rem;
             color: white;
@@ -180,15 +179,51 @@
         }
         .competency-tag:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 112, 210, 0.2); /* Salesforce-blauer Schatten */
+            box-shadow: 0 4px 8px rgba(0, 112, 210, 0.2); 
         }
 
-        .job-experience-card {
-            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+        /* Carousel Styling für Berufserfahrung */
+        .experience-carousel-container {
+            position: relative;
         }
-        .job-experience-card:hover {
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-            transform: translateY(-3px);
+        .experience-carousel-track-container {
+            overflow: hidden; /* Verhindert, dass überstehende Slides sichtbar sind */
+        }
+        .experience-carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out; /* Sanfte Slide-Animation */
+        }
+        .job-experience-card { /* Wird jetzt als Slide verwendet */
+            flex: 0 0 100%; /* Jeder Slide nimmt 100% der Containerbreite ein */
+            min-width: 100%; /* Verhindert Schrumpfen */
+            box-sizing: border-box; /* Stellt sicher, dass Padding und Border in der Breite enthalten sind */
+            /* Bestehendes Styling für job-experience-card wird beibehalten */
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 112, 210, 0.7); /* Salesforce-Blau mit Transparenz */
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            transition: background-color 0.2s ease;
+        }
+        .carousel-button:hover {
+            background-color: #005FB8; /* Dunkleres Salesforce-Blau */
+        }
+        .carousel-button.prev {
+            left: -10px; /* Etwas außerhalb für besseres Klickgefühl */
+        }
+        .carousel-button.next {
+            right: -10px; /* Etwas außerhalb für besseres Klickgefühl */
+        }
+        .carousel-button svg {
+            width: 1.5rem;
+            height: 1.5rem;
         }
         
         .web-footer {
@@ -204,7 +239,7 @@
 </head>
 <body class="bg-slate-100">
 
-    <div class="button-container">
+    <div class="lang-button-container">
         <button id="toggleLangButton" onclick="toggleLanguage()" class="action-button">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C13.18 7.061 14.289 7.5 15.5 7.5c1.21 0 2.32-.439 3.166-1.136M15.5 7.5V3m-3.334 2.364c1.12 0 2.233.038 3.334.114m-6.002 0l.15-.04a28.456 28.456 0 00-2.634-2.13M9 15.188c1.12 0 2.233-.038 3.334-.114M12.334 15.074c.527-.07.99-.144 1.437-.226M12.334 15.074V18m2.166-2.724c.527.07.99.144 1.437.226m0 0c1.12.076 2.233.15 3.334.226m-6.333 0l-.15.04a28.456 28.456 0 01-2.634 2.13M12.334 18V15.074" />
@@ -294,79 +329,110 @@
                 <span class="lang-element" lang="de">BERUFSERFAHRUNG</span>
                 <span class="lang-element" lang="en" style="display:none;">PROFESSIONAL EXPERIENCE</span>
             </h2>
-            <div class="space-y-8">
-                
-                <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold job-title">
-                        <span class="lang-element" lang="de">Program Owner & Solution Manager Mercedes-Benz CRM</span>
-                        <span class="lang-element" lang="en" style="display:none;">Program Owner & Solution Manager Mercedes-Benz CRM</span>
-                    </h3>
-                    <p class="text-sm text-slate-500 mb-3">
-                        <span class="lang-element" lang="de">Mercedes-Benz AG, Mercedes-Benz Digital, Stuttgart | 03/2023 – aktuell</span>
-                        <span class="lang-element" lang="en" style="display:none;">Mercedes-Benz AG, Mercedes-Benz Digital, Stuttgart | 03/2023 – Present</span>
-                    </p>
-                    <ul class="text-sm custom-bullets mb-3 text-slate-700">
-                        <li>
-                            <span class="lang-element" lang="de"><strong>Strategische CRM-Programmführung (Salesforce):</strong> Gesamtverantwortung für die europaweite MB CRM-Landschaft (Strategie, Architektur, Weiterentwicklung) für diverse Vertriebsmodelle (Agentur, Retail) und Sales, After Sales & Finance Use Cases (Fokus SAM & POS-Integration). Ziel: >10.000 Anwender durch Go-Lives in diesem Jahr.</span>
-                            <span class="lang-element" lang="en" style="display:none;"><strong>Strategic CRM Program Leadership (Salesforce):</strong> Overall responsibility for the Europe-wide MB CRM landscape (strategy, architecture, development) for diverse sales models (agency, retail) and Sales, After Sales & Finance Use Cases (focus SAM & POS integration). Goal: >10,000 users through go-lives this year.</span>
-                        </li>
-                        <li>
-                            <span class="lang-element" lang="de"><strong>Organisatorische Transition & Effizienzsteigerung:</strong> Leitung der Transition der MB CRM Entwicklungsmannschaft (extern zu intern, MBRDI) mit ca. 40% Effizienzsteigerung; inkl. Change Management, Prozessoptimierung und Datenqualitätsinitiativen.</span>
-                            <span class="lang-element" lang="en" style="display:none;"><strong>Organizational Transition & Efficiency Increase:</strong> Led the transition of the MB CRM development team (external to internal, MBRDI) achieving approx. 40% efficiency increase; incl. change management, process optimization, and data quality initiatives.</span>
-                        </li>
-                         <li>
-                            <span class="lang-element" lang="de"><strong>Salesforce Solution Design & KI (Agentforce):</strong> Lösungsverantwortung Salesforce CRM; Förderung & Pilotierung von KI (Agentforce), inkl. Hochschulprojekt (HS Aachen) zu generativen/prädiktiven KI-Use Cases zur Effizienz- & Qualitätssteigerung.</span>
-                            <span class="lang-element" lang="en" style="display:none;"><strong>Salesforce Solution Design & AI (Agentforce):</strong> Solution responsibility for Salesforce CRM; promotion & piloting of AI (Agentforce), incl. university project (HS Aachen) on generative/predictive AI use cases for efficiency & quality improvement.</span>
-                        </li>
-                        <li>
-                            <span class="lang-element" lang="de"><strong>Technische Leitung & Agile Transformation:</strong> Führung interdisziplinärer Entwicklungsteams (ca. 50 MA) nach agilen Methoden und Salesforce Best Practices; Gesamtverantwortung für skalierbare Multi-Cloud Salesforce-Architektur (inkl. Data Cloud).</span>
-                            <span class="lang-element" lang="en" style="display:none;"><strong>Technical Leadership & Agile Transformation:</strong> Leading interdisciplinary development teams (approx. 50 employees) using agile methods and Salesforce Best Practices; overall responsibility for a scalable multi-cloud Salesforce architecture (incl. Data Cloud).</span>
-                        </li>
-                        <li>
-                            <span class="lang-element" lang="de"><strong>Stakeholder Management:</strong> Proaktives Management von Erwartungen (bis Top-Management/E-Level) und Übersetzung von Business-Anforderungen in technische Roadmaps.</span>
-                            <span class="lang-element" lang="en" style="display:none;"><strong>Stakeholder Management:</strong> Proactive management of expectations (up to top management/E-level) and translation of business requirements into technical roadmaps.</span>
-                        </li>
-                    </ul>
-                    <p class="text-sm mt-3 pt-3 border-t border-slate-200">
-                        <strong class="text-blue-600 font-semibold">
-                            <span class="lang-element" lang="de">Key Results:</span>
-                            <span class="lang-element" lang="en" style="display:none;">Key Results:</span>
-                        </strong> 
-                        <span class="lang-element" lang="de">Etablierung einer zukunftsfähigen, europaweit standardisierten CRM-Plattform für Agilität in Vertriebsmodellen, tiefe POS-Integration und datengetriebene Kundenzentrierung.</span>
-                        <span class="lang-element" lang="en" style="display:none;">Establishment of a future-proof, Europe-wide standardized CRM platform for agility in sales models, deep POS integration, and data-driven customer centricity.</span>
-                    </p>
+            <div class="experience-carousel-container">
+                <div class="experience-carousel-track-container">
+                    <div class="experience-carousel-track">
+                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md mx-2">
+                            <h3 class="text-xl font-semibold job-title">
+                                <span class="lang-element" lang="de">Program Owner & Solution Manager Mercedes-Benz CRM</span>
+                                <span class="lang-element" lang="en" style="display:none;">Program Owner & Solution Manager Mercedes-Benz CRM</span>
+                            </h3>
+                            <p class="text-sm text-slate-500 mb-3">
+                                <span class="lang-element" lang="de">Mercedes-Benz AG, Mercedes-Benz Digital, Stuttgart | 03/2023 – aktuell</span>
+                                <span class="lang-element" lang="en" style="display:none;">Mercedes-Benz AG, Mercedes-Benz Digital, Stuttgart | 03/2023 – Present</span>
+                            </p>
+                            <ul class="text-sm custom-bullets mb-3 text-slate-700">
+                                <li>
+                                    <span class="lang-element" lang="de"><strong>Strategische CRM-Programmführung (Salesforce):</strong> Gesamtverantwortung für die europaweite MB CRM-Landschaft (Strategie, Architektur, Weiterentwicklung) für diverse Vertriebsmodelle (Agentur, Retail) und Sales, After Sales & Finance Use Cases (Fokus SAM & POS-Integration). Ziel: >10.000 Anwender durch Go-Lives in diesem Jahr.</span>
+                                    <span class="lang-element" lang="en" style="display:none;"><strong>Strategic CRM Program Leadership (Salesforce):</strong> Overall responsibility for the Europe-wide MB CRM landscape (strategy, architecture, development) for diverse sales models (agency, retail) and Sales, After Sales & Finance Use Cases (focus SAM & POS integration). Goal: >10,000 users through go-lives this year.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-element" lang="de"><strong>Organisatorische Transition & Effizienzsteigerung:</strong> Leitung der Transition der MB CRM Entwicklungsmannschaft (extern zu intern, MBRDI) mit ca. 40% Effizienzsteigerung; inkl. Change Management, Prozessoptimierung und Datenqualitätsinitiativen.</span>
+                                    <span class="lang-element" lang="en" style="display:none;"><strong>Organizational Transition & Efficiency Increase:</strong> Led the transition of the MB CRM development team (external to internal, MBRDI) achieving approx. 40% efficiency increase; incl. change management, process optimization, and data quality initiatives.</span>
+                                </li>
+                                 <li>
+                                    <span class="lang-element" lang="de"><strong>Salesforce Solution Design & KI (Agentforce):</strong> Lösungsverantwortung Salesforce CRM; Förderung & Pilotierung von KI (Agentforce), inkl. Hochschulprojekt (HS Aachen) zu generativen/prädiktiven KI-Use Cases zur Effizienz- & Qualitätssteigerung.</span>
+                                    <span class="lang-element" lang="en" style="display:none;"><strong>Salesforce Solution Design & AI (Agentforce):</strong> Solution responsibility for Salesforce CRM; promotion & piloting of AI (Agentforce), incl. university project (HS Aachen) on generative/predictive AI use cases for efficiency & quality improvement.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-element" lang="de"><strong>Technische Leitung & Agile Transformation:</strong> Führung interdisziplinärer Entwicklungsteams (ca. 50 MA) nach agilen Methoden und Salesforce Best Practices; Gesamtverantwortung für skalierbare Multi-Cloud Salesforce-Architektur (inkl. Data Cloud).</span>
+                                    <span class="lang-element" lang="en" style="display:none;"><strong>Technical Leadership & Agile Transformation:</strong> Leading interdisciplinary development teams (approx. 50 employees) using agile methods and Salesforce Best Practices; overall responsibility for a scalable multi-cloud Salesforce architecture (incl. Data Cloud).</span>
+                                </li>
+                                <li>
+                                    <span class="lang-element" lang="de"><strong>Stakeholder Management:</strong> Proaktives Management von Erwartungen (bis Top-Management/E-Level) und Übersetzung von Business-Anforderungen in technische Roadmaps.</span>
+                                    <span class="lang-element" lang="en" style="display:none;"><strong>Stakeholder Management:</strong> Proactive management of expectations (up to top management/E-level) and translation of business requirements into technical roadmaps.</span>
+                                </li>
+                            </ul>
+                            <p class="text-sm mt-3 pt-3 border-t border-slate-200">
+                                <strong class="text-blue-600 font-semibold">
+                                    <span class="lang-element" lang="de">Key Results:</span>
+                                    <span class="lang-element" lang="en" style="display:none;">Key Results:</span>
+                                </strong> 
+                                <span class="lang-element" lang="de">Etablierung einer zukunftsfähigen, europaweit standardisierten CRM-Plattform für Agilität in Vertriebsmodellen, tiefe POS-Integration und datengetriebene Kundenzentrierung.</span>
+                                <span class="lang-element" lang="en" style="display:none;">Establishment of a future-proof, Europe-wide standardized CRM platform for agility in sales models, deep POS integration, and data-driven customer centricity.</span>
+                            </p>
+                        </div>
+                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md mx-2">
+                            <h3 class="text-xl font-semibold job-title">
+                                 <span class="lang-element" lang="de">Product Owner / Development Lead OneCRM (Salesforce Sales, Service, Marketing & Experience Cloud)</span>
+                                 <span class="lang-element" lang="en" style="display:none;">Product Owner / Development Lead OneCRM (Salesforce Sales, Service, Marketing & Experience Cloud)</span>
+                            </h3>
+                            <p class="text-sm text-slate-500 mb-3">
+                                <span class="lang-element" lang="de">Mercedes-Benz AG, ITS/DC, Stuttgart | 01/2018 – 02/2023</span>
+                                <span class="lang-element" lang="en" style="display:none;">Mercedes-Benz AG, ITS/DC, Stuttgart | 01/2018 – 02/2023</span>
+                            </p>
+                            <ul class="text-sm custom-bullets mb-3 text-slate-700">
+                                <li>
+                                    <span class="lang-element" lang="de"><strong>Europaweite Salesforce CRM-Implementierung & Skalierung:</strong> Leitung der Einführung von OneCRM für <strong>>3.000 Nutzer in 12 europäischen Märkten</strong> (Retail, After Sales), inkl. Ablösung von >8 Legacy-Systemen mit signifikanter Kosten- & Komplexitätsreduktion.</span>
+                                    <span class="lang-element" lang="en" style="display:none;"><strong>Europe-wide Salesforce CRM Implementation & Scaling:</strong> Led the introduction of OneCRM for <strong>>3,000 users in 12 European markets</strong> (Retail, After Sales), incl. replacement of >8 legacy systems with significant cost & complexity reduction.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-element" lang="de"><strong>Prozessharmonisierung & Agile Teamführung:</strong> Vereinheitlichung von Vertriebs-, Service- & After Sales Prozessen (SAM-Grundlagen); Aufbau & Leitung internationaler Salesforce-Entwicklungsteams (bis zu 100 Mitglieder).</span>
+                                    <span class="lang-element" lang="en" style="display:none;"><strong>Process Harmonization & Agile Team Leadership:</strong> Standardized sales, service & after-sales processes (SAM fundamentals); built & led international Salesforce development teams (up to 100 members).</span>
+                                </li>
+                            </ul>
+                            <p class="text-sm mt-3 pt-3 border-t border-slate-200">
+                                <strong class="text-blue-600 font-semibold">
+                                    <span class="lang-element" lang="de">Key Results:</span>
+                                    <span class="lang-element" lang="en" style="display:none;">Key Results:</span>
+                                </strong> 
+                                <span class="lang-element" lang="de">Schaffung einer 360°-Kundensicht; Steigerung Vertriebseffizienz & Lead-Conversion-Rate.</span>
+                                <span class="lang-element" lang="en" style="display:none;">Creation of a 360° customer view; increased sales efficiency & lead conversion rate.</span>
+                            </p>
+                        </div>
+                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md mx-2">
+                            <h3 class="text-xl font-semibold job-title">
+                                <span class="lang-element" lang="de">Projektleitung und Requirements Engineer – OCRM Frankreich</span>
+                                <span class="lang-element" lang="en" style="display:none;">Project Lead and Requirements Engineer – OCRM France</span>
+                            </h3>
+                            <p class="text-sm text-slate-500 mb-3">
+                                <span class="lang-element" lang="de">Daimler AG, ITS/MC, Stuttgart | 01/2017 – 12/2017</span>
+                                <span class="lang-element" lang="en" style="display:none;">Daimler AG, ITS/MC, Stuttgart | 01/2017 – 12/2017</span>
+                            </p>
+                            <ul class="text-sm custom-bullets mb-3 text-slate-700">
+                                <li>
+                                    <span class="lang-element" lang="de">Technische Projektleitung OCRM Frankreich; Migration von Massendaten aus Legacy-Systemen.</span>
+                                    <span class="lang-element" lang="en" style="display:none;">Technical project management for OCRM France; migration of mass data from legacy systems.</span>
+                                </li>
+                            </ul>
+                             <p class="text-sm mt-3 pt-3 border-t border-slate-200">
+                                <strong class="text-blue-600 font-semibold">
+                                    <span class="lang-element" lang="de">Key Results:</span>
+                                    <span class="lang-element" lang="en" style="display:none;">Key Results:</span>
+                                </strong> 
+                                <span class="lang-element" lang="de">Erfolgreiches Enablement OCRM Frankreich; Sicherstellung Datenverfügbarkeit.</span>
+                                <span class="lang-element" lang="en" style="display:none;">Successful enablement of OCRM France; ensured data availability.</span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold job-title">
-                         <span class="lang-element" lang="de">Product Owner / Development Lead OneCRM (Salesforce Sales, Service, Marketing & Experience Cloud)</span>
-                         <span class="lang-element" lang="en" style="display:none;">Product Owner / Development Lead OneCRM (Salesforce Sales, Service, Marketing & Experience Cloud)</span>
-                    </h3>
-                    <p class="text-sm text-slate-500 mb-3">
-                        <span class="lang-element" lang="de">Mercedes-Benz AG, ITS/DC, Stuttgart | 01/2018 – 02/2023</span>
-                        <span class="lang-element" lang="en" style="display:none;">Mercedes-Benz AG, ITS/DC, Stuttgart | 01/2018 – 02/2023</span>
-                    </p>
-                    <ul class="text-sm custom-bullets mb-3 text-slate-700">
-                        <li>
-                            <span class="lang-element" lang="de"><strong>Europaweite Salesforce CRM-Implementierung & Skalierung:</strong> Leitung der Einführung von OneCRM für <strong>>3.000 Nutzer in 12 europäischen Märkten</strong> (Retail, After Sales), inkl. Ablösung von >8 Legacy-Systemen mit signifikanter Kosten- & Komplexitätsreduktion.</span>
-                            <span class="lang-element" lang="en" style="display:none;"><strong>Europe-wide Salesforce CRM Implementation & Scaling:</strong> Led the introduction of OneCRM for <strong>>3,000 users in 12 European markets</strong> (Retail, After Sales), incl. replacement of >8 legacy systems with significant cost & complexity reduction.</span>
-                        </li>
-                        <li>
-                            <span class="lang-element" lang="de"><strong>Prozessharmonisierung & Agile Teamführung:</strong> Vereinheitlichung von Vertriebs-, Service- & After Sales Prozessen (SAM-Grundlagen); Aufbau & Leitung internationaler Salesforce-Entwicklungsteams (bis zu 100 Mitglieder).</span>
-                            <span class="lang-element" lang="en" style="display:none;"><strong>Process Harmonization & Agile Team Leadership:</strong> Standardized sales, service & after-sales processes (SAM fundamentals); built & led international Salesforce development teams (up to 100 members).</span>
-                        </li>
-                    </ul>
-                    <p class="text-sm mt-3 pt-3 border-t border-slate-200">
-                        <strong class="text-blue-600 font-semibold">
-                            <span class="lang-element" lang="de">Key Results:</span>
-                            <span class="lang-element" lang="en" style="display:none;">Key Results:</span>
-                        </strong> 
-                        <span class="lang-element" lang="de">Schaffung einer 360°-Kundensicht; Steigerung Vertriebseffizienz & Lead-Conversion-Rate.</span>
-                        <span class="lang-element" lang="en" style="display:none;">Creation of a 360° customer view; increased sales efficiency & lead conversion rate.</span>
-                    </p>
-                </div>
-                
-                </div>
+                <button class="carousel-button prev" id="prevExperience">
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                </button>
+                <button class="carousel-button next" id="nextExperience">
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
+                </button>
+            </div>
         </section>
 
         <section class="mb-12 grid md:grid-cols-2 gap-8">
@@ -635,10 +701,8 @@
     </div>
 
     <script>
-        // Globale Variable für die aktuelle Sprache
-        let currentLang = 'de'; // Standard Deutsch
+        let currentLang = 'de'; 
 
-        // Funktion zum Umschalten der Sprache
         function toggleLanguage() {
             const newLang = currentLang === 'de' ? 'en' : 'de';
             const elementsToToggle = document.querySelectorAll('.lang-element');
@@ -660,9 +724,7 @@
             currentLang = newLang; 
         }
 
-        // Initialisierungsfunktion
         function initializePage() {
-            // Sprache initialisieren
             currentLang = 'de'; 
             const elements = document.querySelectorAll('.lang-element');
             elements.forEach(el => {
@@ -675,18 +737,50 @@
             document.documentElement.lang = 'de';
             document.title = 'Lebenslauf - Steffen Koller';
 
-            // Aktuelles Jahr für Footer
             document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-            // Event Listener für Flip-Karten
             document.querySelectorAll('.flip-card').forEach(card => {
                 card.addEventListener('click', () => {
                     card.classList.toggle('is-flipped');
                 });
             });
+
+            // Carousel-Logik für Berufserfahrung
+            const track = document.querySelector('.experience-carousel-track');
+            const slides = Array.from(track.children);
+            const nextButton = document.getElementById('nextExperience');
+            const prevButton = document.getElementById('prevExperience');
+            let currentIndex = 0;
+            const slideWidth = slides[0].getBoundingClientRect().width; // Annahme: alle Slides gleich breit
+
+            function updateCarousel() {
+                track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+                 // Besser: translateX(-${currentIndex * 100}%) wenn die Slides flex: 0 0 100% haben
+                 // Da wir mx-2 an den Slides haben, ist die 100% Methode nicht ideal ohne Anpassung
+                 // Für eine einfache Implementierung mit fester Breite ist px-Verschiebung ok.
+                 // Für volle Responsivität müsste man die Slide-Breite dynamisch bei Resize neu berechnen oder %-basiert arbeiten.
+                 // Aktuell: Da jede Karte 100% Breite des Containers hat und mx-2,
+                 // ist die Verschiebung um 100% des Tracks-Containers korrekt.
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+            
+            if (nextButton && prevButton && slides.length > 0) { // Sicherstellen, dass Elemente existieren
+                nextButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    updateCarousel();
+                });
+
+                prevButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                    updateCarousel();
+                });
+                // Initialisiere die erste Ansicht
+                updateCarousel();
+            }
+
+
         }
 
-        // Event Listener, um die Initialisierung nach dem Laden des DOMs auszuführen
         document.addEventListener('DOMContentLoaded', initializePage);
     </script>
 
