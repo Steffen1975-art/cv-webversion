@@ -109,8 +109,8 @@
             background-color: #005FB8; /* Dunkleres Salesforce Blau */
         }
 
-        /* Flip Card Styling */
-        .values-grid {
+        /* Flip Card Styling (wird für Werte und Persönliche Einblicke verwendet) */
+        .card-grid { /* Umbenannt von .values-grid für generischere Verwendung */
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive Grid */
             gap: 1.5rem; /* Abstand zwischen den Karten */
@@ -204,10 +204,10 @@
             .section-break-avoid { page-break-before: avoid; } 
             .section-break-always { page-break-before: always; } 
             
-            .berufserfahrung-item, .fortbildung-item, .sprachen-item, .interessen-item, .ausbildung-item, .hochschulbildung-item, .werte-item {
+            .berufserfahrung-item, .fortbildung-item, .sprachen-item, .interessen-item, .ausbildung-item, .hochschulbildung-item, .werte-item, .persoenliche-einblicke-item {
                 page-break-inside: avoid;
             }
-            .core-competencies-container { /* Ensure tags don't break across pages if possible */
+            .core-competencies-container { 
                 page-break-inside: avoid;
             }
              h1, h2, h3, h4, h5, h6 {
@@ -228,7 +228,7 @@
             .flip-card-back {
                 display: none !important; 
             }
-            .values-grid {
+            .card-grid { /* Gilt für .values-grid und .insights-grid im Druck */
                 grid-template-columns: repeat(2, 1fr); 
             }
         }
@@ -317,13 +317,14 @@
                 </div>
                 <div class="lang-element" lang="en" style="display:none;">
                     <p class="mb-2">As an experienced <strong>Program Owner & Solution Manager</strong> and proven <strong>Automotive CRM Expert</strong> with over <strong>22 years of industry experience</strong>, I have been successfully shaping the digital transformation of customer relationship processes at Mercedes-Benz with Salesforce for over <strong>6 years</strong>.</p>
-                    <p class="mb-2">My core competence lies in the <strong>strategic leadership, solution design, and implementation of complex, Europe-wide Salesforce-based CRM programs (Sales, Service, Marketing, Experience & Data Cloud)</strong>. These solutions flexibly support <strong>various sales models (agency & retail)</strong>, cover <strong>Sales, After Sales & Finance Use Cases</strong>, and are deeply integrated into POS systems (focus on <strong>Sales Activity Management - SAM</strong>). Currently used by >5,000 users in 16 European markets, with the goal to increase this number to <strong>>10,000 users</strong> through further go-lives this year.</p>
+                    <p class="mb-2">My core competence lies in the <strong>strategic leadership, solution design, and implementation of complex, Europe-wide Salesforce-based CRM programs (Sales, Service, Marketing, Experience & Data Cloud)</strong>. These solutions flexibly support <strong>various sales models (agency & retail)</strong>, cover <strong>Sales, After Sales & Finance Use Cases</strong>, and are deeply integrated into POS systems (focus on <strong>Sales Activity Management - SAM</strong>). Currently used by >5,000 users in 16 European markets, with the goal to increase this number to <strong>>10.000 users</strong> through further go-lives this year.</p>
                     <p>I combine automotive expertise with agile product development, the use of innovative technologies (including <strong>AI solutions like Salesforce Agentforce</strong>), and the leadership of <strong>demanding transition projects for entire development teams with significant efficiency increases (approx. 40%)</strong>. Focus: Creation of a <strong>standardized, harmonized European CRM landscape</strong> for future market requirements and excellent customer experiences.</p>
                 </div>
             </div>
         </section>
 
-        <section class="mb-6 core-competencies-container"> <h2 class="section-title">
+        <section class="mb-6 core-competencies-container"> 
+            <h2 class="section-title">
                 <span class="lang-element" lang="de">KERNKOMPETENZEN</span>
                 <span class="lang-element" lang="en" style="display:none;">CORE COMPETENCIES</span>
             </h2>
@@ -721,7 +722,7 @@
                 <span class="lang-element" lang="de">WERTE</span>
                 <span class="lang-element" lang="en" style="display:none;">VALUES</span>
             </h2>
-            <div class="values-grid">
+            <div class="card-grid">
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
@@ -768,6 +769,59 @@
                 </div>
             </div>
         </section>
+
+        <section class="mb-6 persoenliche-einblicke-item section-break-avoid"> <h2 class="section-title">
+                <span class="lang-element" lang="de">PERSÖNLICHE EINBLICKE</span>
+                <span class="lang-element" lang="en" style="display:none;">PERSONAL INSIGHTS</span>
+            </h2>
+            <div class="card-grid"> 
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://placehold.co/200x200/0070D2/FFFFFF?text=Familie" alt="Platzhalterbild Familie">
+                        </div>
+                        <div class="flip-card-back">
+                            <h4><span class="lang-element" lang="de">Familie</span><span class="lang-element" lang="en" style="display:none;">Family</span></h4>
+                            <p><span class="lang-element" lang="de">Der wichtigste Anker und tägliche Inspiration.</span><span class="lang-element" lang="en" style="display:none;">The most important anchor and daily inspiration.</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://placehold.co/200x200/00A1E0/FFFFFF?text=Sport" alt="Platzhalterbild Sport">
+                        </div>
+                        <div class="flip-card-back">
+                            <h4><span class="lang-element" lang="de">Sport</span><span class="lang-element" lang="en" style="display:none;">Sports</span></h4>
+                            <p><span class="lang-element" lang="de">Ausgleich für Körper und Geist – Laufen, Fitness & Skifahren.</span><span class="lang-element" lang="en" style="display:none;">Balance for body and mind – running, fitness & skiing.</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                             <img src="https://placehold.co/200x200/001639/FFFFFF?text=Tech" alt="Platzhalterbild Digitale Passion">
+                        </div>
+                        <div class="flip-card-back">
+                            <h4><span class="lang-element" lang="de">Digitale Passion</span><span class="lang-element" lang="en" style="display:none;">Digital Passion</span></h4>
+                            <p><span class="lang-element" lang="de">Faszination für KI, IoT, Google-Ökosystem und die digitale Transformation.</span><span class="lang-element" lang="en" style="display:none;">Fascination for AI, IoT, the Google ecosystem, and digital transformation.</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://placehold.co/200x200/4B5563/FFFFFF?text=Natur" alt="Platzhalterbild Wandern">
+                        </div>
+                        <div class="flip-card-back">
+                            <h4><span class="lang-element" lang="de">Wandern</span><span class="lang-element" lang="en" style="display:none;">Hiking</span></h4>
+                            <p><span class="lang-element" lang="de">Die Natur entdecken und neue Perspektiven gewinnen.</span><span class="lang-element" lang="en" style="display:none;">Discovering nature and gaining new perspectives.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <section class="mb-6">
             <h2 class="section-title">
