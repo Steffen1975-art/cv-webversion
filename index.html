@@ -69,7 +69,7 @@
             color: #0070D2; 
         }
 
-        .lang-button-container { /* Umbenannt von .button-container für Klarheit */
+        .lang-button-container {
             position: fixed;
             top: 1.5rem;
             right: 1.5rem;
@@ -124,7 +124,7 @@
         }
 
         .flip-card:hover .flip-card-inner { 
-             transform: scale(1.02) rotateY(var(--tw-rotate-y, 0deg)); /* Behält den Flip-Status bei, var für Standardwert */
+             transform: scale(1.02) rotateY(var(--tw-rotate-y, 0deg)); 
         }
         .flip-card.is-flipped .flip-card-inner {
             transform: scale(1.02) rotateY(180deg);
@@ -185,25 +185,27 @@
         /* Carousel Styling für Berufserfahrung */
         .experience-carousel-container {
             position: relative;
+            padding-left: 2.5rem; /* Platz für Prev-Button */
+            padding-right: 2.5rem; /* Platz für Next-Button */
         }
         .experience-carousel-track-container {
-            overflow: hidden; /* Verhindert, dass überstehende Slides sichtbar sind */
+            overflow: hidden; 
         }
         .experience-carousel-track {
             display: flex;
-            transition: transform 0.5s ease-in-out; /* Sanfte Slide-Animation */
+            transition: transform 0.5s ease-in-out; 
         }
-        .job-experience-card { /* Wird jetzt als Slide verwendet */
-            flex: 0 0 100%; /* Jeder Slide nimmt 100% der Containerbreite ein */
-            min-width: 100%; /* Verhindert Schrumpfen */
-            box-sizing: border-box; /* Stellt sicher, dass Padding und Border in der Breite enthalten sind */
-            /* Bestehendes Styling für job-experience-card wird beibehalten */
+        .job-experience-card { 
+            flex: 0 0 100%; 
+            min-width: 100%; 
+            box-sizing: border-box; 
+            margin: 0 0.5rem; /* Kleiner horizontaler Abstand zwischen den Karten */
         }
         .carousel-button {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(0, 112, 210, 0.7); /* Salesforce-Blau mit Transparenz */
+            background-color: rgba(0, 112, 210, 0.7); 
             color: white;
             border: none;
             padding: 0.75rem;
@@ -213,13 +215,13 @@
             transition: background-color 0.2s ease;
         }
         .carousel-button:hover {
-            background-color: #005FB8; /* Dunkleres Salesforce-Blau */
+            background-color: #005FB8; 
         }
         .carousel-button.prev {
-            left: -10px; /* Etwas außerhalb für besseres Klickgefühl */
+            left: 0px; 
         }
         .carousel-button.next {
-            right: -10px; /* Etwas außerhalb für besseres Klickgefühl */
+            right: 0px; 
         }
         .carousel-button svg {
             width: 1.5rem;
@@ -332,7 +334,7 @@
             <div class="experience-carousel-container">
                 <div class="experience-carousel-track-container">
                     <div class="experience-carousel-track">
-                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md mx-2">
+                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md">
                             <h3 class="text-xl font-semibold job-title">
                                 <span class="lang-element" lang="de">Program Owner & Solution Manager Mercedes-Benz CRM</span>
                                 <span class="lang-element" lang="en" style="display:none;">Program Owner & Solution Manager Mercedes-Benz CRM</span>
@@ -372,7 +374,7 @@
                                 <span class="lang-element" lang="en" style="display:none;">Establishment of a future-proof, Europe-wide standardized CRM platform for agility in sales models, deep POS integration, and data-driven customer centricity.</span>
                             </p>
                         </div>
-                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md mx-2">
+                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md">
                             <h3 class="text-xl font-semibold job-title">
                                  <span class="lang-element" lang="de">Product Owner / Development Lead OneCRM (Salesforce Sales, Service, Marketing & Experience Cloud)</span>
                                  <span class="lang-element" lang="en" style="display:none;">Product Owner / Development Lead OneCRM (Salesforce Sales, Service, Marketing & Experience Cloud)</span>
@@ -400,7 +402,7 @@
                                 <span class="lang-element" lang="en" style="display:none;">Creation of a 360° customer view; increased sales efficiency & lead conversion rate.</span>
                             </p>
                         </div>
-                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md mx-2">
+                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md">
                             <h3 class="text-xl font-semibold job-title">
                                 <span class="lang-element" lang="de">Projektleitung und Requirements Engineer – OCRM Frankreich</span>
                                 <span class="lang-element" lang="en" style="display:none;">Project Lead and Requirements Engineer – OCRM France</span>
@@ -422,6 +424,106 @@
                                 </strong> 
                                 <span class="lang-element" lang="de">Erfolgreiches Enablement OCRM Frankreich; Sicherstellung Datenverfügbarkeit.</span>
                                 <span class="lang-element" lang="en" style="display:none;">Successful enablement of OCRM France; ensured data availability.</span>
+                            </p>
+                        </div>
+                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold job-title">
+                                <span class="lang-element" lang="de">Business Architekt – Fachdesign und Spezifikation Retail Systeme</span>
+                                <span class="lang-element" lang="en" style="display:none;">Business Architect – Functional Design and Specification Retail Systems</span>
+                            </h3>
+                            <p class="text-sm text-slate-500 mb-3">
+                                <span class="lang-element" lang="de">Daimler AG, MS/MER, Stuttgart | 08/2014 – 12/2016</span>
+                                <span class="lang-element" lang="en" style="display:none;">Daimler AG, MS/MER, Stuttgart | 08/2014 – 12/2016</span>
+                            </p>
+                            <ul class="text-sm custom-bullets mb-3 text-slate-700">
+                                <li>
+                                    <span class="lang-element" lang="de">Fachliche Leitung CRM Integration Group; Harmonisierung MBC POS mit Salesforce-Landschaft.</span>
+                                    <span class="lang-element" lang="en" style="display:none;">Functional lead for CRM Integration Group; harmonization of MBC POS with Salesforce landscape.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-element" lang="de">Fachdesign Sales Activity & Lead Management für MBC POS (internationale Rollouts).</span>
+                                    <span class="lang-element" lang="en" style="display:none;">Functional design of Sales Activity & Lead Management for MBC POS (international rollouts).</span>
+                                </li>
+                            </ul>
+                            <p class="text-sm mt-3 pt-3 border-t border-slate-200">
+                                <strong class="text-blue-600 font-semibold">
+                                    <span class="lang-element" lang="de">Key Results:</span>
+                                    <span class="lang-element" lang="en" style="display:none;">Key Results:</span>
+                                </strong> 
+                                <span class="lang-element" lang="de">Konsistente CRM-Prozesse im Retail; verbesserte Nutzerakzeptanz MBC POS.</span>
+                                <span class="lang-element" lang="en" style="display:none;">Consistent CRM processes in retail; improved user acceptance of MBC POS.</span>
+                            </p>
+                        </div>
+                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold job-title">
+                                <span class="lang-element" lang="de">Senior Consultant – Customer Contact Center Strategie</span>
+                                <span class="lang-element" lang="en" style="display:none;">Senior Consultant – Customer Contact Center Strategy</span>
+                            </h3>
+                            <p class="text-sm text-slate-500 mb-3">
+                                <span class="lang-element" lang="de">Automotive Training&Consulting GmbH (Für Daimler AG) | 06/2013 – 07/2014</span>
+                                <span class="lang-element" lang="en" style="display:none;">Automotive Training&Consulting GmbH (For Daimler AG) | 06/2013 – 07/2014</span>
+                            </p>
+                            <ul class="text-sm custom-bullets mb-3 text-slate-700">
+                                <li>
+                                    <span class="lang-element" lang="de">Strategieentwicklung „Customer Contact Center“ (CCC) für MBC2020 („Best Customer Experience“).</span>
+                                    <span class="lang-element" lang="en" style="display:none;">Strategy development for "Customer Contact Center" (CCC) for MBC2020 ("Best Customer Experience").</span>
+                                </li>
+                            </ul>
+                            <p class="text-sm mt-3 pt-3 border-t border-slate-200">
+                                <strong class="text-blue-600 font-semibold">
+                                    <span class="lang-element" lang="de">Key Results:</span>
+                                    <span class="lang-element" lang="en" style="display:none;">Key Results:</span>
+                                </strong> 
+                                <span class="lang-element" lang="de">Strategisches Konzept für globale Kundenkontaktprozesse als Pilotierungsbasis.</span>
+                                <span class="lang-element" lang="en" style="display:none;">Strategic concept for global customer contact processes as a basis for piloting.</span>
+                            </p>
+                        </div>
+                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold job-title">
+                                <span class="lang-element" lang="de">Senior Consultant – BDC Rollout & Governance</span>
+                                <span class="lang-element" lang="en" style="display:none;">Senior Consultant – BDC Rollout & Governance</span>
+                            </h3>
+                            <p class="text-sm text-slate-500 mb-3">
+                                <span class="lang-element" lang="de">Automotive Training&Consulting GmbH (für Daimler AG) | 01/2011 – 05/2013</span>
+                                <span class="lang-element" lang="en" style="display:none;">Automotive Training&Consulting GmbH (for Daimler AG) | 01/2011 – 05/2013</span>
+                            </p>
+                            <ul class="text-sm custom-bullets mb-3 text-slate-700">
+                                <li>
+                                    <span class="lang-element" lang="de">Internationale Markt Readiness Analysen & Rolloutbegleitung Business Development Center (BDC).</span>
+                                    <span class="lang-element" lang="en" style="display:none;">International market readiness analyses & rollout support for Business Development Centers (BDC).</span>
+                                </li>
+                            </ul>
+                            <p class="text-sm mt-3 pt-3 border-t border-slate-200">
+                                <strong class="text-blue-600 font-semibold">
+                                    <span class="lang-element" lang="de">Key Results:</span>
+                                    <span class="lang-element" lang="en" style="display:none;">Key Results:</span>
+                                </strong> 
+                                <span class="lang-element" lang="de">Erfolgreiche Pilotierung/Implementierung von LMS & BDC-Strukturen international.</span>
+                                <span class="lang-element" lang="en" style="display:none;">Successful piloting/implementation of LMS & BDC structures internationally.</span>
+                            </p>
+                        </div>
+                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md"> 
+                            <h3 class="text-xl font-semibold job-title">
+                                <span class="lang-element" lang="de">Consultant – Business Development Center (BDC)</span>
+                                <span class="lang-element" lang="en" style="display:none;">Consultant – Business Development Center (BDC)</span>
+                            </h3>
+                            <p class="text-sm text-slate-500 mb-3">
+                                <span class="lang-element" lang="de">Daimler Protics GmbH (Für Daimler AG) | 04/2005 – 04/2008</span>
+                                <span class="lang-element" lang="en" style="display:none;">Daimler Protics GmbH (For Daimler AG) | 04/2005 – 04/2008</span>
+                            </p>
+                            <ul class="text-sm custom-bullets mb-3 text-slate-700">
+                                <li>
+                                    <span class="lang-element" lang="de">Entwicklung & Rollout-Sicherung von BDC-Vertriebskanälen; Konzeption Sales LMS.</span>
+                                    <span class="lang-element" lang="en" style="display:none;">Development & rollout assurance of BDC sales channels; conception of Sales LMS.</span>
+                                </li>
+                            </ul>
+                            <p class="text-sm mt-3 pt-3 border-t border-slate-200">
+                                <strong class="text-blue-600 font-semibold">
+                                    <span class="lang-element" lang="de">Key Results:</span>
+                                    <span class="lang-element" lang="en" style="display:none;">Key Results:</span>
+                                </strong> 
+                                <span class="lang-element" lang="de">Professionalisierung BDC-Kanäle; Etablierung standardisierter Lead Management Prozesse.</span>
+                                <span class="lang-element" lang="en" style="display:none;">Professionalization of BDC channels; establishment of standardized lead management processes.</span>
                             </p>
                         </div>
                     </div>
@@ -745,40 +847,41 @@
                 });
             });
 
-            // Carousel-Logik für Berufserfahrung
             const track = document.querySelector('.experience-carousel-track');
-            const slides = Array.from(track.children);
-            const nextButton = document.getElementById('nextExperience');
-            const prevButton = document.getElementById('prevExperience');
-            let currentIndex = 0;
-            const slideWidth = slides[0].getBoundingClientRect().width; // Annahme: alle Slides gleich breit
-
-            function updateCarousel() {
-                track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-                 // Besser: translateX(-${currentIndex * 100}%) wenn die Slides flex: 0 0 100% haben
-                 // Da wir mx-2 an den Slides haben, ist die 100% Methode nicht ideal ohne Anpassung
-                 // Für eine einfache Implementierung mit fester Breite ist px-Verschiebung ok.
-                 // Für volle Responsivität müsste man die Slide-Breite dynamisch bei Resize neu berechnen oder %-basiert arbeiten.
-                 // Aktuell: Da jede Karte 100% Breite des Containers hat und mx-2,
-                 // ist die Verschiebung um 100% des Tracks-Containers korrekt.
-                track.style.transform = `translateX(-${currentIndex * 100}%)`;
-            }
+            if (track) { // Nur ausführen, wenn das Karussell existiert
+                const slides = Array.from(track.children);
+                const nextButton = document.getElementById('nextExperience');
+                const prevButton = document.getElementById('prevExperience');
+                let currentIndex = 0;
+                
+                function updateCarousel() {
+                    if (slides.length > 0) { // Nur updaten, wenn Slides vorhanden sind
+                         // Die Breite des Containers, der die sichtbaren Slides hält
+                        const trackContainerWidth = track.parentElement.offsetWidth;
+                        // Verschiebung basiert auf dem Index und der Breite des Containers
+                        // (da jeder Slide 100% der Containerbreite einnimmt)
+                        track.style.transform = `translateX(-${currentIndex * trackContainerWidth}px)`;
+                    }
+                }
             
-            if (nextButton && prevButton && slides.length > 0) { // Sicherstellen, dass Elemente existieren
-                nextButton.addEventListener('click', () => {
-                    currentIndex = (currentIndex + 1) % slides.length;
-                    updateCarousel();
-                });
+                if (nextButton && prevButton && slides.length > 0) {
+                    nextButton.addEventListener('click', () => {
+                        currentIndex = (currentIndex + 1) % slides.length;
+                        updateCarousel();
+                    });
 
-                prevButton.addEventListener('click', () => {
-                    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-                    updateCarousel();
-                });
-                // Initialisiere die erste Ansicht
-                updateCarousel();
+                    prevButton.addEventListener('click', () => {
+                        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                        updateCarousel();
+                    });
+                    
+                    // Event Listener für Resize, um die Slide-Breite anzupassen, falls nötig
+                    // (vereinfacht, da Slides 100% Breite haben, aber gut für komplexere Karussells)
+                    window.addEventListener('resize', updateCarousel);
+                    
+                    updateCarousel(); // Initialisiere die erste Ansicht
+                }
             }
-
-
         }
 
         document.addEventListener('DOMContentLoaded', initializePage);
