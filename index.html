@@ -9,8 +9,8 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6; /* Tailwind bg-slate-100 */
-            color: #374151; /* Tailwind text-slate-700 */
+            background-color: #f3f4f6; 
+            color: #374151; 
             line-height: 1.7; 
         }
 
@@ -19,51 +19,51 @@
             margin: 2rem auto;
             padding: 2rem; 
             background-color: white;
-            border-radius: 0.75rem; /* Tailwind rounded-xl */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Tailwind shadow-xl */
+            border-radius: 0.75rem; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
         }
 
         h1.main-name { 
-            color: #0070D2; /* Custom Blue */
-            font-weight: 600; /* Tailwind font-semibold */
+            color: #0070D2; 
+            font-weight: 600; 
         }
         
         h2.section-main-title { 
-            color: #001639; /* Custom Dark Blue */
-            font-weight: 600; /* Tailwind font-semibold */
-            border-bottom: 2px solid #0070D2; /* Custom Blue */
+            color: #001639; 
+            font-weight: 600; 
+            border-bottom: 2px solid #0070D2; 
             padding-bottom: 0.5rem;
             margin-bottom: 1.5rem; 
-            font-size: 1.5rem; /* Tailwind text-2xl */
+            font-size: 1.5rem; 
         }
 
-        h3.job-title, h3.education-section-title { /* Combined for consistency */
-            color: #001639; /* Custom Dark Blue */
-            font-weight: 600; /* Tailwind font-semibold */
-            font-size: 1.125rem; /* Tailwind text-lg */
+        h3.job-title, h3.education-section-title {
+            color: #001639; 
+            font-weight: 600; 
+            font-size: 1.125rem; 
         }
         
         h4.profile-block-title { 
-            color: #001639; /* Custom Dark Blue */
-            font-weight: 600; /* Tailwind font-semibold */
+            color: #001639; 
+            font-weight: 600; 
             font-size: 1.1rem; 
             margin-bottom: 0.35rem; 
         }
         
         .profile-block-title-variant-a { 
-            color: #001639; /* Custom Dark Blue */
-            font-weight: 600; /* Tailwind font-semibold */
+            color: #001639; 
+            font-weight: 600; 
             font-size: 1.1rem; 
             margin-bottom: 0.35rem;
         }
 
         h4.expertise-group-title {
-            color: #001639; /* Custom Dark Blue */
-            font-weight: 600; /* Tailwind font-semibold */
+            color: #001639; 
+            font-weight: 600; 
             font-size: 1.05rem; 
             margin-bottom: 0.75rem;
             padding-bottom: 0.25rem;
-            border-bottom: 1px solid #cbd5e1; /* Tailwind border-slate-300 */
+            border-bottom: 1px solid #cbd5e1; 
         }
 
         ul.custom-bullets > li {
@@ -74,7 +74,7 @@
 
         ul.custom-bullets > li::before { 
             content: "•"; 
-            color: #0070D2; /* Custom Blue */
+            color: #0070D2; 
             font-weight: bold;
             position: absolute;
             left: 0.5em; 
@@ -84,8 +84,8 @@
         .contact-item {
             display: flex;
             align-items: center;
-            color: #6b7280; /* Tailwind text-slate-500 */
-            font-size: 0.875rem; /* Tailwind text-sm */
+            color: #6b7280; 
+            font-size: 0.875rem; 
         }
         .contact-item svg { 
             margin-right: 0.5rem; 
@@ -109,28 +109,27 @@
         .action-button {
             background-color: #0070D2; 
             color: white;
-            font-weight: 500; /* Slightly reduced font-weight */
-            padding: 0.5rem; /* Reduced padding for a smaller button */
-            border-radius: 0.375rem; /* Tailwind rounded-md */
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Tailwind shadow-sm */
+            font-weight: 600; /* Reverted to semibold for better visibility of DE/EN */
+            padding: 0.5rem 0.75rem; /* Adjusted padding for text */
+            min-width: 3rem; /* Ensure button has a decent width for DE/EN */
+            height: 2.5rem; /* Fixed height to match other icon buttons if any, or just a good tap size */
+            border-radius: 0.375rem; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
             transition: background-color 0.2s ease-in-out, transform 0.1s ease;
             display: flex;
             align-items: center;
             justify-content: center;
             border: none;
             cursor: pointer;
-        }
-        .action-button svg { /* Ensure SVG inside button is sized appropriately */
-            width: 1.25rem; /* Tailwind w-5 */
-            height: 1.25rem; /* Tailwind h-5 */
+            text-align: center;
         }
         .action-button:hover {
             background-color: #005FB8; 
             transform: translateY(-1px); 
         }
-        /* Hide text spans within the language toggle button */
-        .action-button .lang-toggle-text {
-            display: none;
+        /* Text specific for the language toggle button */
+        #langButtonText {
+            font-size: 0.875rem; /* Tailwind text-sm */
         }
 
 
@@ -323,11 +322,7 @@
 
     <div class="lang-button-container">
         <button id="toggleLangButton" onclick="toggleLanguage()" class="action-button" aria-label="Sprache wechseln">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C13.18 7.061 14.289 7.5 15.5 7.5c1.21 0 2.32-.439 3.166-1.136M15.5 7.5V3m-3.334 2.364c1.12 0 2.233.038 3.334.114m-6.002 0l.15-.04a28.456 28.456 0 00-2.634-2.13M9 15.188c1.12 0 2.233-.038 3.334-.114M12.334 15.074c.527-.07.99-.144 1.437-.226M12.334 15.074V18m2.166-2.724c.527.07.99.144 1.437.226m0 0c1.12.076 2.233.15 3.334.226m-6.333 0l-.15.04a28.456 28.456 0 01-2.634 2.13M12.334 18V15.074" />
-            </svg>
-            <span class="lang-toggle-text lang-element" lang="de">English</span>
-            <span class="lang-toggle-text lang-element" lang="en" style="display:none;">Deutsch</span>
+            <span id="langButtonText" class="text-sm font-semibold">EN</span>
         </button>
     </div>
 
@@ -364,9 +359,9 @@
                     </p>
                     <div id="language-container" class="contact-item text-sm">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-blue-600">
-                           <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm1.745-3.993a8.25 8.25 0 0115.01 0A10.462 10.462 0 0012 7.53a10.462 10.462 0 00-8.005.477zM12 16.007a10.462 10.462 0 008.005-4.477 8.25 8.25 0 01-15.01 0A10.462 10.462 0 0012 16.007z" clip-rule="evenodd" />
-                           <text x="8" y="15.5" font-family="Arial, sans-serif" font-size="7.5" font-weight="bold" fill="white" text-anchor="middle">A</text>
-                           <text x="16" y="15.5" font-family="'Noto Sans SC', 'Arial', sans-serif" font-size="7" fill="white" text-anchor="middle">文</text>
+                          <path d="M12 2a10 10 0 00-8.293 15.295L2 22l4.705-1.707A9.978 9.978 0 0012 22a10 10 0 000-20zm0 2c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8z"/>
+                          <text x="8.2" y="14.2" font-family="Arial, sans-serif" font-size="7.5" font-weight="bold" fill="white" text-anchor="middle">A</text>
+                          <text x="15.8" y="14.2" font-family="'Noto Sans SC', 'Arial', sans-serif" font-size="7" fill="white" text-anchor="middle">文</text>
                         </svg>
                         <div id="language-items-wrapper"> 
                             <div class="language-item relative">
@@ -1004,6 +999,7 @@
         function toggleLanguage() {
             const newLang = currentLang === 'de' ? 'en' : 'de';
             const elementsToToggle = document.querySelectorAll('.lang-element');
+            const langButtonText = document.getElementById('langButtonText');
             
             elementsToToggle.forEach(el => {
                 if (el.getAttribute('lang') === newLang) {
@@ -1016,8 +1012,10 @@
             document.documentElement.lang = newLang;
             if (newLang === 'de') {
                 document.title = 'Lebenslauf - Steffen Koller';
+                if(langButtonText) langButtonText.textContent = 'EN';
             } else {
                 document.title = 'Resume - Steffen Koller';
+                 if(langButtonText) langButtonText.textContent = 'DE';
             }
             currentLang = newLang; 
         }
@@ -1025,6 +1023,8 @@
         function initializePage() {
             currentLang = 'de'; 
             const elements = document.querySelectorAll('.lang-element');
+            const langButtonText = document.getElementById('langButtonText');
+
             elements.forEach(el => {
                 if (el.getAttribute('lang') === 'de') {
                     el.style.display = '';
@@ -1034,6 +1034,8 @@
             });
             document.documentElement.lang = 'de';
             document.title = 'Lebenslauf - Steffen Koller';
+            if(langButtonText) langButtonText.textContent = 'EN';
+
 
             const currentYearSpan = document.getElementById('currentYear');
             if (currentYearSpan) {
