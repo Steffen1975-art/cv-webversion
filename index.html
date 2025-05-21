@@ -105,25 +105,34 @@
             z-index: 50; 
         }
 
+        /* Updated Action Button for Language Toggle */
         .action-button {
             background-color: #0070D2; 
             color: white;
-            font-weight: 600; 
-            padding: 0.6rem 1.2rem;
-            border-radius: 0.5rem; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+            font-weight: 500; /* Slightly reduced font-weight */
+            padding: 0.5rem; /* Reduced padding for a smaller button */
+            border-radius: 0.375rem; /* Tailwind rounded-md */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Tailwind shadow-sm */
             transition: background-color 0.2s ease-in-out, transform 0.1s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
             border: none;
             cursor: pointer;
+        }
+        .action-button svg { /* Ensure SVG inside button is sized appropriately */
+            width: 1.25rem; /* Tailwind w-5 */
+            height: 1.25rem; /* Tailwind h-5 */
         }
         .action-button:hover {
             background-color: #005FB8; 
             transform: translateY(-1px); 
         }
+        /* Hide text spans within the language toggle button */
+        .action-button .lang-toggle-text {
+            display: none;
+        }
+
 
         .card-grid { 
             display: grid;
@@ -313,12 +322,12 @@
 <body class="bg-slate-100">
 
     <div class="lang-button-container">
-        <button id="toggleLangButton" onclick="toggleLanguage()" class="action-button">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <button id="toggleLangButton" onclick="toggleLanguage()" class="action-button" aria-label="Sprache wechseln">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C13.18 7.061 14.289 7.5 15.5 7.5c1.21 0 2.32-.439 3.166-1.136M15.5 7.5V3m-3.334 2.364c1.12 0 2.233.038 3.334.114m-6.002 0l.15-.04a28.456 28.456 0 00-2.634-2.13M9 15.188c1.12 0 2.233-.038 3.334-.114M12.334 15.074c.527-.07.99-.144 1.437-.226M12.334 15.074V18m2.166-2.724c.527.07.99.144 1.437.226m0 0c1.12.076 2.233.15 3.334.226m-6.333 0l-.15.04a28.456 28.456 0 01-2.634 2.13M12.334 18V15.074" />
             </svg>
-            <span class="lang-element" lang="de">English</span>
-            <span class="lang-element" lang="en" style="display:none;">Deutsch</span>
+            <span class="lang-toggle-text lang-element" lang="de">English</span>
+            <span class="lang-toggle-text lang-element" lang="en" style="display:none;">Deutsch</span>
         </button>
     </div>
 
@@ -355,9 +364,9 @@
                     </p>
                     <div id="language-container" class="contact-item text-sm">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-blue-600">
-                          <path d="M21.75 12.036c0 4.646-3.48 8.464-7.914 8.464-.834 0-1.642-.12-2.404-.348l-3.091 1.617a.75.75 0 01-.99-.868l.832-2.81a8.349 8.349 0 01-1.913-5.855c0-4.646 3.48-8.464 7.914-8.464s7.914 3.818 7.914 8.464z"/>
-                          <text x="8.5" y="15.5" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="white" text-anchor="middle">A</text>
-                          <text x="15.5" y="15.5" font-family="'Noto Sans SC', 'Arial', sans-serif" font-size="6.5" fill="white" text-anchor="middle">文</text>
+                           <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm1.745-3.993a8.25 8.25 0 0115.01 0A10.462 10.462 0 0012 7.53a10.462 10.462 0 00-8.005.477zM12 16.007a10.462 10.462 0 008.005-4.477 8.25 8.25 0 01-15.01 0A10.462 10.462 0 0012 16.007z" clip-rule="evenodd" />
+                           <text x="8" y="15.5" font-family="Arial, sans-serif" font-size="7.5" font-weight="bold" fill="white" text-anchor="middle">A</text>
+                           <text x="16" y="15.5" font-family="'Noto Sans SC', 'Arial', sans-serif" font-size="7" fill="white" text-anchor="middle">文</text>
                         </svg>
                         <div id="language-items-wrapper"> 
                             <div class="language-item relative">
