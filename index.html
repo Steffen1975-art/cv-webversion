@@ -105,14 +105,13 @@
             z-index: 50; 
         }
 
-        /* Updated Action Button for Language Toggle */
         .action-button {
             background-color: #0070D2; 
             color: white;
-            font-weight: 600; /* Reverted to semibold for better visibility of DE/EN */
-            padding: 0.5rem 0.75rem; /* Adjusted padding for text */
-            min-width: 3rem; /* Ensure button has a decent width for DE/EN */
-            height: 2.5rem; /* Fixed height to match other icon buttons if any, or just a good tap size */
+            font-weight: 600; 
+            padding: 0.5rem 0.75rem; 
+            min-width: 3rem; 
+            height: 2.5rem; 
             border-radius: 0.375rem; 
             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
             transition: background-color 0.2s ease-in-out, transform 0.1s ease;
@@ -127,9 +126,8 @@
             background-color: #005FB8; 
             transform: translateY(-1px); 
         }
-        /* Text specific for the language toggle button */
         #langButtonText {
-            font-size: 0.875rem; /* Tailwind text-sm */
+            font-size: 0.875rem; 
         }
 
 
@@ -302,7 +300,7 @@
         #language-items-wrapper {
             display: flex;
             align-items: center;
-            gap: 0.25rem; /* Tailwind gap-x-1 */
+            gap: 0.25rem; 
         }
         .language-trigger {
             font-weight: normal; 
@@ -359,9 +357,8 @@
                     </p>
                     <div id="language-container" class="contact-item text-sm">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-blue-600">
-                          <path d="M12 2a10 10 0 00-8.293 15.295L2 22l4.705-1.707A9.978 9.978 0 0012 22a10 10 0 000-20zm0 2c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8z"/>
-                          <text x="8.2" y="14.2" font-family="Arial, sans-serif" font-size="7.5" font-weight="bold" fill="white" text-anchor="middle">A</text>
-                          <text x="15.8" y="14.2" font-family="'Noto Sans SC', 'Arial', sans-serif" font-size="7" fill="white" text-anchor="middle">文</text>
+                          <path d="M4 3C2.89543 3 2 3.89543 2 5v10c0 1.10457.89543 2 2 2h3v3.26724C9.38199 20.0905 9.93101 20 10.5 20H20c1.1046 0 2-0.89543 2-2V5c0-1.10457-.8954-2-2-2H4z"></path>
+                          <text x="12" y="10.5" font-family="'Noto Sans SC', Arial, sans-serif" font-size="9" font-weight="500" fill="white" text-anchor="middle" dominant-baseline="central">文</text>
                         </svg>
                         <div id="language-items-wrapper"> 
                             <div class="language-item relative">
@@ -999,7 +996,7 @@
         function toggleLanguage() {
             const newLang = currentLang === 'de' ? 'en' : 'de';
             const elementsToToggle = document.querySelectorAll('.lang-element');
-            const langButtonText = document.getElementById('langButtonText');
+            const langButtonTextEl = document.getElementById('langButtonText'); // Get the span for the button text
             
             elementsToToggle.forEach(el => {
                 if (el.getAttribute('lang') === newLang) {
@@ -1012,10 +1009,10 @@
             document.documentElement.lang = newLang;
             if (newLang === 'de') {
                 document.title = 'Lebenslauf - Steffen Koller';
-                if(langButtonText) langButtonText.textContent = 'EN';
+                if (langButtonTextEl) langButtonTextEl.textContent = 'EN'; // Update button text
             } else {
                 document.title = 'Resume - Steffen Koller';
-                 if(langButtonText) langButtonText.textContent = 'DE';
+                if (langButtonTextEl) langButtonTextEl.textContent = 'DE'; // Update button text
             }
             currentLang = newLang; 
         }
@@ -1023,7 +1020,7 @@
         function initializePage() {
             currentLang = 'de'; 
             const elements = document.querySelectorAll('.lang-element');
-            const langButtonText = document.getElementById('langButtonText');
+            const langButtonTextEl = document.getElementById('langButtonText'); // Get the span
 
             elements.forEach(el => {
                 if (el.getAttribute('lang') === 'de') {
@@ -1034,7 +1031,7 @@
             });
             document.documentElement.lang = 'de';
             document.title = 'Lebenslauf - Steffen Koller';
-            if(langButtonText) langButtonText.textContent = 'EN';
+            if (langButtonTextEl) langButtonTextEl.textContent = 'EN'; // Set initial button text
 
 
             const currentYearSpan = document.getElementById('currentYear');
