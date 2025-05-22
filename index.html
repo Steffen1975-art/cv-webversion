@@ -9,9 +9,12 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6; 
+            background-color: #f3f4f6; /* Existing background color */
             color: #374151; 
-            line-height: 1.7; 
+            line-height: 1.7;
+            /* Add padding-bottom to prevent content from being hidden by the fixed bar */
+            /* Adjust this value based on the actual height of the fixed-bottom-bar */
+            padding-bottom: 80px; /* Example value, will be refined */
         }
 
         .web-resume-container {
@@ -33,8 +36,10 @@
             font-weight: 600; 
             border-bottom: 2px solid #0070D2; 
             padding-bottom: 0.5rem;
+            margin-top: 2.5rem; /* Added margin for better spacing with nav */
             margin-bottom: 1.5rem; 
             font-size: 1.5rem; 
+            scroll-margin-top: 80px; /* Offset for fixed header/nav if any, plus new bar */
         }
 
         h3.job-title, h3.education-section-title {
@@ -98,25 +103,18 @@
             color: #005FB8; 
         }
 
-        .lang-button-container {
-            position: fixed;
-            bottom: 1rem; /* Changed from top */
-            left: 50%;    /* Centering */
-            transform: translateX(-50%); /* Centering */
-            z-index: 50;
-            opacity: 0.85; /* Adding a bit of transparency */
-        }
+        /* Removed .lang-button-container styles */
 
-        .action-button {
+        .action-button { /* Styles for the language button, now inside the bar */
             background-color: #0070D2; 
             color: white;
-            font-weight: 500; /* Slightly less bold */
-            padding: 0.4rem 0.6rem; /* Reduced padding */
-            min-width: 2.5rem; /* Slightly smaller min-width */
-            height: 2.25rem; /* Slightly smaller height */
+            font-weight: 500;
+            padding: 0.4rem 0.6rem; 
+            min-width: 2.5rem; 
+            height: 2.25rem; 
             border-radius: 0.375rem; 
             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
-            transition: background-color 0.2s ease-in-out, transform 0.1s ease, opacity 0.2s ease-in-out; /* Added opacity transition */
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease, opacity 0.2s ease-in-out;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -127,12 +125,11 @@
         .action-button:hover {
             background-color: #005FB8; 
             transform: translateY(-1px); 
-            opacity: 1; /* Become fully opaque on hover */
+            opacity: 1;
         }
-        #langButtonText {
-            font-size: 0.8rem; /* Slightly smaller font size */
+        #langButtonText { /* Still used for the text inside the button */
+            font-size: 0.8rem; 
         }
-
 
         .card-grid { 
             display: grid;
@@ -317,15 +314,79 @@
             background-color: #e0f2fe; 
         }
 
+        /* New styles for the fixed bottom navigation bar */
+        .fixed-bottom-navigation-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #e9ecef; /* Light grey, adjust as needed */
+            /* background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(5px); */ /* Alternative: frosted glass */
+            padding: 0.75rem 1rem; /* Vertical and horizontal padding */
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1); /* Subtle shadow on top */
+            z-index: 1000; /* Ensure it's above other content */
+            display: flex;
+            justify-content: space-between; /* Pushes quick links and lang button apart */
+            align-items: center;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            gap: 0.5rem; /* Gap between items when they wrap */
+        }
+
+        .fixed-bottom-navigation-bar .quick-links-nav {
+            display: flex;
+            flex-wrap: wrap; /* Allow links to wrap */
+            gap: 0.5rem 1rem; /* Gap between links (vertical horizontal) */
+            align-items: center;
+            flex-grow: 1; /* Allow quick links to take available space */
+        }
+
+        .fixed-bottom-navigation-bar .quick-links-nav a {
+            color: #005FB8; /* Using a color from the existing theme */
+            text-decoration: none;
+            font-size: 0.8rem; /* Slightly smaller font for the bar */
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .fixed-bottom-navigation-bar .quick-links-nav a:hover {
+            background-color: #0070D2;
+            color: white;
+        }
+        
+        .fixed-bottom-navigation-bar .lang-button-wrapper {
+            /* Styles for the language button wrapper if needed, e.g., to align it specifically */
+            /* For now, flex properties on parent should handle it */
+        }
+
+        /* Responsive adjustments for the bar */
+        @media (max-width: 768px) { /* Example breakpoint for smaller screens */
+            .fixed-bottom-navigation-bar {
+                padding: 0.5rem;
+                justify-content: center; /* Center items on smaller screens if they wrap a lot */
+            }
+            .fixed-bottom-navigation-bar .quick-links-nav {
+                justify-content: center; /* Center links if they wrap */
+                margin-bottom: 0.5rem; /* Add margin if lang button wraps below */
+            }
+             .fixed-bottom-navigation-bar .quick-links-nav a {
+                font-size: 0.75rem;
+             }
+        }
+         @media (max-width: 480px) { /* Example breakpoint for very small screens */
+            .fixed-bottom-navigation-bar .quick-links-nav a {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.3rem;
+             }
+             body {
+                 padding-bottom: 100px; /* Increase padding if bar becomes taller due to wrapping */
+             }
+        }
+
+
     </style>
 </head>
 <body class="bg-slate-100">
-
-    <div class="lang-button-container">
-        <button id="toggleLangButton" onclick="toggleLanguage()" class="action-button" aria-label="Sprache wechseln">
-            <span id="langButtonText" class="text-sm font-semibold">EN</span>
-        </button>
-    </div>
 
     <div class="web-resume-container">
 
@@ -360,8 +421,8 @@
                     </p>
                     <div id="language-container" class="contact-item text-sm">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-blue-600">
-                          <path d="M4 3C2.89543 3 2 3.89543 2 5v10c0 1.10457.89543 2 2 2h3v3.26724C9.38199 20.0905 9.93101 20 10.5 20H20c1.1046 0 2-0.89543 2-2V5c0-1.10457-.8954-2-2-2H4z"></path>
-                          <text x="12" y="10.5" font-family="'Noto Sans SC', Arial, sans-serif" font-size="9" font-weight="500" fill="white" text-anchor="middle" dominant-baseline="central">文</text>
+                            <path d="M4 3C2.89543 3 2 3.89543 2 5v10c0 1.10457.89543 2 2 2h3v3.26724C9.38199 20.0905 9.93101 20 10.5 20H20c1.1046 0 2-0.89543 2-2V5c0-1.10457-.8954-2-2-2H4z"></path>
+                            <text x="12" y="10.5" font-family="'Noto Sans SC', Arial, sans-serif" font-size="9" font-weight="500" fill="white" text-anchor="middle" dominant-baseline="central">文</text>
                         </svg>
                         <div id="language-items-wrapper"> 
                             <div class="language-item relative">
@@ -391,8 +452,7 @@
             </div>
         </header>
 
-        <section class="mb-12">
-            <h2 class="section-main-title">
+        <section class="mb-12" id="short-profile-section"> <h2 class="section-main-title">
                 <span class="lang-element" lang="de">KURZPROFIL</span>
                 <span class="lang-element" lang="en" style="display:none;">SHORT PROFILE</span>
             </h2>
@@ -452,8 +512,7 @@
             </div>
         </section>
 
-        <section class="mb-12 core-competencies-container"> 
-            <h2 class="section-main-title">
+        <section class="mb-12 core-competencies-container" id="core-competencies-section"> <h2 class="section-main-title">
                 <span class="lang-element" lang="de">KERNKOMPETENZEN</span>
                 <span class="lang-element" lang="en" style="display:none;">CORE COMPETENCIES</span>
             </h2>
@@ -485,8 +544,7 @@
             </div>
         </section>
 
-        <section class="mb-12">
-            <h2 class="section-main-title">
+        <section class="mb-12" id="professional-experience-section"> <h2 class="section-main-title">
                 <span class="lang-element" lang="de">BERUFSERFAHRUNG</span>
                 <span class="lang-element" lang="en" style="display:none;">PROFESSIONAL EXPERIENCE</span>
             </h2>
@@ -726,8 +784,7 @@
 
         <section class="mb-12 grid md:grid-cols-2 gap-8">
             <div class="hochschulbildung-item"> 
-                <h2 class="section-main-title">
-                    <span class="lang-element" lang="de">HOCHSCHULBILDUNG</span>
+                <h2 class="section-main-title" id="university-education-section"> <span class="lang-element" lang="de">HOCHSCHULBILDUNG</span>
                     <span class="lang-element" lang="en" style="display:none;">UNIVERSITY EDUCATION</span>
                 </h2>
                 <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md"> 
@@ -750,8 +807,7 @@
                 </div>
             </div>
             <div class="ausbildung-item"> 
-                <h2 class="section-main-title">
-                    <span class="lang-element" lang="de">AUSBILDUNG</span>
+                <h2 class="section-main-title" id="vocational-training-section"> <span class="lang-element" lang="de">AUSBILDUNG</span>
                     <span class="lang-element" lang="en" style="display:none;">VOCATIONAL TRAINING</span>
                 </h2>
                 <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md"> 
@@ -771,8 +827,7 @@
             </div>
         </section>
 
-        <section class="mb-12 werte-item"> 
-            <h2 class="section-main-title">
+        <section class="mb-12 werte-item" id="values-section"> <h2 class="section-main-title">
                 <span class="lang-element" lang="de">WERTE</span>
                 <span class="lang-element" lang="en" style="display:none;">VALUES</span>
             </h2>
@@ -824,8 +879,7 @@
             </div>
         </section>
 
-        <section class="mb-12 persoenliche-einblicke-item"> 
-            <h2 class="section-main-title">
+        <section class="mb-12 persoenliche-einblicke-item" id="personal-insights-section"> <h2 class="section-main-title">
                 <span class="lang-element" lang="de">PERSÖNLICHE EINBLICKE</span>
                 <span class="lang-element" lang="en" style="display:none;">PERSONAL INSIGHTS</span>
             </h2>
@@ -877,8 +931,7 @@
             </div>
         </section>
         
-        <section class="mb-12">
-            <h2 class="section-main-title">
+        <section class="mb-12" id="expertise-section"> <h2 class="section-main-title">
                 <span class="lang-element" lang="de">EXPERTISE</span>
                 <span class="lang-element" lang="en" style="display:none;">EXPERTISE</span>
             </h2>
@@ -958,12 +1011,11 @@
             </div>
         </section>
 
-        <section class="mb-12">
-            <h2 class="section-main-title">
+        <section class="mb-12 fortbildung-item" id="further-education-section"> <h2 class="section-main-title"> 
                 <span class="lang-element" lang="de">FORTBILDUNG (Auswahl)</span>
                 <span class="lang-element" lang="en" style="display:none;">FURTHER EDUCATION (Selection)</span>
             </h2>
-            <ul class="text-sm custom-bullets fortbildung-item text-slate-700"> 
+            <ul class="text-sm custom-bullets text-slate-700"> 
                 <li>
                     <span class="lang-element" lang="de">SCRUM Product Owner (Daimler Corporate Academy)</span>
                     <span class="lang-element" lang="en" style="display:none;">SCRUM Product Owner (Daimler Corporate Academy)</span>
@@ -992,14 +1044,47 @@
 
     </div>
 
+    <div class="fixed-bottom-navigation-bar">
+        <nav class="quick-links-nav" aria-label="Schnellnavigation">
+            <a href="#short-profile-section">
+                <span class="lang-element" lang="de">Profil</span>
+                <span class="lang-element" lang="en" style="display:none;">Profile</span>
+            </a>
+            <a href="#core-competencies-section">
+                <span class="lang-element" lang="de">Kompetenzen</span>
+                <span class="lang-element" lang="en" style="display:none;">Skills</span>
+            </a>
+            <a href="#professional-experience-section">
+                <span class="lang-element" lang="de">Erfahrung</span>
+                <span class="lang-element" lang="en" style="display:none;">Experience</span>
+            </a>
+            <a href="#university-education-section">
+                <span class="lang-element" lang="de">Bildung</span>
+                <span class="lang-element" lang="en" style="display:none;">Education</span>
+            </a>
+             <a href="#values-section">
+                <span class="lang-element" lang="de">Werte</span>
+                <span class="lang-element" lang="en" style="display:none;">Values</span>
+            </a>
+            <a href="#expertise-section">
+                <span class="lang-element" lang="de">Expertise</span>
+                <span class="lang-element" lang="en" style="display:none;">Expertise</span>
+            </a>
+        </nav>
+        <div class="lang-button-wrapper">
+            <button id="toggleLangButton" class="action-button" aria-label="Sprache wechseln">
+                <span id="langButtonText" class="text-sm font-semibold">EN</span>
+            </button>
+        </div>
+    </div>
+
     <script>
         let currentLang = 'de'; 
         let activeTooltip = null; 
 
-        function toggleLanguage() {
-            const newLang = currentLang === 'de' ? 'en' : 'de';
+        function setLanguage(newLang) {
             const elementsToToggle = document.querySelectorAll('.lang-element');
-            const langButtonTextEl = document.getElementById('langButtonText'); // Get the span for the button text
+            const langButtonTextEl = document.getElementById('langButtonText');
             
             elementsToToggle.forEach(el => {
                 if (el.getAttribute('lang') === newLang) {
@@ -1012,30 +1097,30 @@
             document.documentElement.lang = newLang;
             if (newLang === 'de') {
                 document.title = 'Lebenslauf - Steffen Koller';
-                if (langButtonTextEl) langButtonTextEl.textContent = 'EN'; // Update button text
+                if (langButtonTextEl) langButtonTextEl.textContent = 'EN';
             } else {
                 document.title = 'Resume - Steffen Koller';
-                if (langButtonTextEl) langButtonTextEl.textContent = 'DE'; // Update button text
+                if (langButtonTextEl) langButtonTextEl.textContent = 'DE';
             }
             currentLang = newLang; 
         }
 
+        function toggleLanguage() {
+            const newLang = currentLang === 'de' ? 'en' : 'de';
+            setLanguage(newLang);
+        }
+        
+        function smoothScrollTo(targetId) {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                // Calculate position, considering the height of the fixed bar if necessary
+                // For simplicity, direct scrollIntoView with offset (via scroll-margin-top in CSS)
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
         function initializePage() {
-            currentLang = 'de'; 
-            const elements = document.querySelectorAll('.lang-element');
-            const langButtonTextEl = document.getElementById('langButtonText'); // Get the span
-
-            elements.forEach(el => {
-                if (el.getAttribute('lang') === 'de') {
-                    el.style.display = '';
-                } else {
-                    el.style.display = 'none';
-                }
-            });
-            document.documentElement.lang = 'de';
-            document.title = 'Lebenslauf - Steffen Koller';
-            if (langButtonTextEl) langButtonTextEl.textContent = 'EN'; // Set initial button text
-
+            setLanguage('de'); // Set initial language to German
 
             const currentYearSpan = document.getElementById('currentYear');
             if (currentYearSpan) {
@@ -1048,6 +1133,13 @@
                 });
             });
 
+            // Language toggle button event listener
+            const langToggleButton = document.getElementById('toggleLangButton');
+            if (langToggleButton) {
+                langToggleButton.addEventListener('click', toggleLanguage);
+            }
+
+            // Experience Carousel Logic
             const track = document.querySelector('.experience-carousel-track');
             if (track) { 
                 const slides = Array.from(track.children);
@@ -1080,6 +1172,7 @@
                 }
             }
 
+            // Language Tooltip Logic
             const languageItems = document.querySelectorAll('.language-item');
             languageItems.forEach(item => {
                 const trigger = item.querySelector('.language-trigger');
@@ -1120,6 +1213,26 @@
                     }
                 }
             });
+
+            // Add smooth scrolling to quick links
+            document.querySelectorAll('.fixed-bottom-navigation-bar .quick-links-nav a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    smoothScrollTo(targetId);
+                });
+            });
+            
+            // Adjust body padding based on the actual height of the navigation bar
+            const navBar = document.querySelector('.fixed-bottom-navigation-bar');
+            if (navBar) {
+                const navBarHeight = navBar.offsetHeight;
+                document.body.style.paddingBottom = `${navBarHeight + 20}px`; // +20 for a little extra space
+                 // Also adjust scroll-margin-top for all section titles
+                document.querySelectorAll('h2.section-main-title').forEach(h2 => {
+                    h2.style.scrollMarginTop = `${navBarHeight + 20}px`;
+                });
+            }
         }
 
         document.addEventListener('DOMContentLoaded', initializePage);
