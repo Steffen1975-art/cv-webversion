@@ -8,23 +8,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         html {
-            scroll-behavior: smooth; /* Enables smooth scrolling for anchor links */
+            scroll-behavior: smooth; 
         }
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f3f4f6; 
             color: #374151; 
             line-height: 1.7;
-            padding-bottom: 100px; /* Default fallback, JS will adjust */
+            padding-top: 80px; /* Default fallback, JS will adjust based on nav bar height */
         }
 
         .web-resume-container {
             max-width: 1024px; 
-            margin: 2rem auto;
+            margin: 2rem auto; /* This margin is from the padded body top now */
             padding: 2rem; 
             background-color: white;
             border-radius: 0.75rem; 
             box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+        }
+        /* Ensure the main header also has scroll margin if targeted directly */
+        #page-header {
+             scroll-margin-top: 80px; /* Default fallback, JS will adjust */
         }
 
         h1.main-name { 
@@ -40,7 +44,7 @@
             margin-top: 2.5rem; 
             margin-bottom: 1.5rem; 
             font-size: 1.5rem; 
-            scroll-margin-top: 100px; /* Default fallback, JS will adjust */
+            scroll-margin-top: 80px; /* Default fallback, JS will adjust */
         }
 
         h3.job-title, h3.education-section-title {
@@ -97,12 +101,13 @@
             color: #005FB8; 
         }
 
-        .action-button {
+        .action-button { /* Language button style */
             background-color: #0070D2; 
             color: white;
             font-weight: 500;
-            padding: 0.4rem 0.6rem; 
-            min-width: 2.5rem; 
+            padding: 0.3rem 0.5rem; /* Adjusted padding for icon */
+            min-width: auto; /* Min-width not as crucial for icon */
+            width: 2.5rem; /* Fixed width for icon button */
             height: 2.25rem; 
             border-radius: 0.375rem; 
             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
@@ -119,8 +124,9 @@
             transform: translateY(-1px); 
             opacity: 1;
         }
-        #langButtonText {
-            font-size: 0.8rem; 
+        #langButtonIcon { /* Style for the globe icon */
+            font-size: 1.25rem; /* Adjust icon size as needed */
+            line-height: 1; /* Ensure icon is centered */
         }
 
         .card-grid { 
@@ -254,100 +260,129 @@
         }
         .language-trigger:hover { color: #005FB8; background-color: #e0f2fe; }
 
-        /* Fixed bottom navigation bar */
-        .fixed-bottom-navigation-bar {
-            position: fixed; bottom: 0; left: 0; width: 100%;
+        /* Fixed top navigation bar */
+        .fixed-top-navigation-bar { /* Renamed and adjusted */
+            position: fixed; 
+            top: 0; /* Changed from bottom to top */
+            left: 0; 
+            width: 100%;
             background-color: #e9ecef; 
-            padding: 0.75rem 1rem; 
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1); 
+            padding: 0.5rem 1rem; /* Reduced padding slightly for top bar */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Shadow on bottom */
             z-index: 1000; 
             display: flex;
             justify-content: space-between; 
             align-items: center;
-            flex-wrap: wrap; 
-            gap: 0.5rem; 
+            /* flex-wrap: wrap; /* Allow wrapping, but try to avoid with icon */
+            /* gap: 0.5rem; */ /* Gap might not be needed if space-between works well */
         }
 
-        .fixed-bottom-navigation-bar .quick-links-nav {
+        .fixed-top-navigation-bar .quick-links-nav {
             display: flex;
-            flex-wrap: wrap; 
-            gap: 0.25rem 0.75rem; /* Reduced gap slightly for smaller screens */
+            flex-wrap: wrap; /* Allow links to wrap if absolutely necessary */
+            gap: 0.25rem 0.75rem; 
             align-items: center;
-            flex-grow: 1; 
-            justify-content: flex-start; /* Default to start */
+            /* flex-grow: 1; */ /* Let it take natural width, space-between handles distribution */
         }
 
-        .fixed-bottom-navigation-bar .quick-links-nav a {
+        .fixed-top-navigation-bar .quick-links-nav a {
             color: #005FB8; 
             text-decoration: none;
-            font-size: 0.8rem; 
+            font-size: 0.75rem; /* Slightly smaller for top bar */
             padding: 0.25rem 0.5rem;
             border-radius: 0.25rem;
             transition: background-color 0.2s ease, color 0.2s ease;
-            white-space: nowrap; /* Prevent links from breaking mid-word */
+            white-space: nowrap; 
         }
 
-        .fixed-bottom-navigation-bar .quick-links-nav a:hover {
+        .fixed-top-navigation-bar .quick-links-nav a:hover {
             background-color: #0070D2;
             color: white;
         }
         
-        .fixed-bottom-navigation-bar .lang-button-wrapper {
-           flex-shrink: 0; /* Prevent language button from shrinking */
+        .fixed-top-navigation-bar .lang-button-wrapper {
+           flex-shrink: 0; 
         }
 
-        /* Responsive adjustments for the bar */
-        /* Targeting typical phone portrait widths up to tablet portrait */
-        @media (max-width: 767px) { 
-            .fixed-bottom-navigation-bar {
-                padding: 0.5rem;
-                justify-content: center; 
+        /* Responsive adjustments for the top bar */
+        @media (max-width: 767px) { /* Tablet and smaller */
+            .fixed-top-navigation-bar {
+                padding: 0.5rem 0.75rem; /* Adjust padding */
             }
-            .fixed-bottom-navigation-bar .quick-links-nav {
-                justify-content: center; 
-                margin-bottom: 0.5rem; 
-                gap: 0.25rem 0.5rem; /* Further reduce gap */
+            .fixed-top-navigation-bar .quick-links-nav {
+                gap: 0.2rem 0.4rem; /* Reduce gap */
+                /* justify-content: center; If space is very tight and wrapping occurs */
             }
-             .fixed-bottom-navigation-bar .quick-links-nav a {
-                font-size: 0.75rem;
-             }
-        }
-
-        /* Targeting very small screens like Pixel 9 Pro in portrait */
-        /* Typical Pixel 9 Pro width is around 412px, so 480px is a good upper bound for this specific override */
-         @media (max-width: 480px) { 
-            .fixed-bottom-navigation-bar {
-                flex-direction: column; /* Stack items vertically */
-                align-items: center; /* Center items horizontally in the column */
-                padding: 0.75rem 0.5rem; /* Adjust padding for column layout */
-            }
-            .fixed-bottom-navigation-bar .quick-links-nav {
-                order: 1; /* Quick links first */
-                justify-content: center; /* Center links if they wrap (they shouldn't wrap much now) */
-                width: 100%; /* Take full width to allow internal centering of links */
-                margin-bottom: 0.75rem; /* Space before language button */
-                gap: 0.3rem 0.4rem; /* Fine-tune gap for very small screens */
-            }
-            .fixed-bottom-navigation-bar .lang-button-wrapper {
-                order: 2; /* Language button second */
-                width: auto; /* Allow button to size naturally */
-                margin-top: 0.25rem; /* Small space if needed */
-            }
-             .fixed-bottom-navigation-bar .quick-links-nav a {
-                font-size: 0.7rem; /* Smallest readable font */
+             .fixed-top-navigation-bar .quick-links-nav a {
+                font-size: 0.7rem; /* Further reduce font size */
                 padding: 0.2rem 0.3rem;
              }
-             /* Body padding will be adjusted by JS, this is a fallback */
-             /* body { padding-bottom: 120px !important; } */ /* Increased if bar becomes taller due to stacking */
+             .action-button { /* Ensure language button is not too large */
+                padding: 0.25rem 0.4rem;
+                width: 2.25rem;
+                height: 2rem;
+             }
+             #langButtonIcon {
+                font-size: 1.1rem;
+             }
+        }
+
+         @media (max-width: 480px) { /* Very small screens */
+            .fixed-top-navigation-bar {
+                /* Attempt to keep horizontal layout if possible with icon */
+                /* If still problematic, then flex-direction: column; could be a fallback */
+                 justify-content: center; /* Center items if they start to feel too squeezed */
+                 flex-wrap: wrap; /* Explicitly allow wrapping if space-between fails */
+                 gap: 0.5rem;
+            }
+             .fixed-top-navigation-bar .quick-links-nav {
+                order: 1; /* Ensure links come first if wrapped */
+                justify-content: center; /* Center links when wrapped */
+                width: 100%; /* Allow full width for centering if wrapped */
+                margin-bottom: 0.25rem; /* Small space if lang button wraps below */
+             }
+             .fixed-top-navigation-bar .lang-button-wrapper {
+                order: 2; /* Ensure button comes after if wrapped */
+             }
         }
     </style>
 </head>
 <body class="bg-slate-100">
 
+    <div class="fixed-top-navigation-bar"> <nav class="quick-links-nav" aria-label="Schnellnavigation">
+            <a href="#page-header"> <span class="lang-element" lang="de">Profil</span>
+                <span class="lang-element" lang="en" style="display:none;">Profile</span>
+            </a>
+            <a href="#core-competencies-section">
+                <span class="lang-element" lang="de">Kompetenzen</span>
+                <span class="lang-element" lang="en" style="display:none;">Skills</span>
+            </a>
+            <a href="#professional-experience-section">
+                <span class="lang-element" lang="de">Erfahrung</span>
+                <span class="lang-element" lang="en" style="display:none;">Experience</span>
+            </a>
+            <a href="#university-education-section">
+                <span class="lang-element" lang="de">Bildung</span>
+                <span class="lang-element" lang="en" style="display:none;">Education</span>
+            </a>
+             <a href="#values-section">
+                <span class="lang-element" lang="de">Werte</span>
+                <span class="lang-element" lang="en" style="display:none;">Values</span>
+            </a>
+            <a href="#expertise-section">
+                <span class="lang-element" lang="de">Expertise</span>
+                <span class="lang-element" lang="en" style="display:none;">Expertise</span>
+            </a>
+        </nav>
+        <div class="lang-button-wrapper">
+            <button id="toggleLangButton" class="action-button" aria-label="Sprache wechseln">
+                <span id="langButtonIcon" class="text-lg">🌐</span> </button>
+        </div>
+    </div>
+
     <div class="web-resume-container">
 
-        <header class="flex flex-col md:flex-row items-center mb-12 md:mb-16 pb-8 border-b border-slate-200">
-            <img src="https://placehold.co/192x192/0070D2/FFFFFF?text=SK" 
+        <header id="page-header" class="flex flex-col md:flex-row items-center mb-12 md:mb-16 pb-8 border-b border-slate-200"> <img src="https://placehold.co/192x192/0070D2/FFFFFF?text=SK" 
                  alt="Steffen Koller" 
                  onerror="this.onerror=null; this.src='https://placehold.co/192x192/E2E8F0/475569?text=Bild+fehlt';"
                  class="w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover mb-6 md:mb-0 md:mr-10 flex-shrink-0 shadow-lg">
@@ -1000,47 +1035,13 @@
 
     </div>
 
-    <div class="fixed-bottom-navigation-bar">
-        <nav class="quick-links-nav" aria-label="Schnellnavigation">
-            <a href="#short-profile-section">
-                <span class="lang-element" lang="de">Profil</span>
-                <span class="lang-element" lang="en" style="display:none;">Profile</span>
-            </a>
-            <a href="#core-competencies-section">
-                <span class="lang-element" lang="de">Kompetenzen</span>
-                <span class="lang-element" lang="en" style="display:none;">Skills</span>
-            </a>
-            <a href="#professional-experience-section">
-                <span class="lang-element" lang="de">Erfahrung</span>
-                <span class="lang-element" lang="en" style="display:none;">Experience</span>
-            </a>
-            <a href="#university-education-section">
-                <span class="lang-element" lang="de">Bildung</span>
-                <span class="lang-element" lang="en" style="display:none;">Education</span>
-            </a>
-             <a href="#values-section">
-                <span class="lang-element" lang="de">Werte</span>
-                <span class="lang-element" lang="en" style="display:none;">Values</span>
-            </a>
-            <a href="#expertise-section">
-                <span class="lang-element" lang="de">Expertise</span>
-                <span class="lang-element" lang="en" style="display:none;">Expertise</span>
-            </a>
-        </nav>
-        <div class="lang-button-wrapper">
-            <button id="toggleLangButton" class="action-button" aria-label="Sprache wechseln">
-                <span id="langButtonText" class="text-sm font-semibold">EN</span>
-            </button>
-        </div>
-    </div>
-
     <script>
         let currentLang = 'de'; 
         let activeTooltip = null; 
 
         function setLanguage(newLang) {
             const elementsToToggle = document.querySelectorAll('.lang-element');
-            const langButtonTextEl = document.getElementById('langButtonText');
+            // const langButtonTextEl = document.getElementById('langButtonText'); // No longer used for text
             
             elementsToToggle.forEach(el => {
                 if (el.getAttribute('lang') === newLang) {
@@ -1053,10 +1054,10 @@
             document.documentElement.lang = newLang;
             if (newLang === 'de') {
                 document.title = 'Lebenslauf - Steffen Koller';
-                if (langButtonTextEl) langButtonTextEl.textContent = 'EN';
+                // if (langButtonTextEl) langButtonTextEl.textContent = 'EN'; // No longer used
             } else {
                 document.title = 'Resume - Steffen Koller';
-                if (langButtonTextEl) langButtonTextEl.textContent = 'DE';
+                // if (langButtonTextEl) langButtonTextEl.textContent = 'DE'; // No longer used
             }
             currentLang = newLang; 
         }
@@ -1066,23 +1067,16 @@
             setLanguage(newLang);
         }
         
-        // Smooth scroll is handled by CSS `scroll-behavior: smooth;` now.
-        // The smoothScrollTo JS function is no longer strictly needed for anchor links.
-        // However, keeping it in case of future JS-triggered scrolls.
-        function smoothScrollTo(targetId) {
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
         function adjustLayoutForNavBar() {
-            const navBar = document.querySelector('.fixed-bottom-navigation-bar');
+            const navBar = document.querySelector('.fixed-top-navigation-bar');
             if (navBar) {
                 const navBarHeight = navBar.offsetHeight;
-                document.body.style.paddingBottom = `${navBarHeight + 20}px`; 
-                document.querySelectorAll('h2.section-main-title').forEach(h2 => {
-                    h2.style.scrollMarginTop = `${navBarHeight + 20}px`;
+                document.body.style.paddingTop = `${navBarHeight + 10}px`; // +10 for a little extra space below nav
+                
+                // Adjust scroll-margin-top for all section titles and the main header
+                const scrollTargets = document.querySelectorAll('h2.section-main-title, #page-header');
+                scrollTargets.forEach(target => {
+                    target.style.scrollMarginTop = `${navBarHeight + 10}px`;
                 });
             }
         }
@@ -1179,13 +1173,9 @@
                 }
             });
             
-            // Quick links now use CSS smooth scroll, but ensure IDs are correct.
-            // The href attributes directly link to section IDs.
-
-            // Initial layout adjustment and on resize/load
-            adjustLayoutForNavBar(); // Adjust on DOMContentLoaded
+            adjustLayoutForNavBar(); 
             window.addEventListener('resize', adjustLayoutForNavBar);
-            window.addEventListener('load', adjustLayoutForNavBar); // Adjust again after all resources are loaded
+            window.addEventListener('load', adjustLayoutForNavBar); 
         }
 
         document.addEventListener('DOMContentLoaded', initializePage);
