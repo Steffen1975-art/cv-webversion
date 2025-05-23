@@ -28,11 +28,10 @@
         }
         
         #page-header, #short-profile-section, #core-competencies-section, #professional-experience-section, #expertise-section, #education-section, #further-education-section, #values-section, #personal-insights-section {
-             scroll-margin-top: 48px; /* Default fallback, JS will adjust */
+             scroll-margin-top: 48px; 
         }
-        /* Specific for page-header as it's not a section with h2 */
          #page-header { 
-            scroll-margin-top: 56px; /* Slightly more to ensure full visibility below nav */
+            scroll-margin-top: 56px; 
          }
 
 
@@ -144,8 +143,47 @@
              display: inline-block; 
         }
 
+        /* Styles for Core Competencies Cards */
+        .competency-item-base { 
+            border: 1px solid #e5e7eb; 
+            border-radius: 0.5rem; 
+            padding: 1.25rem; /* Increased padding a bit */
+            transition: all 0.3s ease-in-out;
+            background-color: #f9fafb; 
+            display: flex; /* Added for better icon-text alignment if needed */
+            align-items: flex-start; /* Align icon and text block to the top */
+        }
+        .competency-item-base:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,112,210,0.15); 
+        }
+        .competency-icon {
+            font-size: 1.75rem; 
+            margin-right: 0.75rem;
+            color: #0070D2; 
+            flex-shrink: 0; 
+            margin-top: 0.125rem; /* Fine-tune vertical alignment with text */
+        }
+        .competency-title-text {
+            font-weight: 600;
+            color: #001639; 
+            font-size: 1.05rem; 
+            margin-bottom: 0.35rem; /* Increased margin */
+        }
+        .competency-description-text {
+            font-size: 0.875rem; 
+            color: #4b5563; 
+            line-height: 1.6;
+        }
+        .card-grid-competencies { 
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem; 
+        }
+        /* End of Styles for Core Competencies Cards */
 
-        .card-grid { 
+
+        .card-grid { /* This is for Values and Personal Insights */
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
             gap: 1.5rem; 
@@ -221,7 +259,7 @@
             font-size: 0.9rem;
         }
         
-        .competency-tag { 
+        .competency-tag { /* This class is for the Expertise section, not Core Competencies anymore */
             transition: all 0.2s ease-in-out;
             background-color: #e0f2fe; 
             color: #0c4a6e; 
@@ -364,7 +402,7 @@
             .fixed-top-navigation-bar .lang-button-wrapper {
                  margin-right: 0.75rem;
             }
-            .action-button { /* Language button style for larger screens */
+            .action-button { 
                 font-size: 0.7rem; 
                 padding: 0.25rem 0.4rem; 
                 height: 2rem; 
@@ -410,7 +448,8 @@
                 <span class="lang-element" lang="de">Expertise</span>
                 <span class="lang-element" lang="en" style="display:none;">Expertise</span>
             </a>
-            <a href="#education-section"> <span class="lang-element" lang="de">Bildung</span>
+            <a href="#education-section"> 
+                <span class="lang-element" lang="de">Bildung</span>
                 <span class="lang-element" lang="en" style="display:none;">Education</span>
             </a>
             <a href="#further-education-section">
@@ -561,30 +600,84 @@
                 <span class="lang-element" lang="de">KERNKOMPETENZEN</span>
                 <span class="lang-element" lang="en" style="display:none;">CORE COMPETENCIES</span>
             </h2>
-            <div class="flex flex-wrap gap-3 text-sm">
-                <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">Salesforce Platform Leadership:</strong> Sales, Service, Marketing, Experience & Data Cloud</span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">Salesforce Platform Leadership:</strong> Sales, Service, Marketing, Experience & Data Cloud</span>
+            <div class="card-grid-competencies">
+                <div class="competency-item-base">
+                    <span class="competency-icon">⚙️</span>
+                    <div>
+                        <h3 class="competency-title-text">
+                            <span class="lang-element" lang="de">Salesforce Platform Leadership</span>
+                            <span class="lang-element" lang="en" style="display:none;">Salesforce Platform Leadership</span>
+                        </h3>
+                        <p class="competency-description-text">
+                            <span class="lang-element" lang="de">Umfassende Steuerung und Entwicklung von Salesforce-Lösungen über Sales, Service, Marketing, Experience & Data Cloud.</span>
+                            <span class="lang-element" lang="en" style="display:none;">Comprehensive management and development of Salesforce solutions across Sales, Service, Marketing, Experience & Data Cloud.</span>
+                        </p>
+                    </div>
                 </div>
-                <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">Automotive CRM & Digitale Transformation:</strong> Sales, After Sales, Finance Use Cases</span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">Automotive CRM & Digital Transformation:</strong> Sales, After Sales, Finance Use Cases</span>
+                <div class="competency-item-base">
+                    <span class="competency-icon">🚗</span>
+                    <div>
+                        <h3 class="competency-title-text">
+                            <span class="lang-element" lang="de">Automotive CRM & Digitale Transformation</span>
+                            <span class="lang-element" lang="en" style="display:none;">Automotive CRM & Digital Transformation</span>
+                        </h3>
+                        <p class="competency-description-text">
+                            <span class="lang-element" lang="de">Gestaltung digitaler Kundenprozesse im Automotive-Sektor für Sales, After Sales & Finance Use Cases.</span>
+                            <span class="lang-element" lang="en" style="display:none;">Designing digital customer processes in the automotive sector for Sales, After Sales & Finance use cases.</span>
+                        </p>
+                    </div>
                 </div>
-                <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">Lösungsarchitektur & Solution Management:</strong> Agenturmodell, SAM, POS-Integration</span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">Solution Architecture & Solution Management:</strong> Agency Model, SAM, POS Integration</span>
+                <div class="competency-item-base">
+                    <span class="competency-icon">🏗️</span>
+                    <div>
+                        <h3 class="competency-title-text">
+                            <span class="lang-element" lang="de">Lösungsarchitektur & Solution Management</span>
+                            <span class="lang-element" lang="en" style="display:none;">Solution Architecture & Solution Management</span>
+                        </h3>
+                        <p class="competency-description-text">
+                            <span class="lang-element" lang="de">Entwurf und Management von CRM-Lösungen für Agenturmodelle, SAM und POS-Integrationen.</span>
+                            <span class="lang-element" lang="en" style="display:none;">Design and management of CRM solutions for agency models, SAM, and POS integrations.</span>
+                        </p>
+                    </div>
                 </div>
-                <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">Agile Program & Transition Management:</strong> Effizienzsteigerung (ca. 40% in Transition)</span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">Agile Program & Transition Management:</strong> Efficiency Increase (approx. 40% in Transition)</span>
+                <div class="competency-item-base">
+                    <span class="competency-icon">🔄</span>
+                    <div>
+                        <h3 class="competency-title-text">
+                            <span class="lang-element" lang="de">Agile Program & Transition Management</span>
+                            <span class="lang-element" lang="en" style="display:none;">Agile Program & Transition Management</span>
+                        </h3>
+                        <p class="competency-description-text">
+                            <span class="lang-element" lang="de">Effiziente Leitung agiler Programme und Transitionsprojekte mit Fokus auf Leistungssteigerung (ca. 40% in Transition).</span>
+                            <span class="lang-element" lang="en" style="display:none;">Efficient management of agile programs and transition projects with a focus on performance increase (approx. 40% in transition).</span>
+                        </p>
+                    </div>
                 </div>
-                <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">KI im CRM:</strong> Salesforce Agentforce Pilotierung & Implementierungsstrategie</span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">AI in CRM:</strong> Salesforce Agentforce Piloting & Implementation Strategy</span>
+                <div class="competency-item-base">
+                    <span class="competency-icon">💡</span>
+                    <div>
+                        <h3 class="competency-title-text">
+                            <span class="lang-element" lang="de">KI im CRM</span>
+                            <span class="lang-element" lang="en" style="display:none;">AI in CRM</span>
+                        </h3>
+                        <p class="competency-description-text">
+                            <span class="lang-element" lang="de">Pilotierung und strategische Implementierung von KI-Lösungen wie Salesforce Agentforce zur Effizienz- und Qualitätssteigerung.</span>
+                            <span class="lang-element" lang="en" style="display:none;">Piloting and strategic implementation of AI solutions like Salesforce Agentforce for efficiency and quality improvement.</span>
+                        </p>
+                    </div>
                 </div>
-                <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                    <span class="lang-element" lang="de"><strong class="font-semibold text-sky-900">Stakeholder Management & Kommunikation (bis Top-Management/E-Level)</strong></span>
-                    <span class="lang-element" lang="en" style="display:none;"><strong class="font-semibold text-sky-900">Stakeholder Management & Communication (up to Top Management/E-Level)</strong></span>
+                <div class="competency-item-base">
+                    <span class="competency-icon">🤝</span>
+                    <div>
+                        <h3 class="competency-title-text">
+                            <span class="lang-element" lang="de">Stakeholder Management & Kommunikation</span>
+                            <span class="lang-element" lang="en" style="display:none;">Stakeholder Management & Communication</span>
+                        </h3>
+                        <p class="competency-description-text">
+                            <span class="lang-element" lang="de">Effektive Kommunikation und Management von Stakeholder-Erwartungen bis auf Top-Management-Ebene (E-Level).</span>
+                            <span class="lang-element" lang="en" style="display:none;">Effective communication and management of stakeholder expectations up to top management level (E-Level).</span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1144,7 +1237,7 @@
                 });
             }
         }
-
+        
         function initializePage() {
             const langButtonTextEl = document.getElementById('langButtonText');
             if (currentLang === 'de') {
@@ -1222,7 +1315,6 @@
                         tooltip.style.visibility = 'visible';
                     });
                     trigger.addEventListener('blur', () => {
-                        // Check if the mouse is still over the item or tooltip itself to prevent hiding
                         if (!item.matches(':hover') && !tooltip.matches(':hover')) {
                            tooltip.style.opacity = '0';
                            tooltip.style.visibility = 'hidden';
