@@ -15,20 +15,20 @@
             background-color: #f3f4f6; 
             color: #374151; 
             line-height: 1.7;
-            padding-top: 80px; /* Default fallback, JS will adjust based on nav bar height */
+            padding-top: 50px; /* Default fallback, JS will adjust. Reduced due to more compact nav. */
         }
 
         .web-resume-container {
             max-width: 1024px; 
-            margin: 2rem auto; /* This margin is from the padded body top now */
+            margin: 1.5rem auto;
             padding: 2rem; 
             background-color: white;
             border-radius: 0.75rem; 
             box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
         }
-        /* Ensure the main header also has scroll margin if targeted directly */
+        
         #page-header {
-             scroll-margin-top: 80px; /* Default fallback, JS will adjust */
+             scroll-margin-top: 50px; /* Default fallback, JS will adjust */
         }
 
         h1.main-name { 
@@ -41,10 +41,10 @@
             font-weight: 600; 
             border-bottom: 2px solid #0070D2; 
             padding-bottom: 0.5rem;
-            margin-top: 2.5rem; 
+            margin-top: 2rem; 
             margin-bottom: 1.5rem; 
             font-size: 1.5rem; 
-            scroll-margin-top: 80px; /* Default fallback, JS will adjust */
+            scroll-margin-top: 50px; /* Default fallback, JS will adjust */
         }
 
         h3.job-title, h3.education-section-title {
@@ -105,13 +105,13 @@
             background-color: #0070D2; 
             color: white;
             font-weight: 500;
-            padding: 0.3rem 0.5rem; /* Adjusted padding for icon */
-            min-width: auto; /* Min-width not as crucial for icon */
-            width: 2.5rem; /* Fixed width for icon button */
-            height: 2.25rem; 
-            border-radius: 0.375rem; 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
-            transition: background-color 0.2s ease-in-out, transform 0.1s ease, opacity 0.2s ease-in-out;
+            padding: 0.2rem 0.35rem; /* Compact padding */
+            min-width: auto; 
+            width: 2rem;   /* Compact width */
+            height: 1.8rem; /* Compact height */
+            border-radius: 0.3rem; 
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1); 
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -122,11 +122,10 @@
         .action-button:hover {
             background-color: #005FB8; 
             transform: translateY(-1px); 
-            opacity: 1;
         }
-        #langButtonIcon { /* Style for the globe icon */
-            font-size: 1.25rem; /* Adjust icon size as needed */
-            line-height: 1; /* Ensure icon is centered */
+        #langButtonIcon { 
+            font-size: 1rem; /* Compact icon size */
+            line-height: 1; 
         }
 
         .card-grid { 
@@ -261,38 +260,47 @@
         .language-trigger:hover { color: #005FB8; background-color: #e0f2fe; }
 
         /* Fixed top navigation bar */
-        .fixed-top-navigation-bar { /* Renamed and adjusted */
+        .fixed-top-navigation-bar {
             position: fixed; 
-            top: 0; /* Changed from bottom to top */
+            top: 0; 
             left: 0; 
             width: 100%;
             background-color: #e9ecef; 
-            padding: 0.5rem 1rem; /* Reduced padding slightly for top bar */
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Shadow on bottom */
+            padding: 0.35rem 0.5rem; /* Reduced padding for compactness */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08); /* Softer shadow */
             z-index: 1000; 
             display: flex;
             justify-content: space-between; 
             align-items: center;
-            /* flex-wrap: wrap; /* Allow wrapping, but try to avoid with icon */
-            /* gap: 0.5rem; */ /* Gap might not be needed if space-between works well */
+            height: 48px; /* Explicit height to stabilize layout, JS will use this */
+            box-sizing: border-box;
         }
 
         .fixed-top-navigation-bar .quick-links-nav {
             display: flex;
-            flex-wrap: wrap; /* Allow links to wrap if absolutely necessary */
-            gap: 0.25rem 0.75rem; 
+            flex-grow: 1; 
+            flex-shrink: 1; 
+            overflow-x: auto; 
+            overflow-y: hidden; 
+            white-space: nowrap; 
+            gap: 0.2rem 0.4rem; /* Reduced gap */
             align-items: center;
-            /* flex-grow: 1; */ /* Let it take natural width, space-between handles distribution */
+            -ms-overflow-style: none;  
+            scrollbar-width: none;  
+            padding: 0.1rem 0; /* Minimal vertical padding for scroll container */
+        }
+        .fixed-top-navigation-bar .quick-links-nav::-webkit-scrollbar { 
+            display: none;
         }
 
         .fixed-top-navigation-bar .quick-links-nav a {
             color: #005FB8; 
             text-decoration: none;
-            font-size: 0.75rem; /* Slightly smaller for top bar */
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.25rem;
+            font-size: 0.65rem; /* Very compact font size for links */
+            padding: 0.15rem 0.35rem; /* Compact padding for links */
+            border-radius: 0.2rem;
             transition: background-color 0.2s ease, color 0.2s ease;
-            white-space: nowrap; 
+            flex-shrink: 0; 
         }
 
         .fixed-top-navigation-bar .quick-links-nav a:hover {
@@ -302,55 +310,41 @@
         
         .fixed-top-navigation-bar .lang-button-wrapper {
            flex-shrink: 0; 
+           margin-left: 0.4rem; /* Slightly reduced margin */
         }
 
-        /* Responsive adjustments for the top bar */
-        @media (max-width: 767px) { /* Tablet and smaller */
+        /* Styles for larger screens remain mostly the same, but ensure nav bar height consistency */
+        @media (min-width: 768px) { 
             .fixed-top-navigation-bar {
-                padding: 0.5rem 0.75rem; /* Adjust padding */
+                padding: 0.5rem 1rem; 
+                height: auto; /* Allow natural height on larger screens */
             }
             .fixed-top-navigation-bar .quick-links-nav {
-                gap: 0.2rem 0.4rem; /* Reduce gap */
-                /* justify-content: center; If space is very tight and wrapping occurs */
+                overflow-x: visible; 
+                flex-wrap: wrap; 
+                 gap: 0.25rem 0.75rem; 
             }
              .fixed-top-navigation-bar .quick-links-nav a {
-                font-size: 0.7rem; /* Further reduce font size */
-                padding: 0.2rem 0.3rem;
+                font-size: 0.75rem; 
+                padding: 0.25rem 0.5rem;
              }
-             .action-button { /* Ensure language button is not too large */
-                padding: 0.25rem 0.4rem;
-                width: 2.25rem;
-                height: 2rem;
+             .action-button { 
+                padding: 0.3rem 0.5rem;
+                width: 2.5rem;
+                height: 2.25rem;
              }
              #langButtonIcon {
-                font-size: 1.1rem;
-             }
-        }
-
-         @media (max-width: 480px) { /* Very small screens */
-            .fixed-top-navigation-bar {
-                /* Attempt to keep horizontal layout if possible with icon */
-                /* If still problematic, then flex-direction: column; could be a fallback */
-                 justify-content: center; /* Center items if they start to feel too squeezed */
-                 flex-wrap: wrap; /* Explicitly allow wrapping if space-between fails */
-                 gap: 0.5rem;
-            }
-             .fixed-top-navigation-bar .quick-links-nav {
-                order: 1; /* Ensure links come first if wrapped */
-                justify-content: center; /* Center links when wrapped */
-                width: 100%; /* Allow full width for centering if wrapped */
-                margin-bottom: 0.25rem; /* Small space if lang button wraps below */
-             }
-             .fixed-top-navigation-bar .lang-button-wrapper {
-                order: 2; /* Ensure button comes after if wrapped */
+                font-size: 1.25rem;
              }
         }
     </style>
 </head>
 <body class="bg-slate-100">
 
-    <div class="fixed-top-navigation-bar"> <nav class="quick-links-nav" aria-label="Schnellnavigation">
-            <a href="#page-header"> <span class="lang-element" lang="de">Profil</span>
+    <div class="fixed-top-navigation-bar">
+        <nav class="quick-links-nav" aria-label="Schnellnavigation">
+            <a href="#page-header">
+                <span class="lang-element" lang="de">Profil</span>
                 <span class="lang-element" lang="en" style="display:none;">Profile</span>
             </a>
             <a href="#core-competencies-section">
@@ -376,13 +370,15 @@
         </nav>
         <div class="lang-button-wrapper">
             <button id="toggleLangButton" class="action-button" aria-label="Sprache wechseln">
-                <span id="langButtonIcon" class="text-lg">🌐</span> </button>
+                <span id="langButtonIcon">🌐</span>
+            </button>
         </div>
     </div>
 
     <div class="web-resume-container">
 
-        <header id="page-header" class="flex flex-col md:flex-row items-center mb-12 md:mb-16 pb-8 border-b border-slate-200"> <img src="https://placehold.co/192x192/0070D2/FFFFFF?text=SK" 
+        <header id="page-header" class="flex flex-col md:flex-row items-center mb-12 md:mb-16 pb-8 border-b border-slate-200">
+            <img src="https://placehold.co/192x192/0070D2/FFFFFF?text=SK" 
                  alt="Steffen Koller" 
                  onerror="this.onerror=null; this.src='https://placehold.co/192x192/E2E8F0/475569?text=Bild+fehlt';"
                  class="w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover mb-6 md:mb-0 md:mr-10 flex-shrink-0 shadow-lg">
@@ -1041,7 +1037,6 @@
 
         function setLanguage(newLang) {
             const elementsToToggle = document.querySelectorAll('.lang-element');
-            // const langButtonTextEl = document.getElementById('langButtonText'); // No longer used for text
             
             elementsToToggle.forEach(el => {
                 if (el.getAttribute('lang') === newLang) {
@@ -1054,10 +1049,8 @@
             document.documentElement.lang = newLang;
             if (newLang === 'de') {
                 document.title = 'Lebenslauf - Steffen Koller';
-                // if (langButtonTextEl) langButtonTextEl.textContent = 'EN'; // No longer used
             } else {
                 document.title = 'Resume - Steffen Koller';
-                // if (langButtonTextEl) langButtonTextEl.textContent = 'DE'; // No longer used
             }
             currentLang = newLang; 
         }
@@ -1070,10 +1063,14 @@
         function adjustLayoutForNavBar() {
             const navBar = document.querySelector('.fixed-top-navigation-bar');
             if (navBar) {
-                const navBarHeight = navBar.offsetHeight;
-                document.body.style.paddingTop = `${navBarHeight + 10}px`; // +10 for a little extra space below nav
+                // Use a fixed height for the nav bar on small screens, or its offsetHeight
+                let navBarHeight = 48; // Matches CSS explicit height for mobile
+                if (window.innerWidth >= 768) { // Corresponds to md breakpoint in Tailwind
+                    navBarHeight = navBar.offsetHeight; // Use actual height for larger screens
+                }
+
+                document.body.style.paddingTop = `${navBarHeight + 10}px`; 
                 
-                // Adjust scroll-margin-top for all section titles and the main header
                 const scrollTargets = document.querySelectorAll('h2.section-main-title, #page-header');
                 scrollTargets.forEach(target => {
                     target.style.scrollMarginTop = `${navBarHeight + 10}px`;
