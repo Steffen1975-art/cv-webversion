@@ -15,7 +15,7 @@
             background-color: #f3f4f6; 
             color: #374151; 
             line-height: 1.7;
-            padding-top: 48px; /* Default fallback, JS will adjust. Based on nav bar height. */
+            padding-top: 48px; 
         }
 
         .web-resume-container {
@@ -27,9 +27,14 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
         }
         
-        #page-header {
+        #page-header, #short-profile-section, #core-competencies-section, #professional-experience-section, #expertise-section, #education-section, #further-education-section, #values-section, #personal-insights-section {
              scroll-margin-top: 48px; /* Default fallback, JS will adjust */
         }
+        /* Specific for page-header as it's not a section with h2 */
+         #page-header { 
+            scroll-margin-top: 56px; /* Slightly more to ensure full visibility below nav */
+         }
+
 
         h1.main-name { 
             color: #0070D2; 
@@ -44,7 +49,6 @@
             margin-top: 2rem; 
             margin-bottom: 1.5rem; 
             font-size: 1.5rem; 
-            scroll-margin-top: 48px; /* Default fallback, JS will adjust */
         }
 
         h3.job-title, h3.education-section-title {
@@ -91,14 +95,14 @@
             font-size: 0.875rem; 
             min-height: 2rem; 
         }
-        .contact-item svg.language-icon-svg { /* Styles for the chosen language SVG icon */
+        .contact-item svg.language-icon-svg { 
             margin-right: 0.4rem; 
             flex-shrink: 0;
-            width: 1.5rem; /* Adjusted size for visual balance */
+            width: 1.5rem; 
             height: 1.5rem; 
             fill: #0070D2; 
         }
-         .contact-item svg:not(.language-icon-svg) { /* Styles for other SVGs (mail, phone) */
+         .contact-item svg:not(.language-icon-svg) { 
             margin-right: 0.5rem; 
             flex-shrink: 0;
             width: 1rem; 
@@ -402,17 +406,24 @@
                 <span class="lang-element" lang="de">Erfahrung</span>
                 <span class="lang-element" lang="en" style="display:none;">Experience</span>
             </a>
-            <a href="#university-education-section">
-                <span class="lang-element" lang="de">Bildung</span>
+            <a href="#expertise-section">
+                <span class="lang-element" lang="de">Expertise</span>
+                <span class="lang-element" lang="en" style="display:none;">Expertise</span>
+            </a>
+            <a href="#education-section"> <span class="lang-element" lang="de">Bildung</span>
                 <span class="lang-element" lang="en" style="display:none;">Education</span>
+            </a>
+            <a href="#further-education-section">
+                <span class="lang-element" lang="de">Fortbildung</span>
+                <span class="lang-element" lang="en" style="display:none;">Training</span>
             </a>
              <a href="#values-section">
                 <span class="lang-element" lang="de">Werte</span>
                 <span class="lang-element" lang="en" style="display:none;">Values</span>
             </a>
-            <a href="#expertise-section">
-                <span class="lang-element" lang="de">Expertise</span>
-                <span class="lang-element" lang="en" style="display:none;">Expertise</span>
+            <a href="#personal-insights-section">
+                <span class="lang-element" lang="de">Einblicke</span>
+                <span class="lang-element" lang="en" style="display:none;">Insights</span>
             </a>
         </nav>
     </div>
@@ -484,7 +495,8 @@
             </div>
         </header>
 
-        <section class="mb-12" id="short-profile-section"> <h2 class="section-main-title">
+        <section class="mb-12" id="short-profile-section">
+            <h2 class="section-main-title">
                 <span class="lang-element" lang="de">KURZPROFIL</span>
                 <span class="lang-element" lang="en" style="display:none;">SHORT PROFILE</span>
             </h2>
@@ -544,7 +556,8 @@
             </div>
         </section>
 
-        <section class="mb-12 core-competencies-container" id="core-competencies-section"> <h2 class="section-main-title">
+        <section class="mb-12" id="core-competencies-section">
+            <h2 class="section-main-title">
                 <span class="lang-element" lang="de">KERNKOMPETENZEN</span>
                 <span class="lang-element" lang="en" style="display:none;">CORE COMPETENCIES</span>
             </h2>
@@ -576,7 +589,8 @@
             </div>
         </section>
 
-        <section class="mb-12" id="professional-experience-section"> <h2 class="section-main-title">
+        <section class="mb-12" id="professional-experience-section">
+            <h2 class="section-main-title">
                 <span class="lang-element" lang="de">BERUFSERFAHRUNG</span>
                 <span class="lang-element" lang="en" style="display:none;">PROFESSIONAL EXPERIENCE</span>
             </h2>
@@ -813,157 +827,9 @@
                 </button>
             </div>
         </section>
-
-        <section class="mb-12 grid md:grid-cols-2 gap-8">
-            <div class="hochschulbildung-item"> 
-                <h2 class="section-main-title" id="university-education-section"> <span class="lang-element" lang="de">HOCHSCHULBILDUNG</span>
-                    <span class="lang-element" lang="en" style="display:none;">UNIVERSITY EDUCATION</span>
-                </h2>
-                <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md"> 
-                    <h3 class="text-lg font-semibold education-title"> 
-                        <span class="lang-element" lang="de">Studium „Betriebswirtschaftslehre“</span>
-                        <span class="lang-element" lang="en" style="display:none;">Studies in "Business Administration"</span>
-                    </h3>
-                    <p class="text-sm text-slate-500 mb-2">
-                        <span class="lang-element" lang="de">Hochschule Nürtingen</span>
-                        <span class="lang-element" lang="en" style="display:none;">Nuertingen University</span>
-                    </p>
-                    <p class="text-slate-700">
-                        <strong class="font-semibold text-blue-600">
-                            <span class="lang-element" lang="de">Diplom-Betriebswirt</span>
-                            <span class="lang-element" lang="en" style="display:none;">Diplom-Betriebswirt (German equivalent to MBA)</span>
-                        </strong>
-                        <span class="lang-element" lang="de"> in den Bereichen Wirtschaftsinformatik, Organisation und Projektmanagement, Finanzmanagement und Bankwirtschaftslehre.</span>
-                        <span class="lang-element" lang="en" style="display:none;"> in the fields of Business Informatics, Organization and Project Management, Financial Management and Banking.</span>
-                    </p>
-                </div>
-            </div>
-            <div class="ausbildung-item"> 
-                <h2 class="section-main-title" id="vocational-training-section"> <span class="lang-element" lang="de">AUSBILDUNG</span>
-                    <span class="lang-element" lang="en" style="display:none;">VOCATIONAL TRAINING</span>
-                </h2>
-                <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md"> 
-                     <h3 class="text-lg font-semibold education-title"> 
-                        <span class="lang-element" lang="de">Finanzassistent / Bankkaufmann (IHK)</span>
-                        <span class="lang-element" lang="en" style="display:none;">Financial Assistant / Bank Clerk (IHK)</span>
-                    </h3>
-                    <p class="text-sm text-slate-500 mb-2">
-                        <span class="lang-element" lang="de">Landesbank Baden-Württemberg</span>
-                        <span class="lang-element" lang="en" style="display:none;">Landesbank Baden-Württemberg</span>
-                    </p>
-                    <p class="text-slate-700"> 
-                        <span class="lang-element" lang="de">Fundament für breites kaufmännisches, prozessuales und finanzwirtschaftliches Verständnis.</span>
-                        <span class="lang-element" lang="en" style="display:none;">Foundation for broad commercial, procedural, and financial understanding.</span>
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section class="mb-12 werte-item" id="values-section"> <h2 class="section-main-title">
-                <span class="lang-element" lang="de">WERTE</span>
-                <span class="lang-element" lang="en" style="display:none;">VALUES</span>
-            </h2>
-            <div class="card-grid">
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="https://placehold.co/200x200/0070D2/FFFFFF?text=Trust" alt="Vertrauen Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
-                        </div>
-                        <div class="flip-card-back">
-                            <h4><span class="lang-element" lang="de">Vertrauen / Zuverlässigkeit</span><span class="lang-element" lang="en" style="display:none;">Trust / Reliability</span></h4>
-                            <p><span class="lang-element" lang="de">Grundlage jeder erfolgreichen Zusammenarbeit und Partnerschaft.</span><span class="lang-element" lang="en" style="display:none;">The foundation of every successful collaboration and partnership.</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="https://placehold.co/200x200/00A1E0/FFFFFF?text=Commitment" alt="Engagement Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
-                        </div>
-                        <div class="flip-card-back">
-                            <h4><span class="lang-element" lang="de">Begeisterung / Engagement</span><span class="lang-element" lang="en" style="display:none;">Enthusiasm / Commitment</span></h4>
-                            <p><span class="lang-element" lang="de">Mit Leidenschaft und vollem Einsatz gemeinsame Ziele verfolgen.</span><span class="lang-element" lang="en" style="display:none;">Pursuing common goals with passion and full dedication.</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                             <img src="https://placehold.co/200x200/001639/FFFFFF?text=Responsibility" alt="Verantwortung Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
-                        </div>
-                        <div class="flip-card-back">
-                            <h4><span class="lang-element" lang="de">Eigenverantwortung / Motivation</span><span class="lang-element" lang="en" style="display:none;">Personal Responsibility / Motivation</span></h4>
-                            <p><span class="lang-element" lang="de">Proaktives Handeln und die Motivation, stets das Beste zu geben.</span><span class="lang-element" lang="en" style="display:none;">Proactive action and the motivation to always give one's best.</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="https://placehold.co/200x200/4B5563/FFFFFF?text=Openness" alt="Offenheit Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
-                        </div>
-                        <div class="flip-card-back">
-                            <h4><span class="lang-element" lang="de">Offenheit / Ehrlichkeit / Direktheit</span><span class="lang-element" lang="en" style="display:none;">Openness / Honesty / Directness</span></h4>
-                            <p><span class="lang-element" lang="de">Transparente Kommunikation und ein aufrichtiger Umgang miteinander.</span><span class="lang-element" lang="en" style="display:none;">Transparent communication and sincere interaction with one another.</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="mb-12 persoenliche-einblicke-item" id="personal-insights-section"> <h2 class="section-main-title">
-                <span class="lang-element" lang="de">PERSÖNLICHE EINBLICKE</span>
-                <span class="lang-element" lang="en" style="display:none;">PERSONAL INSIGHTS</span>
-            </h2>
-            <div class="card-grid"> 
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="https://placehold.co/200x200/0070D2/FFFFFF?text=Familie" alt="Familie Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
-                        </div>
-                        <div class="flip-card-back">
-                            <h4><span class="lang-element" lang="de">Familie</span><span class="lang-element" lang="en" style="display:none;">Family</span></h4>
-                            <p><span class="lang-element" lang="de">Der wichtigste Anker und tägliche Inspiration.</span><span class="lang-element" lang="en" style="display:none;">The most important anchor and daily inspiration.</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="https://placehold.co/200x200/00A1E0/FFFFFF?text=Sport" alt="Sport Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
-                        </div>
-                        <div class="flip-card-back">
-                            <h4><span class="lang-element" lang="de">Sport</span><span class="lang-element" lang="en" style="display:none;">Sports</span></h4>
-                            <p><span class="lang-element" lang="de">Ausgleich für Körper und Geist – Laufen, Fitness & Skifahren.</span><span class="lang-element" lang="en" style="display:none;">Balance for body and mind – running, fitness & skiing.</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                             <img src="https://placehold.co/200x200/001639/FFFFFF?text=Tech" alt="Digitale Passion Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
-                        </div>
-                        <div class="flip-card-back">
-                            <h4><span class="lang-element" lang="de">Digitale Passion</span><span class="lang-element" lang="en" style="display:none;">Digital Passion</span></h4>
-                            <p><span class="lang-element" lang="de">Faszination für KI, IoT, Google-Ökosystem und die digitale Transformation.</span><span class="lang-element" lang="en" style="display:none;">Fascination for AI, IoT, the Google ecosystem, and digital transformation.</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="https://placehold.co/200x200/4B5563/FFFFFF?text=Natur" alt="Wandern Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
-                        </div>
-                        <div class="flip-card-back">
-                            <h4><span class="lang-element" lang="de">Wandern</span><span class="lang-element" lang="en" style="display:none;">Hiking</span></h4>
-                            <p><span class="lang-element" lang="de">Die Natur entdecken und neue Perspektiven gewinnen.</span><span class="lang-element" lang="en" style="display:none;">Discovering nature and gaining new perspectives.</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         
-        <section class="mb-12" id="expertise-section"> <h2 class="section-main-title">
+        <section class="mb-12" id="expertise-section">
+             <h2 class="section-main-title">
                 <span class="lang-element" lang="de">EXPERTISE</span>
                 <span class="lang-element" lang="en" style="display:none;">EXPERTISE</span>
             </h2>
@@ -1043,7 +909,55 @@
             </div>
         </section>
 
-        <section class="mb-12 fortbildung-item" id="further-education-section"> <h2 class="section-main-title"> 
+        <section class="mb-12 grid md:grid-cols-2 gap-8" id="education-section">
+            <div class="hochschulbildung-item"> 
+                <h2 class="section-main-title"> 
+                    <span class="lang-element" lang="de">HOCHSCHULBILDUNG</span>
+                    <span class="lang-element" lang="en" style="display:none;">UNIVERSITY EDUCATION</span>
+                </h2>
+                <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md"> 
+                    <h3 class="text-lg font-semibold education-title"> 
+                        <span class="lang-element" lang="de">Studium „Betriebswirtschaftslehre“</span>
+                        <span class="lang-element" lang="en" style="display:none;">Studies in "Business Administration"</span>
+                    </h3>
+                    <p class="text-sm text-slate-500 mb-2">
+                        <span class="lang-element" lang="de">Hochschule Nürtingen</span>
+                        <span class="lang-element" lang="en" style="display:none;">Nuertingen University</span>
+                    </p>
+                    <p class="text-slate-700">
+                        <strong class="font-semibold text-blue-600">
+                            <span class="lang-element" lang="de">Diplom-Betriebswirt</span>
+                            <span class="lang-element" lang="en" style="display:none;">Diplom-Betriebswirt (German equivalent to MBA)</span>
+                        </strong>
+                        <span class="lang-element" lang="de"> in den Bereichen Wirtschaftsinformatik, Organisation und Projektmanagement, Finanzmanagement und Bankwirtschaftslehre.</span>
+                        <span class="lang-element" lang="en" style="display:none;"> in the fields of Business Informatics, Organization and Project Management, Financial Management and Banking.</span>
+                    </p>
+                </div>
+            </div>
+            <div class="ausbildung-item"> 
+                <h2 class="section-main-title"> 
+                    <span class="lang-element" lang="de">AUSBILDUNG</span>
+                    <span class="lang-element" lang="en" style="display:none;">VOCATIONAL TRAINING</span>
+                </h2>
+                <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md"> 
+                     <h3 class="text-lg font-semibold education-title"> 
+                        <span class="lang-element" lang="de">Finanzassistent / Bankkaufmann (IHK)</span>
+                        <span class="lang-element" lang="en" style="display:none;">Financial Assistant / Bank Clerk (IHK)</span>
+                    </h3>
+                    <p class="text-sm text-slate-500 mb-2">
+                        <span class="lang-element" lang="de">Landesbank Baden-Württemberg</span>
+                        <span class="lang-element" lang="en" style="display:none;">Landesbank Baden-Württemberg</span>
+                    </p>
+                    <p class="text-slate-700"> 
+                        <span class="lang-element" lang="de">Fundament für breites kaufmännisches, prozessuales und finanzwirtschaftliches Verständnis.</span>
+                        <span class="lang-element" lang="en" style="display:none;">Foundation for broad commercial, procedural, and financial understanding.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12" id="further-education-section">
+            <h2 class="section-main-title"> 
                 <span class="lang-element" lang="de">FORTBILDUNG (Auswahl)</span>
                 <span class="lang-element" lang="en" style="display:none;">FURTHER EDUCATION (Selection)</span>
             </h2>
@@ -1067,6 +981,112 @@
             </ul>
         </section>
 
+        <section class="mb-12" id="values-section">
+            <h2 class="section-main-title">
+                <span class="lang-element" lang="de">WERTE</span>
+                <span class="lang-element" lang="en" style="display:none;">VALUES</span>
+            </h2>
+            <div class="card-grid">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://placehold.co/200x200/0070D2/FFFFFF?text=Trust" alt="Vertrauen Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
+                        </div>
+                        <div class="flip-card-back">
+                            <h4><span class="lang-element" lang="de">Vertrauen / Zuverlässigkeit</span><span class="lang-element" lang="en" style="display:none;">Trust / Reliability</span></h4>
+                            <p><span class="lang-element" lang="de">Grundlage jeder erfolgreichen Zusammenarbeit und Partnerschaft.</span><span class="lang-element" lang="en" style="display:none;">The foundation of every successful collaboration and partnership.</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://placehold.co/200x200/00A1E0/FFFFFF?text=Commitment" alt="Engagement Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
+                        </div>
+                        <div class="flip-card-back">
+                            <h4><span class="lang-element" lang="de">Begeisterung / Engagement</span><span class="lang-element" lang="en" style="display:none;">Enthusiasm / Commitment</span></h4>
+                            <p><span class="lang-element" lang="de">Mit Leidenschaft und vollem Einsatz gemeinsame Ziele verfolgen.</span><span class="lang-element" lang="en" style="display:none;">Pursuing common goals with passion and full dedication.</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                             <img src="https://placehold.co/200x200/001639/FFFFFF?text=Responsibility" alt="Verantwortung Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
+                        </div>
+                        <div class="flip-card-back">
+                            <h4><span class="lang-element" lang="de">Eigenverantwortung / Motivation</span><span class="lang-element" lang="en" style="display:none;">Personal Responsibility / Motivation</span></h4>
+                            <p><span class="lang-element" lang="de">Proaktives Handeln und die Motivation, stets das Beste zu geben.</span><span class="lang-element" lang="en" style="display:none;">Proactive action and the motivation to always give one's best.</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://placehold.co/200x200/4B5563/FFFFFF?text=Openness" alt="Offenheit Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
+                        </div>
+                        <div class="flip-card-back">
+                            <h4><span class="lang-element" lang="de">Offenheit / Ehrlichkeit / Direktheit</span><span class="lang-element" lang="en" style="display:none;">Openness / Honesty / Directness</span></h4>
+                            <p><span class="lang-element" lang="de">Transparente Kommunikation und ein aufrichtiger Umgang miteinander.</span><span class="lang-element" lang="en" style="display:none;">Transparent communication and sincere interaction with one another.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12" id="personal-insights-section"> 
+            <h2 class="section-main-title">
+                <span class="lang-element" lang="de">PERSÖNLICHE EINBLICKE</span>
+                <span class="lang-element" lang="en" style="display:none;">PERSONAL INSIGHTS</span>
+            </h2>
+            <div class="card-grid"> 
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://placehold.co/200x200/0070D2/FFFFFF?text=Familie" alt="Familie Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
+                        </div>
+                        <div class="flip-card-back">
+                            <h4><span class="lang-element" lang="de">Familie</span><span class="lang-element" lang="en" style="display:none;">Family</span></h4>
+                            <p><span class="lang-element" lang="de">Der wichtigste Anker und tägliche Inspiration.</span><span class="lang-element" lang="en" style="display:none;">The most important anchor and daily inspiration.</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://placehold.co/200x200/00A1E0/FFFFFF?text=Sport" alt="Sport Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
+                        </div>
+                        <div class="flip-card-back">
+                            <h4><span class="lang-element" lang="de">Sport</span><span class="lang-element" lang="en" style="display:none;">Sports</span></h4>
+                            <p><span class="lang-element" lang="de">Ausgleich für Körper und Geist – Laufen, Fitness & Skifahren.</span><span class="lang-element" lang="en" style="display:none;">Balance for body and mind – running, fitness & skiing.</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                             <img src="https://placehold.co/200x200/001639/FFFFFF?text=Tech" alt="Digitale Passion Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
+                        </div>
+                        <div class="flip-card-back">
+                            <h4><span class="lang-element" lang="de">Digitale Passion</span><span class="lang-element" lang="en" style="display:none;">Digital Passion</span></h4>
+                            <p><span class="lang-element" lang="de">Faszination für KI, IoT, Google-Ökosystem und die digitale Transformation.</span><span class="lang-element" lang="en" style="display:none;">Fascination for AI, IoT, the Google ecosystem, and digital transformation.</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://placehold.co/200x200/4B5563/FFFFFF?text=Natur" alt="Wandern Icon" onerror="this.onerror=null; this.src='https://placehold.co/200x200/E2E8F0/475569?text=Icon+fehlt';">
+                        </div>
+                        <div class="flip-card-back">
+                            <h4><span class="lang-element" lang="de">Wandern</span><span class="lang-element" lang="en" style="display:none;">Hiking</span></h4>
+                            <p><span class="lang-element" lang="de">Die Natur entdecken und neue Perspektiven gewinnen.</span><span class="lang-element" lang="en" style="display:none;">Discovering nature and gaining new perspectives.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <footer class="web-footer"> 
             <p>&copy; <span id="currentYear"></span> Steffen Koller. 
                 <span class="lang-element" lang="de">Alle Rechte vorbehalten.</span>
@@ -1080,22 +1100,108 @@
         let currentLang = 'de'; 
         let activeTooltip = null; 
 
-        function setLanguageForAllPreviews(newLang) {
-            const headers = document.querySelectorAll('.web-resume-container-preview header');
-            headers.forEach(header => {
-                const elementsToToggle = header.querySelectorAll('.lang-element');
-                elementsToToggle.forEach(el => {
-                    if (el.getAttribute('lang') === newLang) {
-                        el.style.display = '';
-                    } else {
-                        el.style.display = 'none';
-                    }
-                });
+        function setLanguage(newLang) {
+            const elementsToToggle = document.querySelectorAll('.lang-element');
+            const langButtonTextEl = document.getElementById('langButtonText'); 
+            
+            elementsToToggle.forEach(el => {
+                if (el.getAttribute('lang') === newLang) {
+                    el.style.display = ''; 
+                } else {
+                    el.style.display = 'none';
+                }
             });
+            
+            document.documentElement.lang = newLang;
+            if (newLang === 'de') {
+                document.title = 'Lebenslauf - Steffen Koller';
+                 if (langButtonTextEl) langButtonTextEl.textContent = 'EN'; 
+            } else {
+                document.title = 'Resume - Steffen Koller';
+                if (langButtonTextEl) langButtonTextEl.textContent = 'DE'; 
+            }
+            currentLang = newLang; 
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            setLanguageForAllPreviews(currentLang); 
+        function toggleLanguage() {
+            const newLang = currentLang === 'de' ? 'en' : 'de';
+            setLanguage(newLang);
+        }
+        
+        function adjustLayoutForNavBar() {
+            const navBar = document.querySelector('.fixed-top-navigation-bar');
+            if (navBar) {
+                let navBarHeight = 42; 
+                if (window.innerWidth >= 768) { 
+                    navBarHeight = navBar.offsetHeight; 
+                }
+
+                document.body.style.paddingTop = `${navBarHeight + 8}px`; 
+                
+                const scrollTargets = document.querySelectorAll('h2.section-main-title, #page-header');
+                scrollTargets.forEach(target => {
+                    target.style.scrollMarginTop = `${navBarHeight + 8}px`; 
+                });
+            }
+        }
+
+        function initializePage() {
+            const langButtonTextEl = document.getElementById('langButtonText');
+            if (currentLang === 'de') {
+                if (langButtonTextEl) langButtonTextEl.textContent = 'EN';
+            } else {
+                if (langButtonTextEl) langButtonTextEl.textContent = 'DE';
+            }
+            setLanguage(currentLang);
+
+
+            const currentYearSpan = document.getElementById('currentYear');
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
+            }
+
+            document.querySelectorAll('.flip-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('is-flipped');
+                });
+            });
+
+            const langToggleButton = document.getElementById('toggleLangButton');
+            if (langToggleButton) {
+                langToggleButton.addEventListener('click', toggleLanguage);
+            }
+
+            const track = document.querySelector('.experience-carousel-track');
+            if (track) { 
+                const slides = Array.from(track.children);
+                const nextButton = document.getElementById('nextExperience');
+                const prevButton = document.getElementById('prevExperience');
+                let currentIndex = 0;
+                
+                function updateCarousel() {
+                    if (slides.length > 0) { 
+                        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    }
+                }
+            
+                if (nextButton && prevButton && slides.length > 0) {
+                    nextButton.addEventListener('click', () => {
+                        currentIndex = (currentIndex + 1) % slides.length;
+                        updateCarousel();
+                    });
+
+                    prevButton.addEventListener('click', () => {
+                        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                        updateCarousel();
+                    });
+                    
+                    window.addEventListener('resize', updateCarousel); 
+                    updateCarousel(); 
+                } else {
+                    if(prevButton) prevButton.style.display = 'none';
+                    if(nextButton) nextButton.style.display = 'none';
+                }
+            }
 
             const languageItems = document.querySelectorAll('.language-item');
             languageItems.forEach(item => {
@@ -1103,7 +1209,7 @@
                 const tooltip = item.querySelector('.language-tooltip');
 
                 if (trigger && tooltip) {
-                    item.addEventListener('mouseenter', () => {
+                     item.addEventListener('mouseenter', () => {
                         tooltip.style.opacity = '1';
                         tooltip.style.visibility = 'visible';
                     });
@@ -1116,14 +1222,21 @@
                         tooltip.style.visibility = 'visible';
                     });
                     trigger.addEventListener('blur', () => {
-                        if (!item.matches(':hover')) {
+                        // Check if the mouse is still over the item or tooltip itself to prevent hiding
+                        if (!item.matches(':hover') && !tooltip.matches(':hover')) {
                            tooltip.style.opacity = '0';
                            tooltip.style.visibility = 'hidden';
                         }
                     });
                 }
             });
-        });
+            
+            adjustLayoutForNavBar(); 
+            window.addEventListener('resize', adjustLayoutForNavBar);
+            window.addEventListener('load', adjustLayoutForNavBar); 
+        }
+
+        document.addEventListener('DOMContentLoaded', initializePage);
     </script>
 
 </body>
