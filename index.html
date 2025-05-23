@@ -15,7 +15,7 @@
             background-color: #f3f4f6; 
             color: #374151; 
             line-height: 1.7;
-            padding-top: 50px; /* Default fallback, JS will adjust. Reduced due to more compact nav. */
+            padding-top: 48px; /* Default fallback, JS will adjust. Based on nav bar height. */
         }
 
         .web-resume-container {
@@ -28,7 +28,7 @@
         }
         
         #page-header {
-             scroll-margin-top: 50px; /* Default fallback, JS will adjust */
+             scroll-margin-top: 48px; /* Default fallback, JS will adjust */
         }
 
         h1.main-name { 
@@ -44,7 +44,7 @@
             margin-top: 2rem; 
             margin-bottom: 1.5rem; 
             font-size: 1.5rem; 
-            scroll-margin-top: 50px; /* Default fallback, JS will adjust */
+            scroll-margin-top: 48px; /* Default fallback, JS will adjust */
         }
 
         h3.job-title, h3.education-section-title {
@@ -101,15 +101,17 @@
             color: #005FB8; 
         }
 
-        .action-button { /* Language button style */
+        .action-button { /* Language button style - now text based and very compact */
             background-color: #0070D2; 
             color: white;
-            font-weight: 500;
-            padding: 0.2rem 0.35rem; /* Compact padding */
+            font-family: 'Inter', sans-serif; /* Ensure font consistency */
+            font-weight: 600; /* Bold for better readability at small size */
+            font-size: 0.6rem; /* Extremely small font size */
+            padding: 0.15rem 0.25rem; /* Minimal padding */
             min-width: auto; 
-            width: 2rem;   /* Compact width */
-            height: 1.8rem; /* Compact height */
-            border-radius: 0.3rem; 
+            width: auto; /* Allow width to be determined by content */
+            height: 1.6rem; /* Compact height */
+            border-radius: 0.25rem; 
             box-shadow: 0 1px 2px rgba(0,0,0,0.1); 
             transition: background-color 0.2s ease-in-out, transform 0.1s ease;
             display: flex;
@@ -118,15 +120,19 @@
             border: none;
             cursor: pointer;
             text-align: center;
+            line-height: 1; /* Ensure text is vertically centered */
         }
         .action-button:hover {
             background-color: #005FB8; 
             transform: translateY(-1px); 
         }
-        #langButtonIcon { 
-            font-size: 1rem; /* Compact icon size */
-            line-height: 1; 
+        /* #langButtonIcon no longer needed, using #langButtonText */
+        #langButtonText {
+             font-size: 0.6rem; /* Match button font size */
+             line-height: 1;
+             display: inline-block; /* Helps with precise sizing */
         }
+
 
         .card-grid { 
             display: grid;
@@ -266,28 +272,34 @@
             left: 0; 
             width: 100%;
             background-color: #e9ecef; 
-            padding: 0.35rem 0.5rem; /* Reduced padding for compactness */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.08); /* Softer shadow */
+            padding: 0.3rem 0.5rem; /* Slightly adjusted padding */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08); 
             z-index: 1000; 
             display: flex;
-            justify-content: space-between; 
+            /* justify-content: space-between; /* Let children dictate spacing */
             align-items: center;
-            height: 48px; /* Explicit height to stabilize layout, JS will use this */
+            height: 42px; /* Explicit height to stabilize layout, slightly reduced */
             box-sizing: border-box;
+        }
+
+        .fixed-top-navigation-bar .lang-button-wrapper { /* Button on the left */
+           flex-shrink: 0; 
+           margin-right: 0.5rem; /* Space between button and links */
         }
 
         .fixed-top-navigation-bar .quick-links-nav {
             display: flex;
-            flex-grow: 1; 
-            flex-shrink: 1; 
+            flex-grow: 1; /* Takes remaining space */
+            flex-shrink: 1; /* Can shrink */
+            min-width: 0; /* Important for flex-shrink to work with overflow */
             overflow-x: auto; 
             overflow-y: hidden; 
             white-space: nowrap; 
-            gap: 0.2rem 0.4rem; /* Reduced gap */
+            gap: 0.2rem 0.4rem; 
             align-items: center;
             -ms-overflow-style: none;  
             scrollbar-width: none;  
-            padding: 0.1rem 0; /* Minimal vertical padding for scroll container */
+            padding: 0.1rem 0; 
         }
         .fixed-top-navigation-bar .quick-links-nav::-webkit-scrollbar { 
             display: none;
@@ -296,8 +308,8 @@
         .fixed-top-navigation-bar .quick-links-nav a {
             color: #005FB8; 
             text-decoration: none;
-            font-size: 0.65rem; /* Very compact font size for links */
-            padding: 0.15rem 0.35rem; /* Compact padding for links */
+            font-size: 0.65rem; 
+            padding: 0.15rem 0.35rem; 
             border-radius: 0.2rem;
             transition: background-color 0.2s ease, color 0.2s ease;
             flex-shrink: 0; 
@@ -308,17 +320,24 @@
             color: white;
         }
         
-        .fixed-top-navigation-bar .lang-button-wrapper {
-           flex-shrink: 0; 
-           margin-left: 0.4rem; /* Slightly reduced margin */
-        }
-
-        /* Styles for larger screens remain mostly the same, but ensure nav bar height consistency */
+        /* Styles for larger screens */
         @media (min-width: 768px) { 
             .fixed-top-navigation-bar {
                 padding: 0.5rem 1rem; 
-                height: auto; /* Allow natural height on larger screens */
+                height: auto; 
             }
+            .fixed-top-navigation-bar .lang-button-wrapper {
+                 margin-right: 0.75rem;
+            }
+            .action-button { /* Language button style for larger screens */
+                font-size: 0.7rem; 
+                padding: 0.25rem 0.4rem; 
+                height: 2rem; 
+            }
+            #langButtonText {
+                font-size: 0.7rem;
+            }
+
             .fixed-top-navigation-bar .quick-links-nav {
                 overflow-x: visible; 
                 flex-wrap: wrap; 
@@ -328,20 +347,15 @@
                 font-size: 0.75rem; 
                 padding: 0.25rem 0.5rem;
              }
-             .action-button { 
-                padding: 0.3rem 0.5rem;
-                width: 2.5rem;
-                height: 2.25rem;
-             }
-             #langButtonIcon {
-                font-size: 1.25rem;
-             }
         }
     </style>
 </head>
 <body class="bg-slate-100">
 
     <div class="fixed-top-navigation-bar">
+        <div class="lang-button-wrapper"> <button id="toggleLangButton" class="action-button" aria-label="Sprache wechseln">
+                <span id="langButtonText">EN</span> </button>
+        </div>
         <nav class="quick-links-nav" aria-label="Schnellnavigation">
             <a href="#page-header">
                 <span class="lang-element" lang="de">Profil</span>
@@ -368,11 +382,6 @@
                 <span class="lang-element" lang="en" style="display:none;">Expertise</span>
             </a>
         </nav>
-        <div class="lang-button-wrapper">
-            <button id="toggleLangButton" class="action-button" aria-label="Sprache wechseln">
-                <span id="langButtonIcon">🌐</span>
-            </button>
-        </div>
     </div>
 
     <div class="web-resume-container">
@@ -1037,6 +1046,7 @@
 
         function setLanguage(newLang) {
             const elementsToToggle = document.querySelectorAll('.lang-element');
+            const langButtonTextEl = document.getElementById('langButtonText'); // Get the span for the button text
             
             elementsToToggle.forEach(el => {
                 if (el.getAttribute('lang') === newLang) {
@@ -1049,8 +1059,10 @@
             document.documentElement.lang = newLang;
             if (newLang === 'de') {
                 document.title = 'Lebenslauf - Steffen Koller';
+                 if (langButtonTextEl) langButtonTextEl.textContent = 'EN'; // Update button text
             } else {
                 document.title = 'Resume - Steffen Koller';
+                if (langButtonTextEl) langButtonTextEl.textContent = 'DE'; // Update button text
             }
             currentLang = newLang; 
         }
@@ -1063,23 +1075,30 @@
         function adjustLayoutForNavBar() {
             const navBar = document.querySelector('.fixed-top-navigation-bar');
             if (navBar) {
-                // Use a fixed height for the nav bar on small screens, or its offsetHeight
-                let navBarHeight = 48; // Matches CSS explicit height for mobile
-                if (window.innerWidth >= 768) { // Corresponds to md breakpoint in Tailwind
-                    navBarHeight = navBar.offsetHeight; // Use actual height for larger screens
+                let navBarHeight = 42; // Matches CSS explicit height for mobile (reduced from 48)
+                if (window.innerWidth >= 768) { 
+                    navBarHeight = navBar.offsetHeight; 
                 }
 
-                document.body.style.paddingTop = `${navBarHeight + 10}px`; 
+                document.body.style.paddingTop = `${navBarHeight + 8}px`; // Reduced extra space
                 
                 const scrollTargets = document.querySelectorAll('h2.section-main-title, #page-header');
                 scrollTargets.forEach(target => {
-                    target.style.scrollMarginTop = `${navBarHeight + 10}px`;
+                    target.style.scrollMarginTop = `${navBarHeight + 8}px`; // Reduced extra space
                 });
             }
         }
 
         function initializePage() {
-            setLanguage('de'); 
+            // Set initial language and button text
+            const langButtonTextEl = document.getElementById('langButtonText');
+            if (currentLang === 'de') {
+                if (langButtonTextEl) langButtonTextEl.textContent = 'EN';
+            } else {
+                if (langButtonTextEl) langButtonTextEl.textContent = 'DE';
+            }
+            setLanguage(currentLang);
+
 
             const currentYearSpan = document.getElementById('currentYear');
             if (currentYearSpan) {
