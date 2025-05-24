@@ -27,7 +27,10 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
         }
         
-        #page-header, #short-profile-section, #core-competencies-section, #professional-experience-section, #expertise-section, #education-section, #further-education-section, #values-section, #personal-insights-section {
+        #page-header, #short-profile-section, #core-competencies-section, 
+        #professional-experience-section, #expertise-section, 
+        #qualification-section, /* Combined section ID */
+        #values-section, #personal-insights-section {
              scroll-margin-top: 48px; 
         }
          #page-header { 
@@ -46,14 +49,22 @@
             border-bottom: 2px solid #0070D2; 
             padding-bottom: 0.5rem;
             margin-top: 2rem; 
-            margin-bottom: 1rem; /* Reduced margin-bottom to accommodate dots above */
-            font-size: 1.5rem; 
+            margin-bottom: 1.5rem; 
+            font-size: 1.75rem; 
+        }
+        
+        h3.subsection-title { /* For sub-titles within qualification cards */
+            color: #001639;
+            font-weight: 600;
+            font-size: 1.25rem; 
+            margin-bottom: 1rem; 
         }
 
-        h3.job-title, h3.education-section-title {
+        h4.education-item-title { /* For "Studium...", "Kaufmännische Ausbildung..." */
             color: #001639; 
             font-weight: 600; 
             font-size: 1.125rem; 
+            margin-bottom: 0.25rem; 
         }
         
         h4.profile-block-title, .profile-block-title-variant-a { 
@@ -72,12 +83,11 @@
             border-bottom: 1px solid #cbd5e1; 
         }
 
-        ul.custom-bullets > li {
+        ul.custom-bullets > li { /* For experience section */
             padding-left: 1.75em; 
             position: relative; 
             margin-bottom: 0.5rem; 
         }
-
         ul.custom-bullets > li::before { 
             content: "•"; 
             color: #0070D2; 
@@ -181,6 +191,56 @@
             gap: 1.5rem; 
         }
         /* End of Styles for Core Competencies Cards */
+
+        /* Styles for Qualification Section (Cards with Icons) */
+        .qualification-card {
+             background-color: #ffffff; 
+             padding: 1.5rem; 
+             border-radius: 0.5rem;
+             box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Slightly softer shadow for these cards */
+             margin-bottom: 1.5rem; /* Space between qualification cards */
+        }
+        .qualification-card:last-child {
+            margin-bottom: 0;
+        }
+        .subsection-icon { /* For 🎓, 🏦, 📜 */
+            font-size: 1.35rem; /* Adjusted size */
+            margin-right: 0.6rem; 
+            color: #0070D2;
+            line-height: 1; 
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+        .education-institution { 
+            font-size: 0.875rem; 
+            color: #6b7280; 
+            margin-top: 0.1rem; 
+            margin-bottom: 0.5rem; 
+        }
+        .education-details p, .education-details { 
+            color: #374151; 
+            font-size: 0.875rem; 
+            line-height: 1.6;
+        }
+        .education-highlight { 
+            font-weight: 600; 
+            color: #0070D2; 
+        }
+        ul.custom-bullets-qual > li { 
+            padding-left: 1.75em; 
+            position: relative; 
+            margin-bottom: 0.5rem; 
+            font-size: 0.875rem;
+            color: #374151;
+        }
+        ul.custom-bullets-qual > li::before { 
+            content: "✓"; 
+            color: #0070D2; 
+            font-weight: bold;
+            position: absolute;
+            left: 0.5em; 
+            top: 0.1em; 
+        }
+        /* End of Styles for Qualification Section */
 
 
         .card-grid { /* This is for Values and Personal Insights */
@@ -317,9 +377,8 @@
             align-items: center;
             justify-content: center;
         }
-        /* Hover on container makes buttons more visible */
         .experience-carousel-track-container:hover ~ .carousel-button-combined,
-        .experience-carousel-container:hover .carousel-button-combined { /* Added this for better hover detection */
+        .experience-carousel-container:hover .carousel-button-combined {
             opacity: 1; 
         }
         .carousel-button-combined:hover {
@@ -338,8 +397,8 @@
         }
         .carousel-dots-combined {
             text-align: center;
-            padding-bottom: 1rem; /* Changed from padding-top to padding-bottom */
-            padding-top: 0.5rem; /* Added small padding top for spacing from title */
+            padding-bottom: 1rem; 
+            padding-top: 0.5rem; 
         }
         .carousel-dot-combined {
             display: inline-block;
@@ -364,8 +423,6 @@
             text-align: center; padding: 2rem 1rem; font-size: 0.875rem; 
             color: #6b7280; border-top: 1px solid #e5e7eb; margin-top: 3rem;
         }
-
-        h3.education-title { color: #001639; font-weight: 600; font-size: 1.125rem; }
 
         .language-item .language-tooltip {
             opacity: 0; visibility: hidden;
@@ -518,13 +575,9 @@
                 <span class="lang-element" lang="de">Expertise</span>
                 <span class="lang-element" lang="en" style="display:none;">Expertise</span>
             </a>
-            <a href="#education-section"> 
-                <span class="lang-element" lang="de">Bildung</span>
-                <span class="lang-element" lang="en" style="display:none;">Education</span>
-            </a>
-            <a href="#further-education-section">
-                <span class="lang-element" lang="de">Fortbildung</span>
-                <span class="lang-element" lang="en" style="display:none;">Training</span>
+            <a href="#qualification-section"> 
+                <span class="lang-element" lang="de">Qualifizierung</span>
+                <span class="lang-element" lang="en" style="display:none;">Qualification</span>
             </a>
              <a href="#values-section">
                 <span class="lang-element" lang="de">Werte</span>
@@ -1074,76 +1127,71 @@
             </div>
         </section>
 
-        <section class="mb-12 grid md:grid-cols-2 gap-8" id="education-section">
-            <div class="hochschulbildung-item"> 
-                <h2 class="section-main-title"> 
-                    <span class="lang-element" lang="de">HOCHSCHULBILDUNG</span>
-                    <span class="lang-element" lang="en" style="display:none;">UNIVERSITY EDUCATION</span>
-                </h2>
-                <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md"> 
-                    <h3 class="text-lg font-semibold education-title"> 
+        <section class="mb-12" id="qualification-section">
+            <h2 class="section-main-title">
+                <span class="lang-element" lang="de">QUALIFIZIERUNG & WEITERBILDUNG</span>
+                <span class="lang-element" lang="en" style="display:none;">QUALIFICATION & FURTHER EDUCATION</span>
+            </h2>
+            <div class="space-y-6">
+                <div class="qualification-card">
+                    <h3 class="subsection-title flex items-center"><span class="subsection-icon">🎓</span>
+                        <span class="lang-element" lang="de">Studium</span>
+                        <span class="lang-element" lang="en" style="display:none;">University Education</span>
+                    </h3>
+                    <h4 class="education-item-title"> 
                         <span class="lang-element" lang="de">Studium „Betriebswirtschaftslehre“</span>
                         <span class="lang-element" lang="en" style="display:none;">Studies in "Business Administration"</span>
-                    </h3>
-                    <p class="text-sm text-slate-500 mb-2">
+                    </h4>
+                    <p class="education-institution">
                         <span class="lang-element" lang="de">Hochschule Nürtingen</span>
                         <span class="lang-element" lang="en" style="display:none;">Nuertingen University</span>
                     </p>
-                    <p class="text-slate-700">
-                        <strong class="font-semibold text-blue-600">
-                            <span class="lang-element" lang="de">Diplom-Betriebswirt</span>
-                            <span class="lang-element" lang="en" style="display:none;">Diplom-Betriebswirt (German equivalent to MBA)</span>
-                        </strong>
-                        <span class="lang-element" lang="de"> in den Bereichen Wirtschaftsinformatik, Organisation und Projektmanagement, Finanzmanagement und Bankwirtschaftslehre.</span>
-                        <span class="lang-element" lang="en" style="display:none;"> in the fields of Business Informatics, Organization and Project Management, Financial Management and Banking.</span>
-                    </p>
+                    <div class="education-details">
+                        <p>
+                            <strong class="education-highlight">
+                                <span class="lang-element" lang="de">Diplom-Betriebswirt</span>
+                                <span class="lang-element" lang="en" style="display:none;">Diplom-Betriebswirt (German equivalent to MBA)</span>
+                            </strong>
+                            <span class="lang-element" lang="de"> in den Bereichen Wirtschaftsinformatik, Organisation und Projektmanagement, Finanzmanagement und Bankwirtschaftslehre.</span>
+                            <span class="lang-element" lang="en" style="display:none;"> in the fields of Business Informatics, Organization and Project Management, Financial Management and Banking.</span>
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="ausbildung-item"> 
-                <h2 class="section-main-title"> 
-                    <span class="lang-element" lang="de">AUSBILDUNG</span>
-                    <span class="lang-element" lang="en" style="display:none;">VOCATIONAL TRAINING</span>
-                </h2>
-                <div class="text-sm bg-slate-50 p-6 rounded-lg shadow-md"> 
-                     <h3 class="text-lg font-semibold education-title"> 
-                        <span class="lang-element" lang="de">Finanzassistent / Bankkaufmann (IHK)</span>
-                        <span class="lang-element" lang="en" style="display:none;">Financial Assistant / Bank Clerk (IHK)</span>
+
+                <div class="qualification-card">
+                    <h3 class="subsection-title flex items-center"><span class="subsection-icon">🏦</span>
+                        <span class="lang-element" lang="de">Berufsausbildung</span>
+                        <span class="lang-element" lang="en" style="display:none;">Vocational Training</span>
                     </h3>
-                    <p class="text-sm text-slate-500 mb-2">
+                     <h4 class="education-item-title"> 
+                        <span class="lang-element" lang="de">Kaufmännische Ausbildung Schwerpunkt Finanzen (IHK)</span>
+                        <span class="lang-element" lang="en" style="display:none;">Commercial Training with Focus on Finance (IHK)</span>
+                    </h4>
+                    <p class="education-institution">
                         <span class="lang-element" lang="de">Landesbank Baden-Württemberg</span>
                         <span class="lang-element" lang="en" style="display:none;">Landesbank Baden-Württemberg</span>
                     </p>
-                    <p class="text-slate-700"> 
-                        <span class="lang-element" lang="de">Fundament für breites kaufmännisches, prozessuales und finanzwirtschaftliches Verständnis.</span>
-                        <span class="lang-element" lang="en" style="display:none;">Foundation for broad commercial, procedural, and financial understanding.</span>
-                    </p>
+                    <div class="education-details">
+                        <p>
+                            <span class="lang-element" lang="de">Ausbildung zum <strong class="education-highlight">Finanzassistent</strong> als Basis für umfassendes kaufmännisches, prozessuales und finanzwirtschaftliches Wissen, insbesondere in den Bereichen Bank, Steuer und Versicherung.</span>
+                            <span class="lang-element" lang="en" style="display:none;">Training as <strong class="education-highlight">Financial Assistant</strong> as a basis for comprehensive commercial, procedural, and financial knowledge, particularly in banking, tax, and insurance.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="qualification-card">
+                    <h3 class="subsection-title flex items-center"><span class="subsection-icon">📜</span>
+                        <span class="lang-element" lang="de">Fortbildungen & Zertifikate (Auszug)</span>
+                        <span class="lang-element" lang="en" style="display:none;">Further Training & Certificates (Excerpt)</span>
+                    </h3>
+                    <ul class="custom-bullets-qual space-y-2 mt-3"> 
+                        <li><span class="lang-element" lang="de">SCRUM Product Owner (Daimler Corporate Academy)</span><span class="lang-element" lang="en" style="display:none;">SCRUM Product Owner (Daimler Corporate Academy)</span></li>
+                        <li><span class="lang-element" lang="de">European Business Coach (EBC)</span><span class="lang-element" lang="en" style="display:none;">European Business Coach (EBC)</span></li>
+                        <li><span class="lang-element" lang="de">Zertifizierter Senior Process Manager (SPCM)</span><span class="lang-element" lang="en" style="display:none;">Certified Senior Process Manager (SPCM)</span></li>
+                        <li><span class="lang-element" lang="de">Zertifizierter Projektmanagement-Fachmann Level D (GBM-IPMA)</span><span class="lang-element" lang="en" style="display:none;">Certified Project Management Professional Level D (GBM-IPMA)</span></li>
+                    </ul>
                 </div>
             </div>
-        </section>
-
-        <section class="mb-12" id="further-education-section">
-            <h2 class="section-main-title"> 
-                <span class="lang-element" lang="de">FORTBILDUNG (Auswahl)</span>
-                <span class="lang-element" lang="en" style="display:none;">FURTHER EDUCATION (Selection)</span>
-            </h2>
-            <ul class="text-sm custom-bullets text-slate-700"> 
-                <li>
-                    <span class="lang-element" lang="de">SCRUM Product Owner (Daimler Corporate Academy)</span>
-                    <span class="lang-element" lang="en" style="display:none;">SCRUM Product Owner (Daimler Corporate Academy)</span>
-                </li>
-                <li>
-                    <span class="lang-element" lang="de">European Business Coach (EBC)</span>
-                    <span class="lang-element" lang="en" style="display:none;">European Business Coach (EBC)</span>
-                </li>
-                <li>
-                    <span class="lang-element" lang="de">Zertifizierter Senior Process Manager (SPCM)</span>
-                    <span class="lang-element" lang="en" style="display:none;">Certified Senior Process Manager (SPCM)</span>
-                </li>
-                <li>
-                    <span class="lang-element" lang="de">Zertifizierter Projektmanagement-Fachmann Level D (GBM-IPMA)</span>
-                    <span class="lang-element" lang="en" style="display:none;">Certified Project Management Professional Level D (GBM-IPMA)</span>
-                </li>
-            </ul>
         </section>
 
         <section class="mb-12" id="values-section">
@@ -1303,7 +1351,7 @@
 
                 document.body.style.paddingTop = `${navBarHeight + 8}px`; 
                 
-                const scrollTargets = document.querySelectorAll('h2.section-main-title, #page-header');
+                const scrollTargets = document.querySelectorAll('h2.section-main-title, #page-header, #qualification-section');
                 scrollTargets.forEach(target => {
                     target.style.scrollMarginTop = `${navBarHeight + 8}px`; 
                 });
@@ -1368,7 +1416,7 @@
 
                 function createDots() {
                     if (dotsContainer) {
-                        dotsContainer.innerHTML = ''; // Clear existing dots
+                        dotsContainer.innerHTML = ''; 
                         slides.forEach((_, index) => {
                             const dot = document.createElement('span');
                             dot.classList.add('carousel-dot-combined');
@@ -1405,15 +1453,15 @@
 
                     track.addEventListener('touchstart', function(event) {
                         touchstartX = event.changedTouches[0].screenX;
-                    }, {passive: true}); // Added passive for performance
+                    }, {passive: true}); 
 
                     track.addEventListener('touchend', function(event) {
                         touchendX = event.changedTouches[0].screenX;
                         handleSwipe();
-                    }, {passive: true}); // Added passive for performance
+                    }, {passive: true}); 
                     
                     function handleSwipe() {
-                        const swipeThreshold = 50; // Minimum difference for a swipe
+                        const swipeThreshold = 50; 
                         if (touchendX < touchstartX && (touchstartX - touchendX > swipeThreshold)) { 
                             currentIndex = (currentIndex + 1) % slides.length;
                             updateCarousel();
