@@ -46,7 +46,7 @@
             border-bottom: 2px solid #0070D2; 
             padding-bottom: 0.5rem;
             margin-top: 2rem; 
-            margin-bottom: 1.5rem; 
+            margin-bottom: 1rem; /* Reduced margin-bottom to accommodate dots above */
             font-size: 1.5rem; 
         }
 
@@ -275,20 +275,90 @@
             color: #075985; 
         }
 
-        .experience-carousel-container { position: relative; }
-        .experience-carousel-track-container { overflow: hidden; width: 100%; }
-        .experience-carousel-track { display: flex; transition: transform 0.5s ease-in-out; }
-        .job-experience-card { flex: 0 0 100%; min-width: 100%; box-sizing: border-box; padding: 1.5rem; }
-        .carousel-button {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            background-color: rgba(0, 112, 210, 0.7); color: white;
-            border: none; padding: 0.75rem; border-radius: 50%;
-            cursor: pointer; z-index: 10; transition: background-color 0.2s ease;
+        /* Experience Carousel Styles */
+        .experience-carousel-container { 
+            position: relative; 
         }
-        .carousel-button:hover { background-color: #005FB8; }
-        .carousel-button.prev { left: -1rem; }
-        .carousel-button.next { right: -1rem; }
-        .carousel-button svg { width: 1.5rem; height: 1.5rem; }
+        .experience-carousel-track-container { 
+            overflow: hidden; 
+            width: 100%; 
+        }
+        .experience-carousel-track { 
+            display: flex; 
+            transition: transform 0.5s ease-in-out; 
+        }
+        .job-experience-card { 
+            flex: 0 0 100%; 
+            min-width: 100%; 
+            box-sizing: border-box; 
+            background-color: #f9fafb;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            position: relative;
+            padding-left: 3rem; 
+            padding-right: 3rem; 
+        }
+        .carousel-button-combined {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 112, 210, 0.6); 
+            color: white;
+            border: none;
+            width: 2.25rem;  
+            height: 2.25rem; 
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            transition: background-color 0.2s ease, opacity 0.3s ease;
+            opacity: 0.5; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Hover on container makes buttons more visible */
+        .experience-carousel-track-container:hover ~ .carousel-button-combined,
+        .experience-carousel-container:hover .carousel-button-combined { /* Added this for better hover detection */
+            opacity: 1; 
+        }
+        .carousel-button-combined:hover {
+            background-color: #005FB8; 
+            opacity: 1 !important; 
+        }
+        .carousel-button-combined.prev { 
+            left: 0.75rem; 
+        }
+        .carousel-button-combined.next { 
+            right: 0.75rem; 
+        }
+        .carousel-button-combined svg {
+            width: 1.1rem; 
+            height: 1.1rem; 
+        }
+        .carousel-dots-combined {
+            text-align: center;
+            padding-bottom: 1rem; /* Changed from padding-top to padding-bottom */
+            padding-top: 0.5rem; /* Added small padding top for spacing from title */
+        }
+        .carousel-dot-combined {
+            display: inline-block;
+            width: 0.65rem; 
+            height: 0.65rem; 
+            margin: 0 0.35rem;
+            background-color: #cbd5e1; 
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .carousel-dot-combined.active-dot {
+            background-color: #0070D2; 
+            transform: scale(1.2);
+        }
+        .carousel-dot-combined:hover {
+            background-color: #94a3b8; 
+        }
+        /* End of Experience Carousel Styles */
         
         .web-footer {
             text-align: center; padding: 2rem 1rem; font-size: 0.875rem; 
@@ -688,9 +758,11 @@
                 <span class="lang-element" lang="en" style="display:none;">PROFESSIONAL EXPERIENCE</span>
             </h2>
             <div class="experience-carousel-container">
+                <div class="carousel-dots-combined" id="experienceCarouselDots">
+                    </div>
                 <div class="experience-carousel-track-container">
                     <div class="experience-carousel-track">
-                        <div class="job-experience-card bg-slate-50 rounded-lg shadow-md">
+                        <div class="job-experience-card">
                             <h3 class="text-xl font-semibold job-title">
                                 <span class="lang-element" lang="de">Program Owner & Solution Manager Mercedes-Benz CRM</span>
                                 <span class="lang-element" lang="en" style="display:none;">Program Owner & Solution Manager Mercedes-Benz CRM</span>
@@ -730,7 +802,7 @@
                                 <span class="lang-element" lang="en" style="display:none;">Establishment of a future-proof, Europe-wide standardized CRM platform for agility in sales models, deep POS integration, and data-driven customer centricity.</span>
                             </p>
                         </div>
-                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md">
+                        <div class="job-experience-card">
                             <h3 class="text-xl font-semibold job-title">
                                  <span class="lang-element" lang="de">Product Owner / Development Lead OneCRM (Salesforce Sales, Service, Marketing & Experience Cloud)</span>
                                  <span class="lang-element" lang="en" style="display:none;">Product Owner / Development Lead OneCRM (Salesforce Sales, Service, Marketing & Experience Cloud)</span>
@@ -758,7 +830,7 @@
                                 <span class="lang-element" lang="en" style="display:none;">Creation of a 360° customer view; increased sales efficiency & lead conversion rate.</span>
                             </p>
                         </div>
-                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md">
+                        <div class="job-experience-card">
                             <h3 class="text-xl font-semibold job-title">
                                 <span class="lang-element" lang="de">Projektleitung und Requirements Engineer – OCRM Frankreich</span>
                                 <span class="lang-element" lang="en" style="display:none;">Project Lead and Requirements Engineer – OCRM France</span>
@@ -782,7 +854,7 @@
                                 <span class="lang-element" lang="en" style="display:none;">Successful enablement of OCRM France; ensured data availability.</span>
                             </p>
                         </div>
-                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md">
+                        <div class="job-experience-card">
                             <h3 class="text-xl font-semibold job-title">
                                 <span class="lang-element" lang="de">Business Architekt – Fachdesign und Spezifikation Retail Systeme</span>
                                 <span class="lang-element" lang="en" style="display:none;">Business Architect – Functional Design and Specification Retail Systems</span>
@@ -810,7 +882,7 @@
                                 <span class="lang-element" lang="en" style="display:none;">Consistent CRM processes in retail; improved user acceptance of MBC POS.</span>
                             </p>
                         </div>
-                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md">
+                        <div class="job-experience-card">
                             <h3 class="text-xl font-semibold job-title">
                                 <span class="lang-element" lang="de">Senior Consultant – Customer Contact Center Strategie</span>
                                 <span class="lang-element" lang="en" style="display:none;">Senior Consultant – Customer Contact Center Strategy</span>
@@ -834,7 +906,7 @@
                                 <span class="lang-element" lang="en" style="display:none;">Strategic concept for global customer contact processes as a basis for piloting.</span>
                             </p>
                         </div>
-                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md">
+                        <div class="job-experience-card">
                             <h3 class="text-xl font-semibold job-title">
                                 <span class="lang-element" lang="de">Senior Consultant – BDC Rollout & Governance</span>
                                 <span class="lang-element" lang="en" style="display:none;">Senior Consultant – BDC Rollout & Governance</span>
@@ -858,7 +930,7 @@
                                 <span class="lang-element" lang="en" style="display:none;">Successful piloting/implementation of LMS & BDC structures internationally.</span>
                             </p>
                         </div>
-                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md">
+                        <div class="job-experience-card">
                             <h3 class="text-xl font-semibold job-title">
                                 <span class="lang-element" lang="de">Senior Consultant – Business Development Center (BDC) & Lead Management Systeme (LMS)</span>
                                 <span class="lang-element" lang="en" style="display:none;">Senior Consultant – Business Development Center (BDC) & Lead Management Systems (LMS)</span>
@@ -886,7 +958,7 @@
                                 <span class="lang-element" lang="en" style="display:none;">Successful global implementations; increase in lead conversion & sales performance.</span>
                             </p>
                         </div>
-                        <div class="job-experience-card bg-slate-50 p-6 rounded-lg shadow-md"> 
+                        <div class="job-experience-card"> 
                             <h3 class="text-xl font-semibold job-title">
                                 <span class="lang-element" lang="de">Consultant – Business Development Center (BDC)</span>
                                 <span class="lang-element" lang="en" style="display:none;">Consultant – Business Development Center (BDC)</span>
@@ -912,10 +984,10 @@
                         </div>
                     </div>
                 </div>
-                <button class="carousel-button prev" id="prevExperience">
+                <button class="carousel-button-combined prev" id="prevExperience">
                     <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
                 </button>
-                <button class="carousel-button next" id="nextExperience">
+                <button class="carousel-button-combined next" id="nextExperience">
                     <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
                 </button>
             </div>
@@ -1264,19 +1336,59 @@
                 langToggleButton.addEventListener('click', toggleLanguage);
             }
 
-            const track = document.querySelector('.experience-carousel-track');
-            if (track) { 
+            // Experience Carousel Logic
+            const carouselContainer = document.querySelector('.experience-carousel-container');
+            if (carouselContainer) {
+                const track = carouselContainer.querySelector('.experience-carousel-track');
                 const slides = Array.from(track.children);
-                const nextButton = document.getElementById('nextExperience');
-                const prevButton = document.getElementById('prevExperience');
+                const nextButton = carouselContainer.querySelector('.carousel-button-combined.next');
+                const prevButton = carouselContainer.querySelector('.carousel-button-combined.prev');
+                const dotsContainer = carouselContainer.querySelector('#experienceCarouselDots');
                 let currentIndex = 0;
-                
+
                 function updateCarousel() {
-                    if (slides.length > 0) { 
+                    if (slides.length > 0) {
                         track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                        updateDots();
                     }
                 }
-            
+
+                function updateDots() {
+                    if (dotsContainer) {
+                        const dots = Array.from(dotsContainer.children);
+                        dots.forEach((dot, index) => {
+                            if (index === currentIndex) {
+                                dot.classList.add('active-dot');
+                            } else {
+                                dot.classList.remove('active-dot');
+                            }
+                        });
+                    }
+                }
+
+                function createDots() {
+                    if (dotsContainer) {
+                        dotsContainer.innerHTML = ''; // Clear existing dots
+                        slides.forEach((_, index) => {
+                            const dot = document.createElement('span');
+                            dot.classList.add('carousel-dot-combined');
+                            dot.dataset.slideTo = index;
+                            dot.setAttribute('aria-label', `Station ${index + 1}`);
+                            dot.addEventListener('click', () => {
+                                currentIndex = index;
+                                updateCarousel();
+                            });
+                            dotsContainer.appendChild(dot);
+                        });
+                    }
+                }
+
+                if (slides.length > 0) {
+                    createDots();
+                    updateCarousel(); 
+                }
+
+
                 if (nextButton && prevButton && slides.length > 0) {
                     nextButton.addEventListener('click', () => {
                         currentIndex = (currentIndex + 1) % slides.length;
@@ -1288,13 +1400,40 @@
                         updateCarousel();
                     });
                     
-                    window.addEventListener('resize', updateCarousel); 
-                    updateCarousel(); 
+                    let touchstartX = 0;
+                    let touchendX = 0;
+
+                    track.addEventListener('touchstart', function(event) {
+                        touchstartX = event.changedTouches[0].screenX;
+                    }, {passive: true}); // Added passive for performance
+
+                    track.addEventListener('touchend', function(event) {
+                        touchendX = event.changedTouches[0].screenX;
+                        handleSwipe();
+                    }, {passive: true}); // Added passive for performance
+                    
+                    function handleSwipe() {
+                        const swipeThreshold = 50; // Minimum difference for a swipe
+                        if (touchendX < touchstartX && (touchstartX - touchendX > swipeThreshold)) { 
+                            currentIndex = (currentIndex + 1) % slides.length;
+                            updateCarousel();
+                        }
+                        if (touchendX > touchstartX && (touchendX - touchstartX > swipeThreshold)) { 
+                            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                            updateCarousel();
+                        }
+                    }
+
+                    window.addEventListener('resize', () => {
+                        updateCarousel();
+                    });
                 } else {
                     if(prevButton) prevButton.style.display = 'none';
                     if(nextButton) nextButton.style.display = 'none';
+                    if(dotsContainer) dotsContainer.style.display = 'none';
                 }
             }
+
 
             const languageItems = document.querySelectorAll('.language-item');
             languageItems.forEach(item => {
