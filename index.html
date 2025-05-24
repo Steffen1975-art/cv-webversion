@@ -27,15 +27,16 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
         }
         
+        /* Ensure all sections have scroll-margin-top for fixed header */
         #page-header, #short-profile-section, #core-competencies-section, 
         #professional-experience-section, #expertise-section, 
-        #qualification-section, /* Combined section ID */
+        #qualification-section, 
         #values-section, #personal-insights-section {
              scroll-margin-top: 48px; 
         }
          #page-header { 
             scroll-margin-top: 56px; 
-         }
+           }
 
 
         h1.main-name { 
@@ -192,23 +193,32 @@
         }
         /* End of Styles for Core Competencies Cards */
 
-        /* Styles for Qualification Section (Cards with Icons) */
-        .qualification-card {
-             background-color: #ffffff; 
-             padding: 1.5rem; 
-             border-radius: 0.5rem;
-             box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Slightly softer shadow for these cards */
-             margin-bottom: 1.5rem; /* Space between qualification cards */
+        /* Styles for Qualification Section */
+        .qualification-card-base {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
-        .qualification-card:last-child {
-            margin-bottom: 0;
+        .qualification-card-base:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
         }
-        .subsection-icon { /* For 🎓, 🏦, 📜 */
-            font-size: 1.35rem; /* Adjusted size */
-            margin-right: 0.6rem; 
-            color: #0070D2;
-            line-height: 1; 
-            flex-shrink: 0; /* Prevent shrinking */
+        .qualification-grid { /* Renamed from qualification-grid-example1 */
+            display: grid;
+            grid-template-columns: repeat(1, 1fr); /* Default to single column on small screens */
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .qualification-grid {
+                grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
+            }
+        }
+        @media (min-width: 1024px) {
+            .qualification-grid {
+                grid-template-columns: repeat(3, 1fr); /* Three columns on large screens */
+            }
         }
         .education-institution { 
             font-size: 0.875rem; 
@@ -376,6 +386,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            line-height: 1; 
         }
         .experience-carousel-track-container:hover ~ .carousel-button-combined,
         .experience-carousel-container:hover .carousel-button-combined {
@@ -618,16 +632,16 @@
                     </p>
                     <div id="language-container" class="contact-item text-sm">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 150" class="language-icon-svg">
-                           <path d="M 110,15 
-                                     C 165,15 209,40 209,75 
-                                     C 209,110 165,135 110,135 
-                                     C 105,135 100,134.5 95,133.5 
-                                     C 77,133     27.5,140   15,140
-                                     L 60.5,115
-                                     C 62,118 65,124.5 60,126.5
-                                     C 50,130 20,110 20,75
-                                     C 20,40 55,15 110,15 Z" />
-                           <text x="110" y="80" font-family="'Noto Sans SC', Arial, sans-serif" font-size="70" font-weight="300" fill="white" text-anchor="middle" dominant-baseline="central">文</text>
+                             <path d="M 110,15 
+                                            C 165,15 209,40 209,75 
+                                            C 209,110 165,135 110,135 
+                                            C 105,135 100,134.5 95,133.5 
+                                            C 77,133   27.5,140   15,140
+                                            L 60.5,115
+                                            C 62,118 65,124.5 60,126.5
+                                            C 50,130 20,110 20,75
+                                            C 20,40 55,15 110,15 Z" />
+                             <text x="110" y="80" font-family="'Noto Sans SC', Arial, sans-serif" font-size="70" font-weight="300" fill="white" text-anchor="middle" dominant-baseline="central">文</text>
                         </svg>
                         <div class="language-items-wrapper">
                             <div class="language-item relative">
@@ -983,7 +997,7 @@
                                 <span class="lang-element" lang="en" style="display:none;">Successful piloting/implementation of LMS & BDC structures internationally.</span>
                             </p>
                         </div>
-                        <div class="job-experience-card">
+                        <div class="job-experience-card"> 
                             <h3 class="text-xl font-semibold job-title">
                                 <span class="lang-element" lang="de">Senior Consultant – Business Development Center (BDC) & Lead Management Systeme (LMS)</span>
                                 <span class="lang-element" lang="en" style="display:none;">Senior Consultant – Business Development Center (BDC) & Lead Management Systems (LMS)</span>
@@ -1000,30 +1014,6 @@
                                 <li>
                                     <span class="lang-element" lang="de">Strategische Beratung & Prozessoptimierung im Lead-to-Sales-Funnel.</span>
                                     <span class="lang-element" lang="en" style="display:none;">Strategic consulting & process optimization in the lead-to-sales funnel.</span>
-                                </li>
-                            </ul>
-                            <p class="text-sm mt-3 pt-3 border-t border-slate-200">
-                                <strong class="text-blue-600 font-semibold">
-                                    <span class="lang-element" lang="de">Key Results:</span>
-                                    <span class="lang-element" lang="en" style="display:none;">Key Results:</span>
-                                </strong> 
-                                <span class="lang-element" lang="de">Erfolgreiche globale Implementierungen; Steigerung Lead Conversion & Sales Performance.</span>
-                                <span class="lang-element" lang="en" style="display:none;">Successful global implementations; increase in lead conversion & sales performance.</span>
-                            </p>
-                        </div>
-                        <div class="job-experience-card"> 
-                            <h3 class="text-xl font-semibold job-title">
-                                <span class="lang-element" lang="de">Consultant – Business Development Center (BDC)</span>
-                                <span class="lang-element" lang="en" style="display:none;">Consultant – Business Development Center (BDC)</span>
-                            </h3>
-                            <p class="text-sm text-slate-500 mb-3">
-                                <span class="lang-element" lang="de">Daimler Protics GmbH (Für Daimler AG) | 04/2005 – 04/2008</span>
-                                <span class="lang-element" lang="en" style="display:none;">Daimler Protics GmbH (For Daimler AG) | 04/2005 – 04/2008</span>
-                            </p>
-                            <ul class="text-sm custom-bullets mb-3 text-slate-700">
-                                <li>
-                                    <span class="lang-element" lang="de">Entwicklung & Rollout-Sicherung von BDC-Vertriebskanälen; Konzeption Sales LMS.</span>
-                                    <span class="lang-element" lang="en" style="display:none;">Development & rollout assurance of BDC sales channels; conception of Sales LMS.</span>
                                 </li>
                             </ul>
                             <p class="text-sm mt-3 pt-3 border-t border-slate-200">
@@ -1132,12 +1122,8 @@
                 <span class="lang-element" lang="de">QUALIFIZIERUNG & WEITERBILDUNG</span>
                 <span class="lang-element" lang="en" style="display:none;">QUALIFICATION & FURTHER EDUCATION</span>
             </h2>
-            <div class="space-y-6">
-                <div class="qualification-card">
-                    <h3 class="subsection-title flex items-center"><span class="subsection-icon">🎓</span>
-                        <span class="lang-element" lang="de">Studium</span>
-                        <span class="lang-element" lang="en" style="display:none;">University Education</span>
-                    </h3>
+            <div class="qualification-grid">
+                <div class="qualification-card-base">
                     <h4 class="education-item-title"> 
                         <span class="lang-element" lang="de">Studium „Betriebswirtschaftslehre“</span>
                         <span class="lang-element" lang="en" style="display:none;">Studies in "Business Administration"</span>
@@ -1158,12 +1144,8 @@
                     </div>
                 </div>
 
-                <div class="qualification-card">
-                    <h3 class="subsection-title flex items-center"><span class="subsection-icon">🏦</span>
-                        <span class="lang-element" lang="de">Berufsausbildung</span>
-                        <span class="lang-element" lang="en" style="display:none;">Vocational Training</span>
-                    </h3>
-                     <h4 class="education-item-title"> 
+                <div class="qualification-card-base">
+                    <h4 class="education-item-title"> 
                         <span class="lang-element" lang="de">Kaufmännische Ausbildung Schwerpunkt Finanzen (IHK)</span>
                         <span class="lang-element" lang="en" style="display:none;">Commercial Training with Focus on Finance (IHK)</span>
                     </h4>
@@ -1179,11 +1161,11 @@
                     </div>
                 </div>
 
-                <div class="qualification-card">
-                    <h3 class="subsection-title flex items-center"><span class="subsection-icon">📜</span>
+                <div class="qualification-card-base">
+                    <h4 class="education-item-title"> 
                         <span class="lang-element" lang="de">Fortbildungen & Zertifikate (Auszug)</span>
                         <span class="lang-element" lang="en" style="display:none;">Further Training & Certificates (Excerpt)</span>
-                    </h3>
+                    </h4>
                     <ul class="custom-bullets-qual space-y-2 mt-3"> 
                         <li><span class="lang-element" lang="de">SCRUM Product Owner (Daimler Corporate Academy)</span><span class="lang-element" lang="en" style="display:none;">SCRUM Product Owner (Daimler Corporate Academy)</span></li>
                         <li><span class="lang-element" lang="de">European Business Coach (EBC)</span><span class="lang-element" lang="en" style="display:none;">European Business Coach (EBC)</span></li>
@@ -1351,6 +1333,7 @@
 
                 document.body.style.paddingTop = `${navBarHeight + 8}px`; 
                 
+                // Update scroll targets to use the main qualification-section ID
                 const scrollTargets = document.querySelectorAll('h2.section-main-title, #page-header, #qualification-section');
                 scrollTargets.forEach(target => {
                     target.style.scrollMarginTop = `${navBarHeight + 8}px`; 
