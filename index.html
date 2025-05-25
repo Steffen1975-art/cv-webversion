@@ -15,8 +15,9 @@
             background-color: #f3f4f6; 
             color: #374151; 
             line-height: 1.7;
-            padding-top: 50px; /* Initial, will be adjusted by JS - V1 Nav Fix */
+            padding-top: 42px; /* Initial, JS will adjust. Puffer entfernt. */
             margin: 0; 
+            overflow-x: hidden; /* Prevent horizontal scrolling of the entire page */
         }
 
         .web-resume-container {
@@ -26,16 +27,17 @@
             background-color: white;
             border-radius: 0.75rem; 
             box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+            overflow-x: hidden; /* Prevent internal elements from causing container scroll */
         }
         
         #page-header, #short-profile-section, #core-competencies-section, 
         #professional-experience-section, #expertise-section, 
         #qualification-section, 
         #insights-section { 
-             scroll-margin-top: 50px; /* Initial, will be adjusted by JS - V1 Nav Fix */
+             scroll-margin-top: 42px; /* Initial, JS will adjust. Puffer entfernt. */
         }
          #page-header { 
-             scroll-margin-top: 58px; /* Specific for header if needed - V1 Nav Fix */
+             scroll-margin-top: 50px; /* Specific for header if needed. Puffer entfernt. */
              }
 
 
@@ -536,7 +538,7 @@
             background-color: #e0f2fe; 
         }
 
-        /* Fixed top navigation bar - V1 Nav Fix Applied */
+        /* Fixed top navigation bar - V1 Nav Fix Applied & Further Optimized */
         .fixed-top-navigation-bar {
             position: fixed; top: 0; left: 0; width: 100%;
             background-color: #e9ecef;
@@ -546,21 +548,25 @@
             height: 42px; box-sizing: border-box;
         }
         .fixed-top-navigation-bar .lang-button-wrapper {
-            flex-shrink: 0; margin-right: 0.5rem;
+            flex-shrink: 0; margin-right: 0.4rem; /* Slightly reduced margin */
         }
         .fixed-top-navigation-bar .quick-links-nav {
             display: flex; flex-grow: 1; flex-shrink: 1; min-width: 0;
             overflow-x: auto; overflow-y: hidden; white-space: nowrap;
-            gap: 0.1rem 0.3rem; /* V1 Nav Fix: Reduced gap for small screens */
+            /* Further reduced gap for very small screens */
+            gap: 0.05rem 0.15rem; 
             align-items: center;
             -ms-overflow-style: none; scrollbar-width: none;
             padding: 0.1rem 0;
-            padding-right: 10px; /* V1 Nav Fix: Added padding-right */
+            padding-right: 8px; /* Reduced padding-right */
         }
         .fixed-top-navigation-bar .quick-links-nav::-webkit-scrollbar { display: none; }
         .fixed-top-navigation-bar .quick-links-nav a {
-            color: #005FB8; text-decoration: none; font-size: 0.65rem;
-            padding: 0.15rem 0.35rem; border-radius: 0.2rem;
+            color: #005FB8; text-decoration: none; 
+            /* Further reduced font-size and padding for links on small screens */
+            font-size: 0.62rem;
+            padding: 0.1rem 0.25rem; 
+            border-radius: 0.2rem;
             transition: background-color 0.2s ease, color 0.2s ease;
             flex-shrink: 0;
         }
@@ -568,22 +574,35 @@
             background-color: #0070D2; color: white;
         }
         
+        /* Styles for larger screens */
         @media (min-width: 768px) { 
             .fixed-top-navigation-bar {
-                padding: 0.5rem 1rem; height: auto;
+                padding: 0.5rem 1rem; 
+                height: auto; 
             }
-            .action-button { font-size: 0.7rem; padding: 0.25rem 0.4rem; height: 2rem; }
-            #langButtonText { font-size: 0.7rem;}
+            .fixed-top-navigation-bar .lang-button-wrapper {
+                 margin-right: 0.75rem;
+            }
+            .action-button { 
+                font-size: 0.7rem; 
+                padding: 0.25rem 0.4rem; 
+                height: 2rem; 
+            }
+            #langButtonText {
+                font-size: 0.7rem;
+            }
+
             .fixed-top-navigation-bar .quick-links-nav {
-                overflow-x: visible; flex-wrap: wrap;
-                gap: 0.2rem 0.6rem; /* V1 Nav Fix: Slightly reduced gap for larger screens too */
+                overflow-x: visible; 
+                flex-wrap: wrap; 
+                gap: 0.2rem 0.6rem; /* Original V1 Fix gap for larger screens */
                 padding-right: 0; 
             }
              .fixed-top-navigation-bar .quick-links-nav a {
-                font-size: 0.75rem; padding: 0.25rem 0.5rem;
+                font-size: 0.75rem; 
+                padding: 0.25rem 0.5rem; /* Original V1 Fix padding for larger screens */
              }
         }
-        /* End of V1 Nav Fix */
     </style>
 </head>
 <body class="bg-slate-100">
@@ -1357,12 +1376,12 @@
             const navBar = document.querySelector('.fixed-top-navigation-bar');
             if (navBar) {
                 let navBarHeight = navBar.offsetHeight;
-                // V1 Nav Fix: Puffer auf 2px reduziert
-                document.body.style.paddingTop = `${navBarHeight + 2}px`; 
+                // Puffer entfernt (aus nav_fix_v1, angepasst auf 0px Puffer)
+                document.body.style.paddingTop = `${navBarHeight}px`; 
                 
                 const scrollTargets = document.querySelectorAll('h2.section-main-title, #page-header, #qualification-section, #insights-section, #expertise-section, #core-competencies-section, #professional-experience-section, #short-profile-section');
                 scrollTargets.forEach(target => {
-                    target.style.scrollMarginTop = `${navBarHeight + 2}px`;
+                    target.style.scrollMarginTop = `${navBarHeight}px`;
                 });
             }
         }
