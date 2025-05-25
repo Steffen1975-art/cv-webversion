@@ -15,7 +15,7 @@
             background-color: #f3f4f6; 
             color: #374151; 
             line-height: 1.7;
-            padding-top: 48px; 
+            padding-top: 48px; /* Default padding for fixed nav */
         }
 
         .web-resume-container {
@@ -31,11 +31,11 @@
         #page-header, #short-profile-section, #core-competencies-section, 
         #professional-experience-section, #expertise-section, 
         #qualification-section, 
-        #werte-einblicke-v1 { /* Only V1 is kept */
-             scroll-margin-top: 48px; 
+        #insights-section { /* Updated ID */
+             scroll-margin-top: 48px; /* Default scroll margin */
         }
          #page-header { 
-             scroll-margin-top: 56px; 
+             scroll-margin-top: 56px; /* Specific for header if needed */
              }
 
 
@@ -54,15 +54,15 @@
             font-size: 1.75rem; 
         }
         
-        h3.subsection-title { /* For sub-titles within qualification cards AND new combined section V1 */
+        h3.subsection-title { /* For sub-titles within qualification cards AND insights section */
             color: #001639;
             font-weight: 600;
             font-size: 1.25rem; 
             margin-bottom: 1rem; 
-            margin-top: 1.5rem; /* Added for spacing in combined section */
+            margin-top: 1.5rem; 
         }
 
-        h4.education-item-title { /* For "Studium...", "Kaufmännische Ausbildung..." */
+        h4.education-item-title { 
             color: #001639; 
             font-weight: 600; 
             font-size: 1.125rem; 
@@ -76,16 +76,105 @@
             margin-bottom: 0.35rem; 
         }
 
-        h4.expertise-group-title {
-            color: #001639; 
-            font-weight: 600; 
-            font-size: 1.05rem; 
-            margin-bottom: 0.75rem;
-            padding-bottom: 0.25rem;
-            border-bottom: 1px solid #cbd5e1; 
+        /* Styles for Expertise Section (Merged from expertise_section_final_k_style_v4) */
+        .expertise-meta-card {
+            background-color: #e0f2fe; 
+            border: 1px solid #bae6fd; 
+            border-radius: 0.75rem;
+            padding: 1.25rem; 
+            box-shadow: 0 4px 10px rgba(0, 112, 210, 0.15);
+            margin-bottom: 2rem; 
+            display: flex;
+            flex-direction: column;
         }
+        .expertise-meta-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 15px rgba(0, 112, 210, 0.2);
+        }
+        .expertise-meta-card-title { /* Title inside the blue expertise card */
+            font-size: 1.15rem; 
+            font-weight: 600;
+            color: #001639; 
+            margin-bottom: 1rem; 
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid #0070D2; 
+        }
+        .expertise-meta-card ul.item-grid { 
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+            gap: 0.8rem; 
+            flex-grow: 1; 
+        }
+        .expertise-meta-card li.item-style-k {
+            background-color: #f0f8ff; 
+            color: #1e3a8a; 
+            border-radius: 0.5rem; 
+            border: 1px solid #d1e0ff; 
+            box-shadow: 0px 2px 4px rgba(0, 86, 179, 0.08),
+                        inset 1px 1px 1px rgba(255,255,255,0.4);
+            font-size: 0.85rem; 
+            transition: all 0.2s ease-in-out;
+            min-height: 140px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            text-align: center;
+            padding: 0.8rem; 
+            overflow-wrap: break-word; 
+            word-wrap: break-word; 
+            overflow: visible; 
+        }
+        .expertise-meta-card li.item-style-k:hover {
+            background-color: #ffffff;
+            border-color: #c0d4f0;
+            transform: translateY(-2px) scale(1.02); 
+            box-shadow: 0px 4px 8px rgba(0, 86, 179, 0.12),
+                        inset 1px 1px 2px rgba(255,255,255,0.6);
+        }
+        .expertise-meta-card li.item-style-k strong {
+            font-weight: 600;
+            color: #002240; 
+            display: block; 
+            margin-bottom: 0.25rem; 
+            font-size: 0.88rem; 
+        }
+        @media (max-width: 480px) { 
+            .expertise-meta-card ul.item-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
+                gap: 0.7rem; 
+            }
+            .expertise-meta-card li.item-style-k {
+                min-height: 75px;   
+                justify-content: flex-start; 
+                padding: 0.8rem; 
+                font-size: 0.8rem; 
+            }
+             .expertise-meta-card li.item-style-k strong {
+                font-size: 0.82rem; 
+            }
+        }
+         @media (max-width: 360px) { 
+             .expertise-meta-card ul.item-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+                 gap: 0.6rem;
+            }
+            .expertise-meta-card li.item-style-k {
+                min-height: 65px; 
+                font-size: 0.78rem; 
+                padding: 0.75rem; 
+            }
+            .expertise-meta-card li.item-style-k strong {
+                font-size: 0.8rem;
+            }
+         }
+        /* End of Styles for Expertise Section */
 
-        ul.custom-bullets > li { /* For experience section */
+
+        ul.custom-bullets > li { 
             padding-left: 1.75em; 
             position: relative; 
             margin-bottom: 0.5rem; 
@@ -253,14 +342,13 @@
         }
         /* End of Styles for Qualification Section */
 
-
-        .card-grid { /* This is for Values and Personal Insights */
+        /* Styles for Flip Cards (Insights Section) */
+        .card-grid { /* Used for flip cards in Insights */
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
             gap: 1.5rem; 
             margin-top: 1.5rem; 
         }
-
         .flip-card {
             background-color: transparent;
             width: 100%; 
@@ -268,7 +356,6 @@
             perspective: 1000px;
             cursor: pointer;
         }
-
         .flip-card-inner {
             position: relative;
             width: 100%;
@@ -279,7 +366,6 @@
             border-radius: 0.75rem; 
             box-shadow: 0 6px 12px rgba(0,0,0,0.1); 
         }
-
         .flip-card:hover .flip-card-inner { 
              transform: scale(1.02) rotateY(var(--tw-rotate-y, 0deg)); 
         }
@@ -289,7 +375,6 @@
          .flip-card.is-flipped:hover .flip-card-inner {
             transform: scale(1.05) rotateY(180deg); 
         }
-
         .flip-card-front,
         .flip-card-back {
             position: absolute;
@@ -304,7 +389,6 @@
             align-items: center;
             padding: 1.25rem; 
         }
-
         .flip-card-front {
             background-color: #f8f9fa; 
             color: #333; 
@@ -314,7 +398,6 @@
             max-height: 75%;
             object-fit: contain; 
         }
-
         .flip-card-back {
             background-color: #0070D2; 
             color: white;
@@ -329,23 +412,8 @@
         .flip-card-back p {
             font-size: 0.9rem;
         }
+        /* End of Flip Card Styles */
         
-        .competency-tag { /* This class is for the Expertise section */
-            transition: all 0.2s ease-in-out;
-            background-color: #e0f2fe; 
-            color: #0c4a6e; 
-            font-weight: 500; 
-        }
-        .competency-tag:hover {
-            transform: translateY(-2px);
-            background-color: #bae6fd; 
-            box-shadow: 0 4px 8px rgba(0, 112, 210, 0.2); 
-        }
-        .competency-tag strong { 
-            font-weight: 600; 
-            color: #075985; 
-        }
-
         /* Experience Carousel Styles */
         .experience-carousel-container { 
             position: relative; 
@@ -594,10 +662,7 @@
                 <span class="lang-element" lang="de">Qualifizierung</span>
                 <span class="lang-element" lang="en" style="display:none;">Qualification</span>
             </a>
-             <a href="#werte-einblicke-v1"> 
-                <span class="lang-element" lang="de">Werte & Einblicke</span>
-                <span class="lang-element" lang="en" style="display:none;">Values & Insights</span>
-            </a>
+             <a href="#insights-section"> <span class="lang-element" lang="de">Insights</span> <span class="lang-element" lang="en" style="display:none;">Insights</span> </a>
         </nav>
     </div>
 
@@ -1034,83 +1099,88 @@
         </section>
         
         <section class="mb-12" id="expertise-section">
-             <h2 class="section-main-title">
+            <h2 class="section-main-title">
                 <span class="lang-element" lang="de">EXPERTISE</span>
                 <span class="lang-element" lang="en" style="display:none;">EXPERTISE</span>
             </h2>
-            <div class="space-y-6">
-                <div>
-                    <h4 class="expertise-group-title">
-                        <span class="lang-element" lang="de">Management & Methoden</span>
-                        <span class="lang-element" lang="en" style="display:none;">Management & Methods</span>
-                    </h4>
-                    <div class="flex flex-wrap gap-3 text-sm">
-                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                            <span class="lang-element" lang="de">Führung interdisziplinärer & internationaler Teams</span>
-                            <span class="lang-element" lang="en" style="display:none;">Leadership of interdisciplinary & international teams</span>
-                        </div>
-                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                            <span class="lang-element" lang="de">Agile Entwicklung (Scrum, Kanban) & DevOps-Prinzipien</span>
-                            <span class="lang-element" lang="en" style="display:none;">Agile Development (Scrum, Kanban) & DevOps Principles</span>
-                        </div>
-                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                            <span class="lang-element" lang="de">Organisatorische Transition & Change Management (ganzheitliche Betriebsmodelle)</span>
-                            <span class="lang-element" lang="en" style="display:none;">Organizational Transition & Change Management (holistic operating models)</span>
-                        </div>
-                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                            <span class="lang-element" lang="de">Stakeholder Management & Anforderungsanalyse (bis Top-Management/E-Level)</span>
-                            <span class="lang-element" lang="en" style="display:none;">Stakeholder Management & Requirements Analysis (up to Top Management/E-Level)</span>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="expertise-group-title">
-                        <span class="lang-element" lang="de">Salesforce & CRM-Lösungen</span>
-                        <span class="lang-element" lang="en" style="display:none;">Salesforce & CRM Solutions</span>
-                    </h4>
-                    <div class="flex flex-wrap gap-3 text-sm">
-                         <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                            <span class="lang-element" lang="de">Salesforce Plattform: <strong>Sales, Service, Marketing, Experience & Data Cloud, Agentforce, Lightning Platform (LWC, Apex, Flows)</strong></span>
-                            <span class="lang-element" lang="en" style="display:none;">Salesforce Platform: <strong>Sales, Service, Marketing, Experience & Data Cloud, Agentforce, Lightning Platform (LWC, Apex, Flows)</strong></span>
-                        </div>
-                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                            <span class="lang-element" lang="de">CRM-Strategie, -Implementierung & Solution Management (Automotive: Sales, After Sales, Finance; Retail/Wholesale, Agenturmodell)</span>
-                            <span class="lang-element" lang="en" style="display:none;">CRM Strategy, Implementation & Solution Management (Automotive: Sales, After Sales, Finance; Retail/Wholesale, Agency Model)</span>
-                        </div>
-                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                            <span class="lang-element" lang="de">Sales Activity Management (SAM) & Point of Sale (POS) Integration</span>
-                            <span class="lang-element" lang="en" style="display:none;">Sales Activity Management (SAM) & Point of Sale (POS) Integration</span>
-                        </div>
-                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                            <span class="lang-element" lang="de">After Sales & Finance Prozessintegration im CRM</span>
-                            <span class="lang-element" lang="en" style="display:none;">After Sales & Finance Process Integration in CRM</span>
-                        </div>
-                    </div>
-                </div>
-                 <div>
-                    <h4 class="expertise-group-title">
-                        <span class="lang-element" lang="de">Technologie & Branchenwissen</span>
-                        <span class="lang-element" lang="en" style="display:none;">Technology & Industry Knowledge</span>
-                    </h4>
-                    <div class="flex flex-wrap gap-3 text-sm">
-                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                            <span class="lang-element" lang="de">Datenqualitätsmanagement & Governance</span>
-                            <span class="lang-element" lang="en" style="display:none;">Data Quality Management & Governance</span>
-                        </div>
-                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                            <span class="lang-element" lang="de">Lösungsarchitektur & komplexe Systemintegrationen (API-basiert, Kafka Event Streaming, Salesforce Platform Events)</span>
-                            <span class="lang-element" lang="en" style="display:none;">Solution Architecture & Complex System Integrations (API-based, Kafka Event Streaming, Salesforce Platform Events)</span>
-                        </div>
-                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                            <span class="lang-element" lang="de">Automotive Branchenexpertise & digitale Transformation</span>
-                            <span class="lang-element" lang="en" style="display:none;">Automotive Industry Expertise & Digital Transformation</span>
-                        </div>
-                        <div class="competency-tag px-4 py-2 rounded-full shadow-sm">
-                            <span class="lang-element" lang="de">Grundlagen Finanzwesen & Bankwirtschaftslehre (Basis für Finance Use Cases)</span>
-                            <span class="lang-element" lang="en" style="display:none;">Fundamentals of Finance & Banking (Basis for Finance Use Cases)</span>
-                        </div>
-                    </div>
-                </div>
+        
+            <div class="expertise-meta-card">
+                <h4 class="expertise-meta-card-title">
+                    <span class="lang-element" lang="de">Management & Methoden</span>
+                    <span class="lang-element" lang="en" style="display:none;">Management & Methods</span>
+                </h4>
+                <ul class="item-grid">
+                    <li class="item-style-k">
+                        <span class="lang-element" lang="de"><strong>Führung</strong> interdisziplinärer & internationaler Teams mit Fokus auf globale Projekte und Kulturen</span>
+                        <span class="lang-element" lang="en" style="display:none;"><strong>Leadership</strong> of interdisciplinary & international teams with a focus on global projects and cultures</span>
+                    </li>
+                    <li class="item-style-k">
+                        <span class="lang-element" lang="de"><strong>Agile Entwicklung</strong> (Scrum, Kanban) & DevOps-Prinzipien zur kontinuierlichen Verbesserung und Effizienzsteigerung</span>
+                        <span class="lang-element" lang="en" style="display:none;"><strong>Agile Development</strong> (Scrum, Kanban) & DevOps Principles for continuous improvement and efficiency gains</span>
+                    </li>
+                    <li class="item-style-k">
+                        <span class="lang-element" lang="de">Organisatorische <strong>Transition & Change Management</strong> (ganzheitliche Betriebsmodelle und nachhaltiger Kulturwandel)</span>
+                        <span class="lang-element" lang="en" style="display:none;">Organizational <strong>Transition & Change Management</strong> (holistic operating models and sustainable cultural change)</span>
+                    </li>
+                    <li class="item-style-k">
+                        <span class="lang-element" lang="de"><strong>Stakeholder Management</strong> & Anforderungsanalyse (bis Top-Management/E-Level)</span>
+                        <span class="lang-element" lang="en" style="display:none;"><strong>Stakeholder Management</strong> & Requirements Analysis (up to Top Management/E-Level)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="expertise-meta-card">
+                <h4 class="expertise-meta-card-title">
+                    <span class="lang-element" lang="de">Salesforce & CRM-Lösungen</span>
+                    <span class="lang-element" lang="en" style="display:none;">Salesforce & CRM Solutions</span>
+                </h4>
+                <ul class="item-grid">
+                    <li class="item-style-k">
+                        <span class="lang-element" lang="de"><strong>Salesforce Plattform:</strong> Sales, Service, Marketing, Experience & Data Cloud, Agentforce für KI-gestützte Prozesse</span>
+                        <span class="lang-element" lang="en" style="display:none;"><strong>Salesforce Platform:</strong> Sales, Service, Marketing, Experience & Data Cloud, Agentforce for AI-driven processes</span>
+                    </li>
+                    <li class="item-style-k">
+                        <span class="lang-element" lang="de"><strong>Lightning Platform</strong> (LWC, Apex, Flows) für anspruchsvolle und performante Custom-Entwicklungen</span>
+                        <span class="lang-element" lang="en" style="display:none;"><strong>Lightning Platform</strong> (LWC, Apex, Flows) for sophisticated and performant custom developments</span>
+                    </li>
+                    <li class="item-style-k">
+                        <span class="lang-element" lang="de"><strong>CRM-Strategie,</strong> -Implementierung & Solution Management (Automotive: Sales, After Sales, Finance; Retail/Wholesale, Agenturmodell)</span>
+                        <span class="lang-element" lang="en" style="display:none;"><strong>CRM Strategy,</strong> Implementation & Solution Management (Automotive: Sales, After Sales, Finance; Retail/Wholesale, Agency Model)</span>
+                    </li>
+                    <li class="item-style-k">
+                        <span class="lang-element" lang="de"><strong>Sales Activity Management (SAM)</strong> & Point of Sale (POS) Integration für nahtlose Vertriebsprozesse</span>
+                        <span class="lang-element" lang="en" style="display:none;"><strong>Sales Activity Management (SAM)</strong> & Point of Sale (POS) Integration for seamless sales processes</span>
+                    </li>
+                    <li class="item-style-k">
+                        <span class="lang-element" lang="de"><strong>After Sales & Finance</strong> Prozessintegration im CRM zur 360-Grad-Sicht</span>
+                        <span class="lang-element" lang="en" style="display:none;"><strong>After Sales & Finance</strong> Process Integration in CRM for a 360-degree view</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="expertise-meta-card">
+                <h4 class="expertise-meta-card-title">
+                    <span class="lang-element" lang="de">Technologie & Branchenwissen</span>
+                    <span class="lang-element" lang="en" style="display:none;">Technology & Industry Knowledge</span>
+                </h4>
+                <ul class="item-grid">
+                    <li class="item-style-k">
+                        <span class="lang-element" lang="de"><strong>Datenqualitäts- management</strong> & Governance für valide Daten</span>
+                        <span class="lang-element" lang="en" style="display:none;"><strong>Data Quality Management</strong> & Governance for valid data</span>
+                    </li>
+                    <li class="item-style-k">
+                        <span class="lang-element" lang="de"><strong>Lösungsarchitektur</strong> & komplexe Systemintegrationen (API-basiert, Kafka Event Streaming, Salesforce Platform Events für Echtzeit-Daten)</span>
+                        <span class="lang-element" lang="en" style="display:none;"><strong>Solution Architecture</strong> & Complex System Integrations (API-based, Kafka Event Streaming, Salesforce Platform Events for real-time data)</span>
+                    </li>
+                    <li class="item-style-k">
+                        <span class="lang-element" lang="de"><strong>Automotive</strong> Branchenexpertise & digitale Transformation im Fahrzeugvertrieb und -service</span>
+                        <span class="lang-element" lang="en" style="display:none;"><strong>Automotive</strong> Industry Expertise & Digital Transformation in vehicle sales and service</span>
+                    </li>
+                    <li class="item-style-k">
+                        <span class="lang-element" lang="de"><strong>Grundlagen Finanzwesen</strong> & Bankwirtschaftslehre (Basis für Finance Use Cases und Reporting)</span>
+                        <span class="lang-element" lang="en" style="display:none;"><strong>Fundamentals of Finance</strong> & Banking (Basis for Finance Use Cases and Reporting)</span>
+                    </li>
+                </ul>
             </div>
         </section>
 
@@ -1173,14 +1243,10 @@
             </div>
         </section>
         
-        <section class="mb-12" id="werte-einblicke-v1">
-            <h2 class="section-main-title">
-                <span class="lang-element" lang="de">WERTE & PERSÖNLICHES</span>
-                <span class="lang-element" lang="en" style="display:none;">VALUES & PERSONAL</span>
-            </h2>
+        <section class="mb-12" id="insights-section"> <h2 class="section-main-title">
+                <span class="lang-element" lang="de">INSIGHTS</span> <span class="lang-element" lang="en" style="display:none;">INSIGHTS</span> </h2>
 
-            <div>
-                <h3 class="subsection-title">
+            <div> <h3 class="subsection-title">
                     <span class="lang-element" lang="de">Meine Werte</span>
                     <span class="lang-element" lang="en" style="display:none;">My Values</span>
                 </h3>
@@ -1285,6 +1351,7 @@
                 </div>
             </div>
         </section>
+        
         <footer class="web-footer"> 
             <p>&copy; <span id="currentYear"></span> Steffen Koller. 
                 <span class="lang-element" lang="de">Alle Rechte vorbehalten.</span>
@@ -1336,7 +1403,7 @@
 
                 document.body.style.paddingTop = `${navBarHeight + 8}px`; 
                 
-                const scrollTargets = document.querySelectorAll('h2.section-main-title, #page-header, #qualification-section, #werte-einblicke-v1');
+                const scrollTargets = document.querySelectorAll('h2.section-main-title, #page-header, #qualification-section, #insights-section, #expertise-section, #core-competencies-section, #professional-experience-section, #short-profile-section');
                 scrollTargets.forEach(target => {
                     target.style.scrollMarginTop = `${navBarHeight + 8}px`; 
                 });
