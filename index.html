@@ -7,16 +7,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --navbar-height: 42px; /* Default, JS will update */
+        }
         html {
             scroll-behavior: smooth; 
-            scroll-padding-top: var(--navbar-height, 42px); 
+            scroll-padding-top: var(--navbar-height); 
         }
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f3f4f6; 
             color: #374151; 
             line-height: 1.7;
-            padding-top: var(--navbar-height, 42px); 
+            padding-top: var(--navbar-height); 
             margin: 0; 
             overflow-x: hidden; 
         }
@@ -83,7 +86,7 @@
             background-color: transparent; 
         }
         .hero-c-v2-var2 .profile-image-common { 
-            width: 9rem; height: 9rem; /* MODIFIED: Smaller image on mobile */
+            width: 9rem; height: 9rem; /* Smaller image on mobile */
             border: 3px solid #228be6; 
             object-fit: cover;
             border-radius: 50%;
@@ -123,8 +126,8 @@
         .hero-c-v2-var2 .contact-item { color: #adb5bd; }
         .hero-c-v2-var2 .contact-item svg:not(.language-icon-svg) { 
             color: #4dabf7; 
-            width: 1rem; /* Adjusted for consistency */
-            height: 1rem; /* Adjusted for consistency */
+            width: 1rem; 
+            height: 1rem;
             margin-right: 0.4rem; 
         }
         .hero-c-v2-var2 .language-trigger { color: #adb5bd; }
@@ -163,7 +166,7 @@
             }
             .hero-c-v2-var2 .image-pane { width: 30%; padding: 3rem 1.5rem;} 
             .hero-c-v2-var2 .text-pane  { width: 70%; padding: 3rem 2.5rem;}
-            .hero-c-v2-var2 .profile-image-common { width: 13rem; height: 13rem;} /* Larger image on desktop */
+            .hero-c-v2-var2 .profile-image-common { width: 13rem; height: 13rem;} 
             .hero-c-v2-var2 .image-pane {
                 border-top-right-radius: 0;
                 border-bottom-left-radius: 0.75rem; 
@@ -253,20 +256,6 @@
             position: absolute; left: 0.5em; top: 0.1em; 
         }
         
-        .action-button { 
-            background-color: #0070D2; color: white; font-family: 'Inter', sans-serif; 
-            font-weight: 600; font-size: 0.6rem; padding: 0.15rem 0.25rem; 
-            height: 1.6rem; border-radius: 0.25rem; 
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1); 
-            transition: background-color 0.2s ease-in-out, transform 0.1s ease;
-            display: flex; align-items: center; justify-content: center;
-            border: none; cursor: pointer;
-        }
-        .action-button:hover {
-            background-color: #005FB8; transform: translateY(-1px); 
-        }
-        #langButtonText { font-size: 0.6rem; }
-
         /* Styles for Core Competencies Cards */
         .competency-item-base { 
             border: 1px solid #e5e7eb; border-radius: 0.5rem; padding: 1.25rem; 
@@ -420,35 +409,29 @@
             color: #6b7280; border-top: 1px solid #e5e7eb; margin-top: 3rem;
         }
 
-        /* Fixed top navigation bar - Pixel Optimizations */
+        /* Fixed top navigation bar - Pixel Optimizations from nav_layout_v1 */
         .fixed-top-navigation-bar {
             position: fixed; top: 0; left: 0; width: 100%;
-            /* MODIFIED: New nav background color */
-            background-color: #f0f9ff; /* Tailwind sky-50 */
-            padding: 0.3rem 0.5rem; 
+            background-color: #f0f9ff; /* Heller Blauton (sky-50) */
+            padding: 0 0.5rem; 
             box-shadow: 0 2px 5px rgba(0,0,0,0.08);
             z-index: 1000; display: flex; align-items: center;
-            height: 42px; box-sizing: border-box;
-        }
-        .fixed-top-navigation-bar .lang-button-wrapper {
-            flex-shrink: 0; margin-right: 0.4rem; 
+            height: var(--navbar-height); box-sizing: border-box;
         }
         .fixed-top-navigation-bar .quick-links-nav {
             display: flex; flex-grow: 1; flex-shrink: 1; min-width: 0;
             overflow-x: auto; overflow-y: hidden; white-space: nowrap;
-            /* MODIFIED: Further reduced gap for small screens */
-            gap: 0.05rem 0.1rem; 
+            gap: 0.05rem 0.2rem; /* MODIFIED: Slightly increased horizontal gap */
             align-items: center;
             -ms-overflow-style: none; scrollbar-width: none;
             padding: 0.1rem 0;
-            padding-right: 10px; /* Increased padding for last item */
+            padding-right: 10px; 
         }
         .fixed-top-navigation-bar .quick-links-nav::-webkit-scrollbar { display: none; }
         .fixed-top-navigation-bar .quick-links-nav a {
             color: #005FB8; text-decoration: none; 
-            /* MODIFIED: Further reduced font-size and padding for links on small screens */
-            font-size: 0.6rem; 
-            padding: 0.1rem 0.2rem; 
+            font-size: 0.65rem; /* MODIFIED: Slightly increased font size */
+            padding: 0.1rem 0.22rem; /* MODIFIED: Adjusted padding */
             border-radius: 0.2rem;
             transition: background-color 0.2s ease, color 0.2s ease;
             flex-shrink: 0;
@@ -456,44 +439,59 @@
         .fixed-top-navigation-bar .quick-links-nav a:hover {
             background-color: #0070D2; color: white;
         }
+        .nav-actions-wrapper {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0; 
+            margin-left: 0.5rem; 
+        }
+        .nav-divider {
+            width: 1px;
+            height: 20px; 
+            background-color: #cbd5e1; 
+            margin: 0 0.5rem; 
+        }
+        .action-button { /* For lang and dark mode */
+            background-color: transparent; 
+            color: #005FB8; 
+            font-family: 'Inter', sans-serif; 
+            font-weight: 600; 
+            font-size: 0.6rem; 
+            padding: 0.15rem 0.25rem; 
+            height: 1.8rem; 
+            width: 1.8rem; 
+            border-radius: 0.25rem; 
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid transparent; 
+            cursor: pointer;
+        }
+        .action-button:hover {
+            background-color: #0070D2;
+            color: white;
+        }
+        .action-button svg {
+            width: 1rem; 
+            height: 1rem;
+        }
+        #langButtonText { font-size: 0.6rem; } 
         
         @media (min-width: 768px) { 
-            .fixed-top-navigation-bar {
-                padding: 0.5rem 1rem; 
-                height: auto; 
-            }
-            .fixed-top-navigation-bar .lang-button-wrapper {
-                 margin-right: 0.75rem;
-            }
-            .action-button { 
-                font-size: 0.7rem; 
-                padding: 0.25rem 0.4rem; 
-                height: 2rem; 
-            }
-            #langButtonText {
-                font-size: 0.7rem;
-            }
-            .fixed-top-navigation-bar .quick-links-nav {
-                overflow-x: visible; 
-                flex-wrap: wrap; 
-                gap: 0.2rem 0.6rem; 
-                padding-right: 0; 
-            }
-             .fixed-top-navigation-bar .quick-links-nav a {
-                font-size: 0.75rem; 
-                padding: 0.25rem 0.5rem;
-             }
+            .fixed-top-navigation-bar { padding: 0 1rem; }
+            .quick-links-nav { gap: 0.2rem 0.6rem; overflow-x: visible; flex-wrap: wrap; padding-right: 0; }
+            .quick-links-nav a { font-size: 0.75rem; padding: 0.25rem 0.5rem; }
+            .nav-actions-wrapper { margin-left: 1rem; }
+            .nav-divider { margin: 0 0.75rem; }
+            .action-button { font-size: 0.7rem; height: 2rem; width: 2rem; }
+            #langButtonText { font-size: 0.7rem; }
         }
     </style>
 </head>
 <body class="bg-slate-100">
 
     <div class="fixed-top-navigation-bar">
-        <div class="lang-button-wrapper">
-            <button id="toggleLangButton" class="action-button" aria-label="Sprache wechseln">
-                <span id="langButtonText">EN</span>
-            </button>
-        </div>
         <nav class="quick-links-nav" aria-label="Schnellnavigation">
             <a href="#page-header">
                 <span class="lang-element" lang="de">Profil</span>
@@ -520,6 +518,17 @@
                 <span class="lang-element" lang="en" style="display:none;">Insights</span> 
             </a>
         </nav>
+        <div class="nav-divider"></div>
+        <div class="nav-actions-wrapper">
+            <button id="toggleLangButton" class="action-button lang-toggle" aria-label="Sprache wechseln">
+                <span id="langButtonText">EN</span>
+            </button>
+            <button id="darkModeToggleButton" class="action-button dark-mode-toggle" aria-label="Dark Mode umschalten">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                </svg>
+            </button>
+        </div>
     </div>
     
     <div class="web-resume-container"> 
