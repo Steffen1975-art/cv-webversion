@@ -15,7 +15,8 @@
             background-color: #f3f4f6; 
             color: #374151; 
             line-height: 1.7;
-            padding-top: 48px; /* Default padding for fixed nav */
+            padding-top: 50px; /* Initial, will be adjusted by JS - V1 Nav Fix */
+            margin: 0; 
         }
 
         .web-resume-container {
@@ -27,15 +28,14 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
         }
         
-        /* Ensure all sections have scroll-margin-top for fixed header */
         #page-header, #short-profile-section, #core-competencies-section, 
         #professional-experience-section, #expertise-section, 
         #qualification-section, 
-        #insights-section { /* Updated ID */
-             scroll-margin-top: 48px; /* Default scroll margin */
+        #insights-section { 
+             scroll-margin-top: 50px; /* Initial, will be adjusted by JS - V1 Nav Fix */
         }
          #page-header { 
-             scroll-margin-top: 56px; /* Specific for header if needed */
+             scroll-margin-top: 58px; /* Specific for header if needed - V1 Nav Fix */
              }
 
 
@@ -54,7 +54,7 @@
             font-size: 1.75rem; 
         }
         
-        h3.subsection-title { /* For sub-titles within qualification cards AND insights section */
+        h3.subsection-title { 
             color: #001639;
             font-weight: 600;
             font-size: 1.25rem; 
@@ -76,7 +76,7 @@
             margin-bottom: 0.35rem; 
         }
 
-        /* Styles for Expertise Section (Merged from expertise_section_final_k_style_v4) */
+        /* Styles for Expertise Section */
         .expertise-meta-card {
             background-color: #e0f2fe; 
             border: 1px solid #bae6fd; 
@@ -91,7 +91,7 @@
             transform: translateY(-4px);
             box-shadow: 0 8px 15px rgba(0, 112, 210, 0.2);
         }
-        .expertise-meta-card-title { /* Title inside the blue expertise card */
+        .expertise-meta-card-title { 
             font-size: 1.15rem; 
             font-weight: 600;
             color: #001639; 
@@ -173,7 +173,6 @@
          }
         /* End of Styles for Expertise Section */
 
-
         ul.custom-bullets > li { 
             padding-left: 1.75em; 
             position: relative; 
@@ -220,8 +219,6 @@
             font-weight: 600; 
             font-size: 0.6rem; 
             padding: 0.15rem 0.25rem; 
-            min-width: auto; 
-            width: auto; 
             height: 1.6rem; 
             border-radius: 0.25rem; 
             box-shadow: 0 1px 2px rgba(0,0,0,0.1); 
@@ -231,18 +228,12 @@
             justify-content: center;
             border: none;
             cursor: pointer;
-            text-align: center;
-            line-height: 1; 
         }
         .action-button:hover {
             background-color: #005FB8; 
             transform: translateY(-1px); 
         }
-        #langButtonText {
-             font-size: 0.6rem; 
-             line-height: 1;
-             display: inline-block; 
-        }
+        #langButtonText { font-size: 0.6rem; }
 
         /* Styles for Core Competencies Cards */
         .competency-item-base { 
@@ -343,7 +334,7 @@
         /* End of Styles for Qualification Section */
 
         /* Styles for Flip Cards (Insights Section) */
-        .card-grid { /* Used for flip cards in Insights */
+        .card-grid { 
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
             gap: 1.5rem; 
@@ -455,10 +446,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-            line-height: 1; 
         }
         .experience-carousel-track-container:hover ~ .carousel-button-combined,
         .experience-carousel-container:hover .carousel-button-combined {
@@ -549,88 +536,54 @@
             background-color: #e0f2fe; 
         }
 
-        /* Fixed top navigation bar */
+        /* Fixed top navigation bar - V1 Nav Fix Applied */
         .fixed-top-navigation-bar {
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%;
-            background-color: #e9ecef; 
+            position: fixed; top: 0; left: 0; width: 100%;
+            background-color: #e9ecef;
             padding: 0.3rem 0.5rem; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.08); 
-            z-index: 1000; 
-            display: flex;
-            align-items: center;
-            height: 42px; 
-            box-sizing: border-box;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            z-index: 1000; display: flex; align-items: center;
+            height: 42px; box-sizing: border-box;
         }
-
-        .fixed-top-navigation-bar .lang-button-wrapper { 
-           flex-shrink: 0; 
-           margin-right: 0.5rem; 
+        .fixed-top-navigation-bar .lang-button-wrapper {
+            flex-shrink: 0; margin-right: 0.5rem;
         }
-
         .fixed-top-navigation-bar .quick-links-nav {
-            display: flex;
-            flex-grow: 1; 
-            flex-shrink: 1; 
-            min-width: 0; 
-            overflow-x: auto; 
-            overflow-y: hidden; 
-            white-space: nowrap; 
-            gap: 0.2rem 0.4rem; 
+            display: flex; flex-grow: 1; flex-shrink: 1; min-width: 0;
+            overflow-x: auto; overflow-y: hidden; white-space: nowrap;
+            gap: 0.1rem 0.3rem; /* V1 Nav Fix: Reduced gap for small screens */
             align-items: center;
-            -ms-overflow-style: none;  
-            scrollbar-width: none;  
-            padding: 0.1rem 0; 
+            -ms-overflow-style: none; scrollbar-width: none;
+            padding: 0.1rem 0;
+            padding-right: 10px; /* V1 Nav Fix: Added padding-right */
         }
-        .fixed-top-navigation-bar .quick-links-nav::-webkit-scrollbar { 
-            display: none;
-        }
-
+        .fixed-top-navigation-bar .quick-links-nav::-webkit-scrollbar { display: none; }
         .fixed-top-navigation-bar .quick-links-nav a {
-            color: #005FB8; 
-            text-decoration: none;
-            font-size: 0.65rem; 
-            padding: 0.15rem 0.35rem; 
-            border-radius: 0.2rem;
+            color: #005FB8; text-decoration: none; font-size: 0.65rem;
+            padding: 0.15rem 0.35rem; border-radius: 0.2rem;
             transition: background-color 0.2s ease, color 0.2s ease;
-            flex-shrink: 0; 
+            flex-shrink: 0;
         }
-
         .fixed-top-navigation-bar .quick-links-nav a:hover {
-            background-color: #0070D2;
-            color: white;
+            background-color: #0070D2; color: white;
         }
         
-        /* Styles for larger screens */
         @media (min-width: 768px) { 
             .fixed-top-navigation-bar {
-                padding: 0.5rem 1rem; 
-                height: auto; 
+                padding: 0.5rem 1rem; height: auto;
             }
-            .fixed-top-navigation-bar .lang-button-wrapper {
-                 margin-right: 0.75rem;
-            }
-            .action-button { 
-                font-size: 0.7rem; 
-                padding: 0.25rem 0.4rem; 
-                height: 2rem; 
-            }
-            #langButtonText {
-                font-size: 0.7rem;
-            }
-
+            .action-button { font-size: 0.7rem; padding: 0.25rem 0.4rem; height: 2rem; }
+            #langButtonText { font-size: 0.7rem;}
             .fixed-top-navigation-bar .quick-links-nav {
-                overflow-x: visible; 
-                flex-wrap: wrap; 
-                 gap: 0.25rem 0.75rem; 
+                overflow-x: visible; flex-wrap: wrap;
+                gap: 0.2rem 0.6rem; /* V1 Nav Fix: Slightly reduced gap for larger screens too */
+                padding-right: 0; 
             }
              .fixed-top-navigation-bar .quick-links-nav a {
-                font-size: 0.75rem; 
-                padding: 0.25rem 0.5rem;
+                font-size: 0.75rem; padding: 0.25rem 0.5rem;
              }
         }
+        /* End of V1 Nav Fix */
     </style>
 </head>
 <body class="bg-slate-100">
@@ -662,7 +615,10 @@
                 <span class="lang-element" lang="de">Qualifizierung</span>
                 <span class="lang-element" lang="en" style="display:none;">Qualification</span>
             </a>
-             <a href="#insights-section"> <span class="lang-element" lang="de">Insights</span> <span class="lang-element" lang="en" style="display:none;">Insights</span> </a>
+             <a href="#insights-section"> 
+                <span class="lang-element" lang="de">Insights</span> 
+                <span class="lang-element" lang="en" style="display:none;">Insights</span> 
+            </a>
         </nav>
     </div>
 
@@ -1243,10 +1199,14 @@
             </div>
         </section>
         
-        <section class="mb-12" id="insights-section"> <h2 class="section-main-title">
-                <span class="lang-element" lang="de">INSIGHTS</span> <span class="lang-element" lang="en" style="display:none;">INSIGHTS</span> </h2>
+        <section class="mb-12" id="insights-section"> 
+            <h2 class="section-main-title">
+                <span class="lang-element" lang="de">INSIGHTS</span> 
+                <span class="lang-element" lang="en" style="display:none;">INSIGHTS</span> 
+            </h2>
 
-            <div> <h3 class="subsection-title">
+            <div> 
+                <h3 class="subsection-title">
                     <span class="lang-element" lang="de">Meine Werte</span>
                     <span class="lang-element" lang="en" style="display:none;">My Values</span>
                 </h3>
@@ -1396,16 +1356,13 @@
         function adjustLayoutForNavBar() {
             const navBar = document.querySelector('.fixed-top-navigation-bar');
             if (navBar) {
-                let navBarHeight = 42; 
-                if (window.innerWidth >= 768) { 
-                    navBarHeight = navBar.offsetHeight; 
-                }
-
-                document.body.style.paddingTop = `${navBarHeight + 8}px`; 
+                let navBarHeight = navBar.offsetHeight;
+                // V1 Nav Fix: Puffer auf 2px reduziert
+                document.body.style.paddingTop = `${navBarHeight + 2}px`; 
                 
                 const scrollTargets = document.querySelectorAll('h2.section-main-title, #page-header, #qualification-section, #insights-section, #expertise-section, #core-competencies-section, #professional-experience-section, #short-profile-section');
                 scrollTargets.forEach(target => {
-                    target.style.scrollMarginTop = `${navBarHeight + 8}px`; 
+                    target.style.scrollMarginTop = `${navBarHeight + 2}px`;
                 });
             }
         }
