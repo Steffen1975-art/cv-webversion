@@ -9,39 +9,29 @@
     <style>
         html {
             scroll-behavior: smooth; 
+            scroll-padding-top: var(--navbar-height, 42px); 
         }
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f3f4f6; 
             color: #374151; 
             line-height: 1.7;
-            padding-top: 42px; /* Initial, JS will adjust. Puffer entfernt. */
+            padding-top: var(--navbar-height, 42px); 
             margin: 0; 
-            overflow-x: hidden; /* Prevent horizontal scrolling of the entire page */
+            overflow-x: hidden; 
         }
 
         .web-resume-container {
             max-width: 1024px; 
-            margin: 1.5rem auto; /* Centers the container and adds top/bottom margin */
+            margin: 1.5rem auto; 
             background-color: #ffffff; 
             border-radius: 0.75rem; 
             box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
-            overflow: hidden; /* Important for child elements with different backgrounds/radii */
+            overflow: hidden; 
         }
-        .content-padding { /* Added class for padding the actual content sections below hero */
+        .content-padding { 
             padding: 2rem;
         }
-        
-        #page-header, /* This ID is now on the hero section */
-        #short-profile-section, #core-competencies-section, 
-        #professional-experience-section, #expertise-section, 
-        #qualification-section, 
-        #insights-section { 
-             scroll-margin-top: 42px; 
-        }
-         #page-header { 
-             scroll-margin-top: 0; /* Hero section is at the top, no scroll margin needed from nav */
-         }
         
         h2.section-main-title { 
             color: #001639; 
@@ -75,7 +65,7 @@
             margin-bottom: 0.35rem; 
         }
 
-        /* --- Styles for New Hero Section (Vorschlag C-V2.2 from hero_header_proposals_v4) --- */
+        /* --- Styles for New Hero Section --- */
         .hero-section-common { 
             display: flex; 
             flex-direction: column; 
@@ -93,7 +83,7 @@
             background-color: transparent; 
         }
         .hero-c-v2-var2 .profile-image-common { 
-            width: 11rem; height: 11rem; 
+            width: 9rem; height: 9rem; /* MODIFIED: Smaller image on mobile */
             border: 3px solid #228be6; 
             object-fit: cover;
             border-radius: 50%;
@@ -120,22 +110,22 @@
             display: flex;
             flex-wrap: wrap; 
             gap: 0.75rem 1.5rem; 
-            align-items: center; /* Ensures vertical alignment of the flex items themselves */
+            align-items: center; 
             margin-top: 1.5rem;
         }
         .contact-details-grid > * { flex-shrink: 0; }
         .contact-item {
-            display: inline-flex; /* Use inline-flex for better control with siblings */
-            align-items: center; /* Vertically align icon and text within this item */
+            display: inline-flex; 
+            align-items: center; 
             font-size: 0.875rem; 
-            line-height: 1.2; /* Adjust line-height for better alignment if needed */
+            line-height: 1.2; 
         }
         .hero-c-v2-var2 .contact-item { color: #adb5bd; }
         .hero-c-v2-var2 .contact-item svg:not(.language-icon-svg) { 
             color: #4dabf7; 
-            width: 1.125rem; /* Slightly larger for better visual balance with text */
-            height: 1.125rem;
-            margin-right: 0.4rem; /* Slightly reduced margin */
+            width: 1rem; /* Adjusted for consistency */
+            height: 1rem; /* Adjusted for consistency */
+            margin-right: 0.4rem; 
         }
         .hero-c-v2-var2 .language-trigger { color: #adb5bd; }
         .hero-c-v2-var2 .language-trigger:hover { color: #ffffff; background-color: rgba(34,139,230,0.2); }
@@ -144,7 +134,7 @@
             flex-shrink: 0;
             width: 1.5rem; 
             height: 1.5rem; 
-            vertical-align: middle; /* Helps with inline-flex alignment */
+            vertical-align: middle; 
         }
         .hero-c-v2-var2 .language-icon-svg { fill: #4dabf7; }
         .hero-c-v2-var2 .language-icon-svg text { fill: #000b1a; } 
@@ -173,7 +163,7 @@
             }
             .hero-c-v2-var2 .image-pane { width: 30%; padding: 3rem 1.5rem;} 
             .hero-c-v2-var2 .text-pane  { width: 70%; padding: 3rem 2.5rem;}
-            .hero-c-v2-var2 .profile-image-common { width: 13rem; height: 13rem;} 
+            .hero-c-v2-var2 .profile-image-common { width: 13rem; height: 13rem;} /* Larger image on desktop */
             .hero-c-v2-var2 .image-pane {
                 border-top-right-radius: 0;
                 border-bottom-left-radius: 0.75rem; 
@@ -197,7 +187,7 @@
          }
         /* --- End of Styles for New Hero Section --- */
 
-        /* Styles for Expertise Section (Unchanged) */
+        /* Styles for Expertise Section */
         .expertise-meta-card {
             background-color: #e0f2fe; border: 1px solid #bae6fd; border-radius: 0.75rem;
             padding: 1.25rem; box-shadow: 0 4px 10px rgba(0, 112, 210, 0.15);
@@ -433,7 +423,8 @@
         /* Fixed top navigation bar - Pixel Optimizations */
         .fixed-top-navigation-bar {
             position: fixed; top: 0; left: 0; width: 100%;
-            background-color: #e9ecef;
+            /* MODIFIED: New nav background color */
+            background-color: #f0f9ff; /* Tailwind sky-50 */
             padding: 0.3rem 0.5rem; 
             box-shadow: 0 2px 5px rgba(0,0,0,0.08);
             z-index: 1000; display: flex; align-items: center;
@@ -445,17 +436,19 @@
         .fixed-top-navigation-bar .quick-links-nav {
             display: flex; flex-grow: 1; flex-shrink: 1; min-width: 0;
             overflow-x: auto; overflow-y: hidden; white-space: nowrap;
-            gap: 0.05rem 0.15rem; 
+            /* MODIFIED: Further reduced gap for small screens */
+            gap: 0.05rem 0.1rem; 
             align-items: center;
             -ms-overflow-style: none; scrollbar-width: none;
             padding: 0.1rem 0;
-            padding-right: 8px; 
+            padding-right: 10px; /* Increased padding for last item */
         }
         .fixed-top-navigation-bar .quick-links-nav::-webkit-scrollbar { display: none; }
         .fixed-top-navigation-bar .quick-links-nav a {
             color: #005FB8; text-decoration: none; 
-            font-size: 0.62rem;
-            padding: 0.1rem 0.25rem; 
+            /* MODIFIED: Further reduced font-size and padding for links on small screens */
+            font-size: 0.6rem; 
+            padding: 0.1rem 0.2rem; 
             border-radius: 0.2rem;
             transition: background-color 0.2s ease, color 0.2s ease;
             flex-shrink: 0;
@@ -505,9 +498,6 @@
             <a href="#page-header">
                 <span class="lang-element" lang="de">Profil</span>
                 <span class="lang-element" lang="en" style="display:none;">Profile</span>
-            </a>
-            <a href="#short-profile-section"> <span class="lang-element" lang="de">Kurzprofil</span>
-                <span class="lang-element" lang="en" style="display:none;">Summary</span>
             </a>
             <a href="#core-competencies-section">
                 <span class="lang-element" lang="de">Kompetenzen</span>
@@ -1299,16 +1289,7 @@
             const navBar = document.querySelector('.fixed-top-navigation-bar');
             if (navBar) {
                 let navBarHeight = navBar.offsetHeight;
-                document.body.style.paddingTop = `${navBarHeight}px`; 
-                
-                const scrollTargets = document.querySelectorAll('#short-profile-section, #core-competencies-section, #professional-experience-section, #expertise-section, #qualification-section, #insights-section');
-                scrollTargets.forEach(target => {
-                    target.style.scrollMarginTop = `${navBarHeight}px`;
-                });
-                const heroSection = document.getElementById('page-header');
-                if(heroSection) {
-                    heroSection.style.scrollMarginTop = `0px`; 
-                }
+                document.documentElement.style.setProperty('--navbar-height', `${navBarHeight}px`);
             }
         }
         
