@@ -135,21 +135,23 @@
             text-decoration: none; 
         }
         .qr-code-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            text-align: center;
+        }
+        .qr-code-header a.qr-link-wrapper {
+            display: inline-block;
+            text-decoration: none;
         }
         .qr-code-header img { 
             width: 80px; 
             height: 80px; 
         }
-        .qr-code-header a {
+        .qr-code-header .qr-link-text {
             font-size: 8pt;
             color: var(--primary-color);
-            text-decoration: none;
-            margin-top: 0.25rem;
+            margin-top: 0.5rem;
+            line-height: 1.3;
         }
-        .qr-code-header a:hover {
+        .qr-code-header a.qr-link-wrapper:hover .qr-link-text {
             text-decoration: underline;
         }
 
@@ -273,7 +275,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
             page-break-before: auto;
-            margin-top: 2.5rem; /* CHANGE: Increased margin for better separation */
+            margin-top: 2.5rem; 
         }
         .grid-section ul {
             list-style-type: disc;
@@ -288,17 +290,24 @@
         }
         /* Footer */
         .footer { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: flex-end; 
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* CHANGED: Aligned to the left */
             margin-top: 2rem; 
             padding-top: 1rem; 
             border-top: 1px solid var(--line-color); 
             font-size: 9pt; 
             color: var(--text-light); 
         }
+        .signature-block {
+            text-align: left; /* CHANGED: Aligned to the left */
+            margin-top: 1rem;
+        }
         .signature-block img { 
             height: 40px; 
+        }
+        .signature-block p {
+            margin-top: 0.1rem;
         }
 
         /* Language-specific styles */
@@ -322,7 +331,7 @@
         <div class="content-wrapper">
             <header class="header">
                  <div class="header-main">
-                    <img src="https://raw.githubusercontent.com/Steffen1975-art/cv_webversion_dark/main/Images/2022-04-22-Steffen-Koller-0749-square.jpg" alt="Steffen Koller" class="profile-pic" onerror="this.style.display='none'">
+                    <img src="https://raw.githubusercontent.com/Steffen1975-art/cv-webversion/main/Images/2022-04-22-Steffen-Koller-0749-square.jpg" alt="Steffen Koller" class="profile-pic" onerror="this.style.display='none'">
                     <div class="header-text">
                         <h1>Steffen Koller</h1>
                         <p class="subtitle">
@@ -337,10 +346,12 @@
                     </div>
                  </div>
                  <div class="qr-code-header">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://steffen1975-art.github.io/cv_webversion_dark/" alt="QR Code" onerror="this.style.display='none'">
-                    <a href="https://steffen1975-art.github.io/cv_webversion_dark/" target="_blank">
-                        <span class="lang-de">Interaktives Profil</span>
-                        <span class="lang-en">Interactive Profile</span>
+                    <a href="https://steffen1975-art.github.io/cv_webversion_dark/" target="_blank" class="qr-link-wrapper">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://steffen1975-art.github.io/cv_webversion_dark/" alt="QR Code" onerror="this.style.display='none'">
+                        <p class="qr-link-text">
+                            <span class="lang-de">Für mehr Details, hier klicken<br>oder den QR-Code scannen.</span>
+                            <span class="lang-en">For more details, click here<br>or scan the QR code.</span>
+                        </p>
                     </a>
                 </div>
             </header>
@@ -686,8 +697,8 @@
                         <span class="lang-en">Köngen, June 11, 2025</span>
                     </p>
                     <div class="signature-block">
-                         <img src="https://raw.githubusercontent.com/Steffen1975-art/cv_webversion_dark/main/image_c3c611.png" alt="Unterschrift Steffen Koller" onerror="this.onerror=null; this.src='https://placehold.co/150x50/ffffff/000000?text=Ihre+Unterschrift';">
-                        <p>(Steffen Koller)</p>
+                         <img src="https://raw.githubusercontent.com/Steffen1975-art/cv-webversion/main/Images/image_c3c611.png" alt="Unterschrift Steffen Koller" onerror="this.onerror=null; this.src='https://placehold.co/150x50/ffffff/000000?text=Ihre+Unterschrift';">
+                        <p>Steffen Koller</p>
                     </div>
                 </footer>
             </main>
